@@ -32,13 +32,13 @@ body {
 
 .formulario-login {
   width: 58%;
-  /* max-width: 320px; */
   display: grid;
   gap: 5px;
   background-color: #FFFFFF;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   padding: 50px;
   border-radius: 8px;
+  max-width:400px
 }
 
 h2 {

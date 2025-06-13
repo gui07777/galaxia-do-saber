@@ -15,12 +15,12 @@
     <div class="row h-100 g-0">
       <div class="lado-esquerdo col-12 col-lg-6 d-none d-lg-block"></div>
 
-      <div class="lado-direito col-12 col-lg-6 d-flex align-items-center justify-content-center vh-100 vh-md-auto">
-        <form class="formulario-login w-100 px-4" style="max-width:400px" action="login.php" method="post">
+      <div class="lado-direito col-12 col-lg-6 d-flex align-items-center justify-content-center vh-80 vh-md-auto">
+        <form class="formulario-login w-100 px-4" action="login.php" method="post">
           <h2>Seja bem-vindo(a)!</h2>
           <p class="d-flex justify-content-center">Crie a sua conta na Galáxia do Saber</p>
-          <label for="email">Nome Completo:</label>
-          <input type="email" id="email" name="email" placeholder="Digite seu nome" required />
+          <label for="nome">Nome Completo:</label>
+          <input type="nome" id="nome" name="nome" placeholder="Digite seu nome" required />
 
           <label for="perfil">Selecione o perfil:</label>
           <div>
@@ -28,18 +28,18 @@
           <label for="professor">Professor</label><br>
           <input type="radio" id="responsavel" name="profile" value="responsavel">
           <label for="responsavel">Responsável</label><br>
-          <input type="radio" id="aluno"name="profile" value="aluno">
+          <input type="radio" id="aluno" name="profile" value="aluno">
           <label for="aluno">Aluno</label>
           </div>
 
           <label for="senha">Email:</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite seu email" required />
+          <input type="email" id="email" name="email" placeholder="Digite seu email" required />
 
           <label for="senha">Senha:</label>
           <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
 
-          <label for="senha">Repita a senha:</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite a senha novamente" required />
+          <label for="repetirSenha">Repita a senha:</label>
+          <input type="password" id="repetirSenha" name="repetirSenha" placeholder="Digite a senha novamente" required />
 
           <button type="submit">Cadastrar</button>
           <a href="../../login/html/login.html" style="color:blue" class="d-flex justify-content-center">Já tenho uma conta. Entrar!</a>
