@@ -48,7 +48,7 @@ h2 {
 
 p {
   position: relative;
-  bottom: 20px;
+  bottom: 18px;
 
 }
 
@@ -57,7 +57,8 @@ p {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="nome"] {
   padding: 0.75rem;
   font-size: 1rem;
   width: 100%;
