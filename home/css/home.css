@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-nav {
+    background-color: #4F13A6;
+
+}
+
+button {
+    background-color: #DAA3F2;
+    padding: 12px 20px;
+    border-radius: 12px;
+}
