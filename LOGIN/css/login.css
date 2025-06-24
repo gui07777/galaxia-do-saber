@@ -17,11 +17,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.lado-esquerdo {
-  background: url('../../imagens/gslogin.jpg') no-repeat center center;
-  background-size: cover;
-}
-
 .lado-direito {
   display: grid;
   place-items: center;
