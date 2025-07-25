@@ -4,45 +4,39 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100vh;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   height: 100vh;
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr; */
+  width: 100vw;
   font-family: 'Poppins', sans-serif;
-}
-
-.lado-direito {
-  display: grid;
-  place-items: center;
-  background-color: #F8F8F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formulario-login {
-  width: 58%;
-  max-width: 400px;
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 425px;
+  gap: 40px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   padding: 50px;
   border-radius: 8px;
 }
 
-h2 {
+.titles {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-p {
-  position: relative;
-  bottom: 20px;
-  ;
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 40px
 }
 
 .formulario-login label {
@@ -58,8 +52,16 @@ input[type="password"] {
   border-radius: 6px;
 }
 
-button[type="submit"] {
-  padding: 12px 24px;
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.buttons button[type="submit"] {
+  padding: 12px;
   color: white;
   border: none;
   cursor: pointer;
@@ -67,14 +69,37 @@ button[type="submit"] {
   background: linear-gradient(to right, #9B23EA, #3A5EFF);
   border-radius: 6px;
   font-weight: bold;
+  width: 100%;
 }
 
-button:hover {
-
+.buttons button:hover {
   background: linear-gradient(to right, #6DD5FA, #2980B9);
-
 }
 
-.row {
-  height: 100vh;
+.buttons a {
+  color: blue;
+  transition: 0.3s
+}
+
+.buttons a:hover {
+  letter-spacing: 1px;
+  padding: 1px;
+}
+
+@media screen and (max-width: 550px) {
+  .formulario-login {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .campos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+  }
 }

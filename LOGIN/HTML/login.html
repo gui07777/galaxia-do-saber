@@ -10,25 +10,26 @@
 </head>
 
 <body>
-  <div class="container-fluid min-vh-100">
-    <div class="row h-100 g-0">
-
-      <div class="lado-direito d-flex justify-content-center align-items-center min-vh-100">
-        <form class="formulario-login w-100 px-4" action="login.php" method="post">
-          <h3 class="d-flex justify-content-center">Bem-vindo(a) de volta!</h3>
-          <p class="d-flex justify-content-center">Entre na sua conta da Galáxia do Saber</p>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Digite seu email" required />
-
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
-
-          <button type="submit">Entrar</button>
-          <a style="color: blue;" href="../../cadastro/html/cadastro.html" class="d-flex justify-content-center">Ainda não tem uma conta? Cadastre-se</a>
-        </form>
+    <form class="formulario-login" action="login.php" method="post">
+      <div class="titles">
+        <h2>Bem-vindo(a) de volta!</h2>
+        <p>Entre na sua conta da Galáxia do Saber.</p>
       </div>
-    </div>
-  </div>
+      <div class="campos">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu email" required />
+        </div>
+        <div>
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="submit">Entrar</button>
+        <a href="../../cadastro/html/cadastro.html">Cadastre-se!</a>
+      </div>
+    </form>
 </body>
 
 </html>
