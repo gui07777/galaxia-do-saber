@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prossiga com o cadastro</title>
+  <link rel="stylesheet" href="register-step-2.css?v=3" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <form class="form" action="login.php" method="post">
+    <div class="titles">
+      <h2>Seja bem-vindo(a)!</h2>
+      <p>Administrador, cadastre a sua instituição.</p>
+    </div>
+    <div class="fields">
+      <div>
+        <label for="cep">CEP:</label>
+        <input type="number" name="cep" required />
+      </div>
+      <div>
+        <label for="street">Rua:</label>
+        <input type="text" name="street" required />
+      </div>
+      <div>
+        <label for="number">Número:</label>
+        <input type="number" name="number" required />
+      </div>
+      <div>
+        <label for="complement">Complemento:</label>
+        <input type="text" name="complement" required />
+      </div>
+      <div>
+        <label for="neighborhood">Bairro:</label>
+        <input type="text" name="neighborhood" required />
+      </div>
+      <div>
+        <label for="municipality">Município:</label>
+        <input type="text" name="municipality" required />
+      </div>
+      <div>
+        <label for="state">Estado:</label>
+        <select name="state">
+          <option value="option-one">AC</option>
+          <option value="option-two">AL</option>
+          <option value="option-one">AP</option>
+          <option value="option-two">AM</option>
+          <option value="option-one">BA</option>
+          <option value="option-two">CE</option>
+          <option value="option-one">DF</option>
+          <option value="option-two">ES</option>
+          <option value="option-one">GO</option>
+          <option value="option-two">MA</option>
+          <option value="option-one">MT</option>
+          <option value="option-two">MS</option>
+          <option value="option-one">MG</option>
+          <option value="option-two">PA</option>
+          <option value="option-one">PB</option>
+          <option value="option-two">PR</option>
+          <option value="option-one">PE</option>
+          <option value="option-two">PI</option>
+          <option value="option-one">RJ</option>
+          <option value="option-two">RN</option>
+          <option value="option-one">RS</option>
+          <option value="option-two">RO</option>
+          <option value="option-one">RR</option>
+          <option value="option-two">SC</option>
+          <option value="option-one">SP</option>
+          <option value="option-two">SE</option>
+          <option value="option-two">TO</option>
+        </select>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+</body>
+
+</html>
