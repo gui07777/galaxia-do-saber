@@ -55,6 +55,9 @@ body {
 .boxes input {
     height: 50px;
     width: 50px;
+    font-size:  2em;
+    text-align: center;
+    font-weight: bold;
 }
 
 button {
