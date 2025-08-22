@@ -14,10 +14,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
-h2 {
+.headers {
     text-align: center;
-    color: #000000;
+
+    h2 {
+        color: #000000;
+    }
 }
+
 
 .form-container {
     background-color: #ffffff;
@@ -25,7 +29,7 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     height: 500px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 40px;
@@ -54,7 +58,7 @@ input[type="submit"] {
     height: 36px;
     width: 100%;
     border: none;
-    background: linear-gradient(to right, #9C27F0, #1976F2);;
+    background: linear-gradient(to right, #9C27F0, #1976F2);
     transition: 0.3s;
     cursor: pointer;
     color: white;
@@ -63,8 +67,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background: linear-gradient(to right, #5c2485, #174683);;
-
+    background: linear-gradient(to right, #5c2485, #174683);
 }
 
 a {
@@ -79,4 +82,20 @@ a {
 a:hover {
     text-decoration: underline;
     letter-spacing: 1px;
+}
+
+@media screen and (max-width: 550px) {
+    .form-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
+
+    .fields {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
 }
