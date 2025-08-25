@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prossiga com o cadastro</title>
-  <link rel="stylesheet" href="register-step-2.css?v=5" />
+  <link rel="stylesheet" href="register-step-2.css?v=7" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -28,6 +28,7 @@
         <div>
           <label for="institution-type">Tipo de Instituição:</label> <br>
           <select name="institution-type">
+            <option value=""></option>
             <option value="option-one">Pública</option>
             <option value="option-two">Privada</option>
           </select>
@@ -41,15 +42,11 @@
           <input type="number" name="phone" required />
         </div>
         <div>
-          <label for="cellphone">Celular</label> <br>
-          <input type="number" name="cellphone" required />
-        </div>
-      </section>
-      <section class="right-side">
-        <div>
           <label for="cep">CEP:</label> <br>
           <input type="number" name="cep" id="cep" required />
         </div>
+      </section>
+      <section class="right-side">
         <div>
           <label for="street">Rua:</label> <br>
           <input type="text" name="street" id="street" required />

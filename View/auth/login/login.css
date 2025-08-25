@@ -22,10 +22,9 @@ body {
     }
 }
 
-
 .form-container {
     background-color: #ffffff;
-    padding: 40px;
+    padding: 60px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     height: 500px;
