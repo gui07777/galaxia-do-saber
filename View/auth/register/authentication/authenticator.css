@@ -39,14 +39,7 @@ body {
 }
 
 .text {
-    .p1 {
-        font-size: 20px;
-    }
-
-    .p2 {
-        font-size: 20px;
-        text-align: center;
-    }
+    text-align: center;
 }
 
 .boxes {
@@ -77,4 +70,11 @@ button {
 
 button:hover {
     background: linear-gradient(to right, #5c2485, #174683);
+}
+
+@media screen and (max-width: 550px) {
+    .authenticator {
+        width: 100vw;
+        height: 100vh;
+    }
 }
