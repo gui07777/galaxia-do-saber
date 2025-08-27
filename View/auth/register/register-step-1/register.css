@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 h2 {
@@ -85,17 +85,17 @@ a:hover {
 }
 
 @media screen and (max-width: 550px) {
-    .form {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        gap: 80px;
-    }
+  .form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
 
-    .fields {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-    }
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 }

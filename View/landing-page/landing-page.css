@@ -1,16 +1,110 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    min-width: 98vw;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container-nav {
-    background-color: #4F13A6;
+p {
+    font-weight: 600;
+    text-align: center;
+}
+
+header {
+    background: #250664;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+header .buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header .buttons button {
+    background-color: #100629;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 35px;
+}
+
+.logo {
+    width: 165px;
+}
+
+.width {
+    width: 70%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+main .carrossel {
+    background: #D9D9D9;
+    padding: 200px;
+    width: 900px;
+    height: 300px;
+    border-radius: 10px;
 
 }
 
-button {
-    background-color: #DAA3F2;
-    padding: 12px 20px;
-    border-radius: 12px;
+main .section-one {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+main .section-one .video {
+    background: #D9D9D9;
+    padding: 200px;
+    width: 800px;
+    height: 200px;
+    border-radius: 10px;
+
+}
+
+.section-two {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.section-two .img {
+    background: #D9D9D9;
+    padding: 100px;
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+main .accordions details {
+    margin: 10px 0;
+    border: 1px solid #000000;
+    width: 90vw;
+    padding: 10px;
+}
+
+main .accordions-two details {
+    margin: 10px 0;
+    border: 1px solid #000000;
+    width: 30vw;
+    padding: 10px;
+}
+
+footer {
+    background: #250664;
+    padding: 40px;
+    color: white;
+    margin-top: 40px;
 }

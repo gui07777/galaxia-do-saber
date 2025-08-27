@@ -51,7 +51,7 @@ select {
   display: grid;
   /*ativa o grid no container*/
   grid-template-columns: repeat(12, 1fr);
-  /*cria 2 colunas iguais (de uma fraçao)*/
+  /*cria 12 colunas iguais (de uma fraçao)*/
   gap: 10px;
 }
 
