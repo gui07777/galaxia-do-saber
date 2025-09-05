@@ -1,3 +1,46 @@
+#loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#loader.show {
+    display: flex;
+    opacity: 1;
+}
+
+#loader.hide {
+    opacity: 0;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -48,13 +91,9 @@ main {
     gap: 50px;
 }
 
-main .carrossel {
-    background: #D9D9D9;
-    padding: 200px;
-    width: 900px;
-    height: 300px;
-    border-radius: 10px;
-
+main .carrossel img {
+    width: 1400px;
+    border-radius: 20px
 }
 
 main .section-one {
@@ -65,13 +104,9 @@ main .section-one {
     gap: 80px;
 }
 
-main .section-one .video {
-    background: #D9D9D9;
-    padding: 200px;
-    width: 800px;
-    height: 200px;
-    border-radius: 10px;
-
+main .section-one .video img {
+    width: 900px;
+    border-radius: 20px
 }
 
 .section-two {
@@ -80,12 +115,9 @@ main .section-one .video {
     align-items: center;
 }
 
-.section-two .img {
-    background: #D9D9D9;
-    padding: 100px;
-    width: 300px;
-    height: 180px;
-    border-radius: 10px;
+main .section-two .img img {
+    width: 600px;
+    border-radius: 20px;
 }
 
 main .accordions details {

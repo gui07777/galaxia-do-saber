@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prossiga com o cadastro</title>
-  <link rel="stylesheet" href="register-step-2.css?v=8" />
+  <link rel="stylesheet" href="register.css?v=3" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -13,7 +13,7 @@
   <form class="form" action="login.php" method="post">
     <div class="headers">
       <h2>Seja bem-vindo(a)!</h2>
-      <p>Administrador, cadastre a sua instituição.</p>
+      <p>Administrador, preencha as informações de cadastro.</p>
     </div>
     <div class="fields">
       <section class="left-side">
@@ -22,25 +22,24 @@
           <input type="text" name="fantasy-name" required />
         </div>
         <div>
+          <label for="fantasy-name">E-mail:</label> <br>
+          <input type="text" name="fantasy-name" required />
+        </div>
+        <div>
+          <label for="social-reason">Senha:</label> <br>
+          <input type="password" name="social-reason" required />
+        </div>
+        <div>
+          <label for="social-reason">Repita a senha:</label> <br>
+          <input type="password" name="social-reason" required />
+        </div>
+        <div>
           <label for="social-reason">Razão Social:</label> <br>
           <input type="text" name="social-reason" required />
         </div>
         <div>
-          <label for="institution-type">Tipo de Instituição:</label> <br>
-          <select name="institution-type">
-            <option value=""></option>
-            <option value="option-one">Pública</option>
-            <option value="option-two">Privada</option>
-            <option value="option-three">Conveniada</option>
-          </select>
-        </div>
-        <div>
           <label for="inep-code">Código Inep:</label> <br>
           <input type="number" name="inep-code" required />
-        </div>
-        <div>
-          <label for="phone">Telefone:</label> <br>
-          <input type="number" name="phone" required />
         </div>
         <div>
           <label for="cep">CNPJ:</label> <br>
@@ -48,6 +47,10 @@
         </div>
       </section>
       <section class="right-side">
+        <div>
+          <label for="phone">Telefone:</label> <br>
+          <input type="number" name="phone" required />
+        </div>
         <div>
           <label for="street">Rua:</label> <br>
           <input type="text" name="street" id="street" required />
@@ -108,4 +111,5 @@
     </div>
   </form>
 </body>
+
 </html>

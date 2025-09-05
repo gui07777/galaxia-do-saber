@@ -22,22 +22,23 @@ body {
     }
 }
 
-.form-container {
+.form {
     background-color: #ffffff;
-    padding: 60px;
+    padding: 26px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    height: 500px;
+    height: 600px;
+    width: 480px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 40px;
+    gap: 60px;
 }
 
 .fields {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
 }
 
 label {
@@ -84,7 +85,7 @@ a:hover {
 }
 
 @media screen and (max-width: 550px) {
-    .form-container {
+    .form {
         width: 100vw;
         height: 100vh;
         display: flex;

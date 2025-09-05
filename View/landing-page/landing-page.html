@@ -5,21 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
-    <link rel="stylesheet" href="landing-page.css?v=1">
+    <link rel="stylesheet" href="landing-page.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div id="loader" style="display:none;">
+        <div class="spinner"></div>
+    </div>
     <header>
         <img src="../../assets/Image/logosemfundo.png" class="logo">
         <div class="width"></div>
         <div class="buttons">
-            <button href="">Cadastrar</button>
-            <button href="">Entrar</button>
+            <button onclick="navigate('register')">Cadastrar</button>
+            <button onclick="navigate('login')">Entrar</button>
         </div>
     </header>
     <main>
         <div class="carrossel">
+            <img src="../../assets/Image/landing-1.jpg" alt="" srcset="">
         </div>
         <section class="section-one">
             <div class="accordions">
@@ -45,16 +49,18 @@
             </div>
             <div>
                 <p>Apresentação do site</p>
-                <div class="video"></div>
+                <div class="video">
+                    <img src="../../assets/Image/landing-2.jpg" alt="" class="src">
+                </div>
             </div>
         </section>
 
-
-        <!---->
         <p>Mais informações</p>
         <section class="section-two">
             <div>
-                <div class="img"></div>
+                <div class="img">
+                    <img src="../../assets/Image/landing-2.jpg" alt="" srcset="">
+                </div>
             </div>
             <div class="accordions-two">
                 <details>
@@ -77,5 +83,6 @@
         <p>&copy;Galaxiadosaber 2025</p>
     </footer>
 </body>
+<script src="landing-page.js"></script>
 
 </html>
