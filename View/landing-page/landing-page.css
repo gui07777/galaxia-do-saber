@@ -73,6 +73,13 @@ header .buttons button {
     border: none;
     width: 100px;
     height: 35px;
+    transition: 0.3s;
+}
+
+header .buttons button:hover {
+    background-color: #27b178;
+    width: 120px;
+    letter-spacing: 2px;
 }
 
 .logo {
@@ -92,7 +99,7 @@ main {
 }
 
 main .carrossel img {
-    width: 1400px;
+    width: 1200px;
     border-radius: 20px
 }
 
