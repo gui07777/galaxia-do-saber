@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
-    <link rel="stylesheet" href="landing-page.css?v=4">
+    <link rel="stylesheet" href="landing-page.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -17,23 +17,38 @@
         <img src="../../assets/icons/logosemfundo.png" class="logo">
         <div class="width"></div>
         <div class="buttons">
-            <button onclick="navigate('register')">Cadastrar</button>
-            <button onclick="navigate('login')">Entrar</button>
+            <button onclick="navigateRoutes('register')">Cadastrar</button>
+            <button onclick="navigateRoutes('login')">Entrar</button>
         </div>
     </header>
     <main>
-        <div class="carrossel">
-            <ul class="carrossel-slides">
-                <li class="carrossel-slide">
-                    <img src="../../assets/Image/slide1.jpg" alt="" srcset="">
-                </li>
-                <li class="carrossel-slide">
-                    <img src="../../assets/Image/slide2.jpg" alt="" srcset="">
-                </li>
-                <li class="carrossel-slide">
-                    <img src="../../assets/Image/slide3.jpg" alt="" srcset="">
-                </li>
-            </ul>
+        <div class="carousel">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+
+                <div class="slide first">
+                    <img src="../../assets/Image/slide1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="../../assets/Image/slide2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="../../assets/Image/slide3.jpg">
+                </div>
+
+                <div class="navigation-buttons">
+                    <div class="navigation-btn1"></div>
+                    <div class="navigation-btn2"></div>
+                    <div class="navigation-btn3"></div>
+                </div>
+            </div>
+            <div class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
         </div>
         <section class="section-one">
             <div class="accordions">
@@ -60,7 +75,7 @@
             <div>
                 <p>Apresentação do site</p>
                 <div class="video">
-                    <img src="../../assets/Image/landing-2.jpg" alt="" class="src">
+                    <img src="../../assets/Image/landing-2.jpg">
                 </div>
             </div>
         </section>
@@ -69,7 +84,7 @@
         <section class="section-two">
             <div>
                 <div class="img">
-                    <img src="../../assets/Image/landing-2.jpg" alt="" srcset="">
+                    <img src="../../assets/Image/landing-2.jpg">
                 </div>
             </div>
             <div class="accordions-two">
@@ -90,9 +105,9 @@
     </main>
     <br>
     <footer>
-        <p>&copy;Galaxiadosaber 2025</p>
+        <p>&copy;Galaxiadosaber2025</p>
     </footer>
+    <script src="landing-page.js"></script>
 </body>
-<script src="landing-page.js"></script>
 
 </html>

@@ -41,48 +41,107 @@
     }
 }
 
-.carrossel {
-    width: 100%;
-    max-width: 600px; /* Ajuste a largura conforme necessário */
-    overflow: hidden;
-    position: relative;
-    margin: auto;
-  }
-  
-.carrossel-slides {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    animation: slide-animation 10s infinite linear; /* Exemplo de animação */
-}
-  
-.carrossel-slide {
-    width: 100%;
-    flex-shrink: 0;
-}
-  
-.carrossel-slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-  
-@keyframes slide-animation {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-100%); } /* Move para a segunda imagem */
-    50% { transform: translateX(-200%); } /* Move para a terceira imagem */
-    75% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
-}
-
 body {
     margin: 0;
     padding: 0;
     min-width: 98vw;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+}
+
+.carousel {
+    margin: 0 auto;
+    width: 1200px;
+    height: 700px;
+    overflow: hidden;
+}
+
+.carousel .slides {
+    width: 400%;
+    height: 700px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+}
+
+.slide img {
+    width: 1200px;
+    border-radius: 20px
+}
+
+.manual-navigation {
+    position: absolute;
+    width: 800px;
+    margin-top: -80px;
+    margin-left: 220px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navigation-buttons div {
+    border: 2px solid #000000;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.navigation-buttons {
+    position: absolute;
+    width: 800px;
+    margin-top: 620px;
+    margin-left: 220px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navigation-buttons div:not(:last-child) {
+    /* margin-right: 40px; */
+}
+
+#radio1:checked~.navigation-buttons .navigation-btn1 {
+    background-color: #27b178;
+}
+
+#radio2:checked~.navigation-buttons .navigation-btn2 {
+    background-color: #27b178;
+}
+
+#radio3:checked~.navigation-buttons .navigation-btn3 {
+    background-color: #27b178;
+}
+
+.manual-btn {
+    border: 2px solid #000000;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.manual-btn:hover {
+    background-color: #27b178;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -25%;
+}
+
+#radio3:checked~.first {
+    margin-left: -50%;
 }
 
 p {
