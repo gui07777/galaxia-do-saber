@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olá Professor(a)!</title>
+  <link rel="stylesheet" href="teacher-login.css?v=0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <img src="../../../../assets/icons/volte.png" onclick="navigateBack()">
+  <form class="form" method="POST" action="">
+    <div class="headers">
+      <h2>Bem-vindo(a), Professor(a)!</h2>
+      <p>Entre na sua conta da Galáxia do Saber.</p>
+    </div>
+    <div class="fields">
+      <div>
+        <label>Email:</label><br>
+        <input type="text" placeholder="Digite seu email" name="email"><br>
+      </div>
+      <div>
+        <label>Senha:</label><br>
+        <input type="password" placeholder="Digite sua senha" name="password"><br>
+      </div>
+    </div>
+    <div class="buttons">
+      <input type="submit" value="Entrar" name="request">
+      <a onclick="openModal()">Não tenho essas informações!</a>
+    </div>
+  </form>
+  <div id="modal">
+    <div>
+      <h2>Caro(a) Professor(a)!</h2>
+        <img src="../../../../assets/icons/remove.png" onclick="closeModal()">
+    </div>
+    <h3>Caso não possua acesso às informações de <strong>email</strong> e <strong>senha</strong> da sua conta de
+      professor, verifique com a coordenação da sua instituição referente a isso.</h2>
+  </div>
+  <script src="teacher-login.js"></script>
+</body>
+
+</html>

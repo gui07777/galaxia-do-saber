@@ -1,3 +1,3 @@
-window.navigateBack = () => {
-    window.location.assign('../student-home/student-home.html');
-}
+navigateBack = () => {
+        window.location.href = '../student-home/student-home.html';
+} 

@@ -27,21 +27,17 @@ body {
   border-radius: 8px;
 }
 
-.area {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 img {
-  width: 25px;
-  height: 25px;
+  width: 35px;
   transition: 0.3s;
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  cursor: pointer;
 }
 
 img:hover {
-  width: 33px;
-  height: 33px;
+  width: 40px;
 }
 
 .headers {

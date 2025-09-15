@@ -39,7 +39,7 @@ function loadAnimation() {
     });
 }
 
-function navigateRoutes(path) {
+function navigateRegister() {
     if (!loader) loader = document.querySelector('#loader');
 
     if (loader) {
@@ -57,10 +57,41 @@ function navigateRoutes(path) {
         }
 
         setTimeout(() => {
-            if (path === 'login') {
-                window.location.href = '../auth/login/login.html';
-            } else if (path === 'register') {
-                window.location.href = '../auth/register/register.html';
+            window.location.href = '../auth/institution/register/register.html';
+        }, 1500);
+    }, 1500);
+}
+
+var modal = document.querySelector('#modal');
+
+function openModal() {
+    modal.classList.add('show-modal');
+}
+
+function navigateLogin(path) {
+    if (!loader) loader = document.querySelector('#loader');
+
+    if (loader) {
+        loader.style.display = 'flex';
+        loader.classList.add('show');
+        loader.classList.remove('hide');
+    } else {
+        console.warn('navigateRoutes: #loader nao disponivel');
+    }
+
+    setTimeout(() => {
+        if (loader) {
+            loader.classList.remove('show');
+            loader.classList.add('hide');
+        }
+
+        setTimeout(() => {
+            if (path === 'instituion') {
+                window.location.href = '../auth/institution/login/institution-login.html';
+            } else if (path === 'teacher') {
+                window.location.href = '../auth/teacher/login/teacher-login.html';
+            } else if (path === 'student') {
+                window.location.href = '../auth/student/login/student-login.html';
             }
         }, 1500);
     }, 1500);

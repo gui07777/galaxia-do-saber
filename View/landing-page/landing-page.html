@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
-    <link rel="stylesheet" href="landing-page.css?v=2">
+    <link rel="stylesheet" href="landing-page.css?v=0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -17,8 +17,8 @@
         <img src="../../assets/icons/logosemfundo.png" class="logo">
         <div class="width"></div>
         <div class="buttons">
-            <button onclick="navigateRoutes('register')">Cadastrar</button>
-            <button onclick="navigateRoutes('login')">Entrar</button>
+            <button onclick="navigateRegister()">Cadastrar</button>
+            <button onclick="openModal()">Entrar</button>
         </div>
     </header>
     <main>
@@ -107,6 +107,11 @@
     <footer>
         <p>&copy;Galaxiadosaber2025</p>
     </footer>
+    <div id="modal">
+        <div class="modal-button" onclick="navigateLogin('instituion')">Sou Instituição</div>
+        <div class="modal-button" onclick="navigateLogin('teacher')">Sou Professor</div>
+        <div class="modal-button" onclick="navigateLogin('student')">Sou Aluno</div>
+    </div>
     <script src="landing-page.js"></script>
 </body>
 
