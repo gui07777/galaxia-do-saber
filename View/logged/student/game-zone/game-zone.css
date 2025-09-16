@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 98vw;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #3F129D;
+}
+
+header {
+    background: #250664;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.back img {
+    width: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    left: 60px;
+    top: 120px;
+    color: white
+}
+
+.back img:hover {
+    width: 45px;
+}
+
+.buttons img {
+    margin-right: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1,
+p {
+    color: white;
+    text-align: center;
+}
+
+p {
+    position: relative;
+    bottom: 20px
+}
+
+label {
+    color: white;
+}
+
+.logo {
+    width: 165px;
+}
+
+.width {
+    width: 70%;
+}
+
+.games {
+    display: flex;
+    gap: 50px;
+}
+
+.background-game {
+    background-color: #FFFFFF;
+    padding: 14px;
+    border-radius: 20px;
+}
+
+.game {
+    background: #D9D9D9;
+    padding: 130px;
+    border-radius: 20px;
+    width: 100px;
+    transition: 0.3s;
+}
+
+.game:hover {
+    padding: 140px;
+}
+
+h2 {
+    line-height: 0px;
+    color: #100629;
+    text-align: center;
+}

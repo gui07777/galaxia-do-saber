@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos Jogar!</title>
+    <link rel="stylesheet" href="game-zone.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="../../../../assets/icons/logosemfundo.png" class="logo">
+        <div class="width"></div>
+        <div class="buttons">
+            <img src="../../../../assets/icons/sininho.png" alt="">
+            <img src="../../../../assets/icons/nova-mensagem.png" alt="" width="42px">
+            <img src="../../../../assets/icons/anonimous.png" alt="">
+        </div>
+    </header>
+    <main>
+        <div class="back">
+            <img src="../../../../assets/icons/white-back.png" alt="" onclick="navigateBack()">
+        </div>
+        <div class="titles">
+            <h1>Bem vindo(a) ao planeta Jogos!</h1>
+            <p>Vamos jogar!</p>
+        </div>
+        <div class="games">
+            <div class="background-game" onclick="navigateGame()">
+                <div class="game"></div>
+                <h2>Nome do Jogo</h2>
+            </div>
+            <div class="background-game" onclick="navigateGame()">
+                <div class="game"></div>
+                <h2>Nome do Jogo</h2>
+            </div>
+            <div class="background-game" onclick="navigateGame()">
+                <div class="game"></div>
+                <h2>Nome do Jogo</h2>
+            </div>
+        </div>
+    </main>
+
+</body>
+<script src="game-zone.js"></script>
+
+</html>
