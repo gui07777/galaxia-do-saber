@@ -140,8 +140,9 @@ body {
     margin-left: -50%;
 }
 
-p {
+p:last-child {
     font-weight: 600;
+    font-size: 12px;
     text-align: center;
 }
 
@@ -245,7 +246,7 @@ main .accordions-two details {
 
 footer {
     background: #250664;
-    padding: 40px;
+    padding: 5px;
     color: white;
     margin-top: 40px;
 }
