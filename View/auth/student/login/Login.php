@@ -24,7 +24,7 @@ if($aluno){
     $_SESSION['aluno_nome'] = $aluno['nome'];
 
     header('Location: ../../../logged/student/student-home/student-home.html');
-;
+
     exit;
 
     }else{

@@ -23,7 +23,8 @@ if (!empty($email) && !empty($senha)) {
             $_SESSION['id_instituicao'] = $instituicao['id'];
             $_SESSION['instituicao_nome'] = $instituicao['nome'];
 
-            header('Location: ../../../logged/institution/instituion-home/institution-home.html');
+            header('Location: ../../../../View/logged/institution/institution-home/institution-home.html');
+
             exit;
 
         } else {

@@ -4,6 +4,7 @@ require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'];
 $nomeFantasia = $_POST['nome_fantasia'];
+$repetirSenha = $_POST['repetir_senha'];
 $senha = $_POST['senha'];
 $razaoSocial = $_POST['razao_social'];
 $cnpj = $_POST['cnpj'];
@@ -19,6 +20,14 @@ $complemento = $_POST['complemento'];
 
 
 if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
+
+    if ($senha !== $repetirSenha) {
+
+        echo 'As senhas não coincidem!';
+        exit;
+
+    }
+
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
