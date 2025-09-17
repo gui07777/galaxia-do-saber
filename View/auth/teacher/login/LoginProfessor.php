@@ -7,42 +7,42 @@ require_once('../../../../Model/conexaoBanco/Conexao.php');
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-if(!empty($email) && !empty($senha)){
+if (!empty($email) && !empty($senha)) {
 
-$sql = 'SELECT * FROM professor WHERE email = :email';
+    $sql = 'SELECT * FROM professor WHERE email = :email';
 
-$requisicao = $conexao -> prepare($sql);
-$requisicao -> bindParam(':email', $email);
-$requisicao -> execute();
+    $requisicao = $conexao->prepare($sql);
+    $requisicao->bindParam(':email', $email);
+    $requisicao->execute();
 
-$professor = $requisicao -> fetch(PDO::FETCH_ASSOC);
+    $professor = $requisicao->fetch(PDO::FETCH_ASSOC);
 
-if($professor){
-    
-    if(password_verify($senha, $professor['senha'])){
+    if ($professor) {
 
-    $_SESSION['id_professor'] = $professor['id'];
-    $_SESSION['professor_nome'] = $professor['nome'];
+        if (password_verify($senha, $professor['senha'])) {
 
-    header ('Location: ../../../logged/teacher/teacher-home/teacher-home.html');
+            $_SESSION['id_professor'] = $professor['id'];
+            $_SESSION['professor_nome'] = $professor['nome'];
 
-    exit;
+            header('Location: ../../../logged/teacher/teacher-home/teacher-home.html');
 
-    }else{
+            exit;
 
-    echo'Senha incorreta';
+        } else {
+
+            echo 'Senha incorreta';
+
+        }
+
+    } else {
+
+        echo 'Usuário não encontrado!';
 
     }
 
-}else{
+} else {
 
-    echo'Usuário não encontrado!';
-
-}
-
-}else{
-
-echo'Preencha todos os campos';
+    echo 'Preencha todos os campos';
 
 }
 ?>
