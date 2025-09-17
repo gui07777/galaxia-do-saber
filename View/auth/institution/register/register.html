@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <form class="form" action="login.php" method="post">
+  <form class="form" action="../../../../Controller/InstituicaoController.php" method="post">
       <img src="../../../../assets/icons/volte.png" onclick="navigateBack()">
       <div class="headers">
         <h3>Seja bem-vindo(a)!</h3>
@@ -20,11 +20,11 @@
       <section class="left-side">
         <div>
           <label>Razão Social:</label> <br>
-          <input type="text" name="social-reason" required />
+          <input type="text" name="razao_social" required />
         </div>
         <div>
           <label>Nome Fantasia:</label> <br>
-          <input type="text" name="fantasy-name" required />
+          <input type="text" name="nome_fantasia" required />
         </div>
         <div>
           <label>CNPJ:</label> <br>
@@ -32,11 +32,11 @@
         </div>
         <div>
           <label>Código Inep:</label> <br>
-          <input type="text" name="inep-code" required />
+          <input type="text" name="codigo_inep" required />
         </div>
         <div>
           <label>Telefone:</label> <br>
-          <input type="text" name="phone" required />
+          <input type="text" name="telefone" required />
         </div>
         <div>
           <label>E-mail:</label> <br>
@@ -44,7 +44,7 @@
         </div>
         <div>
           <label>Senha:</label> <br>
-          <input type="password" name="password" required />
+          <input type="password" name="senha" required />
         </div>
         <div>
           <label>Repita a senha:</label> <br>
@@ -58,61 +58,61 @@
         </div>
         <div>
           <label>Estado:</label> <br>
-          <select name="state">
-            <option value="option-one"></option>
-            <option value="option-one">AC</option>
-            <option value="option-two">AL</option>
-            <option value="option-one">AP</option>
-            <option value="option-two">AM</option>
-            <option value="option-one">BA</option>
-            <option value="option-two">CE</option>
-            <option value="option-one">DF</option>
-            <option value="option-two">ES</option>
-            <option value="option-one">GO</option>
-            <option value="option-two">MA</option>
-            <option value="option-one">MT</option>
-            <option value="option-two">MS</option>
-            <option value="option-one">MG</option>
-            <option value="option-two">PA</option>
-            <option value="option-one">PB</option>
-            <option value="option-two">PR</option>
-            <option value="option-one">PE</option>
-            <option value="option-two">PI</option>
-            <option value="option-one">RJ</option>
-            <option value="option-two">RN</option>
-            <option value="option-one">RS</option>
-            <option value="option-two">RO</option>
-            <option value="option-one">RR</option>
-            <option value="option-two">SC</option>
-            <option value="option-one">SP</option>
-            <option value="option-two">SE</option>
-            <option value="option-two">TO</option>
+          <select name="estado">
+            <option value=""></option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
           </select>
         </div>
         <div>
           <label>Município:</label> <br>
-          <input type="text" name="municipality" id="municipality" required />
+          <input type="text" name="municipio" id="municipio" required />
         </div>
         <div>
           <label>Bairro:</label> <br>
-          <input type="text" name="neighborhood" id="neighborhood" required />
+          <input type="text" name="bairro" id="bairro" required />
         </div>
         <div>
           <label>Rua:</label> <br>
-          <input type="text" name="street" id="street" required />
+          <input type="text" name="rua" id="rua" required />
         </div>
         <div>
           <label>Número:</label> <br>
-          <input type="text" name="number" id="number" required />
+          <input type="text" name="numero" id="numero" required />
         </div>
         <div>
           <label>Complemento:</label> <br>
-          <input type="text" name="complement" id="complement" required />
+          <input type="text" name="complemento" id="complemento" required />
         </div>
       </section>
     </div>
     <div class="buttons">
-      <button type="submit">Enviar</button>
+      <button type="submit" name="requisicao" value="Cadastrar">Enviar</button>
     </div>
   </form>
 </body>
