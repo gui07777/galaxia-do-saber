@@ -101,7 +101,12 @@ if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
 
         $conexao->commit();
 
-        echo 'Instituição cadastrada com sucesso!';
+        echo "<script>
+            alert('Instituição cadastrada com sucesso!');
+            setTimeout(function() {
+                window.location.href = '../View/auth/institution/login/institution-login.html';
+            }, 50); 
+          </script>";
 
 
     } catch (PDOException $e) {
@@ -112,7 +117,9 @@ if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
     }
 
 } else {
-    echo "Insira todos os valores nos respectivos campos. ";
+   echo "<script>
+            alert('Insira todos os valores para completar o cadastro.');
+        </script>";
 }
 
 ?>

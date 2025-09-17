@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 session_start();
 
@@ -12,36 +12,35 @@ if (!empty($email) && !empty($senha)) {
     $sql = 'SELECT * FROM instituicao WHERE email = :email';
 
     $requisicao = $conexao->prepare($sql);
+
     $requisicao->bindParam(':email', $email);
+
     $requisicao->execute();
 
     $instituicao = $requisicao->fetch(PDO::FETCH_ASSOC);
 
     if ($instituicao) {
+
         if (password_verify($senha, $instituicao['senha'])) {
 
             $_SESSION['id_instituicao'] = $instituicao['id'];
             $_SESSION['instituicao_nome'] = $instituicao['nome'];
 
-            header('Location: ../../../../View/logged/institution/institution-home/institution-home.html');
+            echo "<script> 
+            alert('Login feito com sucesso!'); 
+            setTimeout(function() { 
+            window.location.href = '../../../../View/logged/institution/institution-home/institution-home.html'; 
+            }, 30); 
+            </script>";
 
             exit;
 
         } else {
-
             echo 'Senha incorreta';
-
         }
-
     } else {
-
         echo 'Usuário não encontrado!';
-
     }
-
 } else {
-
     echo 'Preencha todos os campos';
-
-}
-?>
+} ?>
