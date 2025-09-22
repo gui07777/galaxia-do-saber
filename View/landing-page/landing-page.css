@@ -51,14 +51,14 @@ body {
 
 .carousel {
     margin: 0 auto;
-    width: 1200px;
-    height: 700px;
+    width: 1000px;
+    height: 600px;
     overflow: hidden;
 }
 
 .carousel .slides {
     width: 400%;
-    height: 700px;
+    height: 600px;
     display: flex;
 }
 
@@ -72,7 +72,7 @@ body {
 }
 
 .slide img {
-    width: 1200px;
+    width: 1000px;
     border-radius: 20px
 }
 
@@ -80,7 +80,7 @@ body {
     position: absolute;
     width: 800px;
     margin-top: -80px;
-    margin-left: 220px;
+    margin-left: 120px;
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -97,8 +97,8 @@ body {
 .navigation-buttons {
     position: absolute;
     width: 800px;
-    margin-top: 620px;
-    margin-left: 220px;
+    margin-top: 520px;
+    margin-left: 120px;
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -138,6 +138,10 @@ body {
 
 #radio3:checked~.first {
     margin-left: -50%;
+}
+
+p {
+    text-align: center;
 }
 
 p:last-child {
@@ -232,16 +236,22 @@ main .section-two .img img {
 
 main .accordions details {
     margin: 10px 0;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     width: 90vw;
     padding: 10px;
+    background-color: #27b178;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 main .accordions-two details {
     margin: 10px 0;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     width: 30vw;
     padding: 10px;
+    background-color: #27b178;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 footer {
@@ -260,13 +270,13 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: #27b178; */
-    background-color: #000000;
+    background-color: #27b178;
+    /* background-color: #000000; */
     width: 180px;
     color: white;
     position: absolute;
     top: 90px;
-    right: 5px;
+    right: 25px;
 }
 
 .modal-button {
@@ -279,9 +289,10 @@ footer {
     width: 180px;
 
     &:hover {
-        /* background-color: #250664; */
-        background-color: white;
-        color: black;
+        background-color: #250664;
+        /* background-color: white; */
+        /* color: black; */
+        color: white;
         border: 1px solid black;
         letter-spacing: 1px;
     }

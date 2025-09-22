@@ -63,10 +63,21 @@ function navigateRegister() {
 }
 
 var modal = document.querySelector('#modal');
+var btnOpen = document.querySelector('#btnOpen');
 
 function openModal() {
     modal.classList.add('show-modal');
 }
+
+
+document.addEventListener('click', (event) => {
+    const clickedInsideModal = modal.contains(event.target);
+    const clickedOnButton = event.target === btnOpen;
+
+    if(!clickedInsideModal && !clickedOnButton) {
+        modal.classList.remove('show-modal')
+    }
+})
 
 function navigateLogin(path) {
     if (!loader) loader = document.querySelector('#loader');
