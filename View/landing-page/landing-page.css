@@ -181,10 +181,10 @@ header .buttons button {
 }
 
 header .buttons button:hover {
-    /* background-color: #27b178; */
-    background-color: white;
-    border: 2px solid black;
-    color: black;
+    background-color: #27b178;
+    /* background-color: white; */
+    /* border: 2px solid black; */
+    /* color: black; */
     width: 120px;
     letter-spacing: 2px;
 }
