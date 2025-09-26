@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="teacher-sidebar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+    <nav id="sidebar">
+        <div id="sidebar_content">
+            <div id="open">
+                <button id="open_btn">
+                <i id="open_btn_icon" class="material-symbols-outlined">menu</i>
+            </button>
+            </div>
+    
+            <ul id="side_items">
+                <li class="side-item">
+                    <a href="#/institution-home" data-page="../teacher-home/teacher-home.html">
+                    <i class="material-symbols-outlined">home</i>
+                        <span class="item-description">
+                            Início
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="side-item">
+                    <a href="#/institutional-agenda" data-page="../teacher-agenda/teacher-agenda.html">
+                    <i class="material-symbols-outlined">calendar_month</i>
+                        <span class="item-description">
+                            Agenda
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="side-item">
+                    <a href="#/general-communication" data-page="../general-comunication/general-comunication.html">
+                    <i class="material-symbols-outlined">mail</i>
+                        <span class="item-description">
+                            Comunicados
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="side-item">
+                    <a href="#/general-reports" data-page="../general-reports/general-reports.html">
+                    <i class="material-symbols-outlined">bar_chart_4_bars</i>
+                        <span class="item-description">
+                            Relatórios Gerais
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="logout">
+            <button id="logout_btn">
+                <i class="material-symbols-outlined">logout</i>
+                <span class="item-description">
+                    Sair
+                </span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="app-content">
+    </main>
+    <script src="teacher-sidebar.js"></script>
+</body>
+
+</html>
