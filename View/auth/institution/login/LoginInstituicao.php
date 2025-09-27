@@ -29,7 +29,7 @@ if (!empty($email) && !empty($senha)) {
             echo "<script> 
             alert('Login feito com sucesso!'); 
             setTimeout(function() { 
-            window.location.href = '../../../../View/logged/institution/institution-home/institution-home.html'; 
+            window.location.href = '../../../logged/institution/sidebar/sidebar.html'; 
             }, 30); 
             </script>";
 

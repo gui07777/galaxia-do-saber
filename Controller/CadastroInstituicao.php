@@ -28,7 +28,6 @@ if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
 
     }
 
-
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     try {
