@@ -14,8 +14,15 @@ header {
 }
 
 #open {
-    display: flex;
-    align-items: center;
+    cursor: pointer;
+}
+
+#sidebar {
+    display: none;
+}
+
+#sidebar.show-sidebar {
+    display: flex !important;
 }
 
 #open_btn_icon {
@@ -39,11 +46,4 @@ header {
 
 .buttons img {
     width: 35px;
-}
-
-
-
-.open-sidebar {
-    background-color: #100629;
-    height: 100vh
 }
