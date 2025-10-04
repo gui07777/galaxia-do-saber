@@ -10,20 +10,16 @@ header {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    align-items: center ;
+    align-items: center;
 }
 
 #open {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-#sidebar {
-    display: none;
-}
-
-#sidebar.show-sidebar {
-    display: flex !important;
-}
 
 #open_btn_icon {
     color: white;
@@ -32,11 +28,11 @@ header {
 
 .logo {
     width: 155px;
-    height: 45px
+    height: 45px;
 }
 
 .width {
-    width: 70%;
+    width: 80%;
 }
 
 .buttons {
@@ -46,4 +42,60 @@ header {
 
 .buttons img {
     width: 35px;
+}
+
+#sidebar {
+    display: none;
+}
+
+#sidebar.show-sidebar {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    background-color: #100629;
+    height: 88%;
+    width: 18vw;
+    position: absolute;
+    top: 70px;
+    left: 5px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.material-symbols-outlined {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+}
+
+div .side-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 15px
+}
+
+div .side-item:hover {
+    background-color: #27b178;
+    border-radius: 15px
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+#logout {
+    border-top: 1px solid gray;
+    padding: 10px;
+    transition: 0.3s;
+    border-radius: 15px
+}
+
+#logout:hover {
+    background-color: #d41010;
+    border-radius: 15px
 }

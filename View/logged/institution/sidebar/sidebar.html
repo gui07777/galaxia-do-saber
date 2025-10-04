@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar</title>
-    <link rel="stylesheet" href="sidebar.css?v=3">
+    <link rel="stylesheet" href="sidebar.css?v=4">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
     <header>
         <div id="open">
-            <span id="open_btn" onclick="openSidebar()">
+            <span id="open_btn" onclick="toggleSidebar()">
                 <i id="open_btn_icon" class="material-symbols-outlined">menu</i>
             </span>
             <img src="../../../../assets/icons/logosemfundo.png" class="logo">
@@ -25,52 +25,61 @@
     </header>
     <nav id="sidebar">
         <div id="sidebar_content">
-            <ul id="side_items">
-                <li class="side-item">
+            <div id="side_items">
+                <div class="side-item">
                     <a href="#/institution-home" data-page="../institution-home/institution-home.html">
                         <i class="material-symbols-outlined">home</i>
                         <span class="item-description">
                             Início
                         </span>
                     </a>
-                </li>
+                </div>
+                
+                <div class="side-item">
+                    <a href="#/institution-home" data-page="../institution-home/institution-home.html">
+                        <i class="material-symbols-outlined">add</i>
+                        <span class="item-description">
+                            Cadastrar
+                        </span>
+                    </a>
+                </div>
 
-                <li class="side-item">
+                <div class="side-item">
                     <a href="#/institutional-agenda" data-page="../institutional-agenda/institutional-agenda.html">
                         <i class="material-symbols-outlined">calendar_month</i>
                         <span class="item-description">
                             Agenda
                         </span>
                     </a>
-                </li>
+                </div>
 
-                <li class="side-item">
+                <div class="side-item">
                     <a href="#/general-communication" data-page="../general-communication/general-communication.html">
                         <i class="material-symbols-outlined">mail</i>
                         <span class="item-description">
                             Comunicados
                         </span>
                     </a>
-                </li>
+                </div>
 
-                <li class="side-item">
+                <div class="side-item">
                     <a href="#/general-reports" data-page="../general-reports/general-reports.html">
                         <i class="material-symbols-outlined">bar_chart_4_bars</i>
                         <span class="item-description">
                             Relatórios Gerais
                         </span>
                     </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-
+        
         <div id="logout">
-            <button id="logout_btn">
+            <a href="">
                 <i class="material-symbols-outlined">logout</i>
                 <span class="item-description">
                     Sair
                 </span>
-            </button>
+            </a>
         </div>
     </nav>
 
