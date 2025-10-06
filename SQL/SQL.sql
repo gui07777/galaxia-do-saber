@@ -57,9 +57,18 @@ FOREIGN KEY(id_turma) REFERENCES turma(id_turma)
 );
 
 CREATE TABLE matricula(
+id_matricula INT AUTO_INCREMENT PRIMARY KEY,
 id_aluno INT,
 id_turma INT,
 FOREIGN KEY(id_aluno) REFERENCES aluno(id_aluno),
+FOREIGN KEY (id_turma) REFERENCES turma(id_turma)
+);
+
+CREATE TABLE ensina(
+id_ensina INT AUTO_INCREMENT PRIMARY KEY,
+id_professor INT,
+id_turma INT,
+FOREIGN KEY(id_professor) REFERENCES professor(id_professor),
 FOREIGN KEY (id_turma) REFERENCES turma(id_turma)
 );
 
@@ -84,5 +93,33 @@ FOREIGN KEY (id_comunicado) REFERENCES comunicados(id_comunicado),
 FOREIGN KEY (id_professor) REFERENCES professor(id_professor)
 );
 
-SELECT * FROM instituicao;
-SELECT * FROM endereco;
+CREATE TABLE status(
+id_status INT AUTO_INCREMENT PRIMARY KEY,
+descricao VARCHAR(50)
+);
+
+CREATE TABLE atividades(
+id_atividade INT AUTO_INCREMENT PRIMARY KEY,
+titulo VARCHAR(100),
+anexo LONGBLOB,
+data_post DATETIME,
+prazo VARCHAR(10)
+);
+
+CREATE TABLE resposta(
+id_resposta INT AUTO_INCREMENT PRIMARY KEY,
+data_envio DATETIME,
+anexo LONGBLOB,
+nota DECIMAL(5,2),
+id_atividade INT,
+id_aluno INT,
+FOREIGN KEY (id_atividade) REFERENCES atividades(id_atividade),
+FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno)
+);
+
+CREATE TABLE autenticação(
+id_autenticacao INT AUTO_INCREMENT PRIMARY KEY,
+data_aut DATETIME,
+id_status INT,
+FOREIGN KEY (id_status) REFERENCES status(id_status)
+);
