@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     background: #E2E6EF;
     width: 75%;
-    height: 80vh;
+    height: 70vh;
     padding: 40px;
     gap: 30px;
     border-radius: 15px;
@@ -47,7 +47,7 @@ label {
 }
 
 input[type='text'] {
-    height: 35px;
+    height: 40px;
     width: 400px;
     border-radius: 15px;
     border: none;
