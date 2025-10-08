@@ -10,24 +10,26 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Cadastro de turmas</h1>
-        <div class="fields">
-            <div>
-                <label for="">Nome da Turma:</label>
-                <input type="text">
+    <form class="form" method="POST" action="../../../../Controller/TurmaController.php">
+        <div class="container">
+            <h1>Cadastro de turmas</h1>
+            <div class="fields">
+                <div>
+                    <label for="">Nome da Turma:</label>
+                    <input type="text" name="nome" required>
+                </div>
+                <div>
+                    <label for="">Descrição:</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="5" required></textarea>
+                </div>
             </div>
-            <div>
-                <label for="">Descrição:</label>
-                <textarea name="" id="class-description" cols="30" rows="5"></textarea>
+            <div class="buttons">
+                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <input type="submit" value="Cadastrar" name="requisicao">
             </div>
         </div>
-        <div class="buttons">
-            <!-- <span class="material-symbols-outlined">arrow_back</span> -->
-            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-            <input type="submit" value="Cadastrar">
-        </div>
-    </div>
+    </form>
     <script src="class-creation.js"></script>
 </body>
 

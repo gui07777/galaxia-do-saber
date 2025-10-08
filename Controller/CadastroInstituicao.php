@@ -23,7 +23,10 @@ if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
 
     if ($senha !== $repetirSenha) {
 
-        echo 'As senhas não coincidem!';
+        echo "<script>
+        alert('As senhas não coincidem!');
+        </script>";
+        
         exit;
 
     }
@@ -33,7 +36,6 @@ if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
     try {
 
         $conexao->beginTransaction();
-
 
         $sqlInstituicao = "INSERT INTO instituicao(email, 
         nome_fantasia, 
@@ -111,8 +113,9 @@ if (!empty($email) && !empty($senha) && !empty($nomeFantasia)) {
     } catch (PDOException $e) {
 
         $conexao->rollBack();
-        echo 'Instituição não cadastrada, erro: ' . $e->getMessage();
-
+        echo"<script>
+            alert('Instituição não cadastrada, erro: " . addslashes($e -> getMessage()) . "');
+        </script>";
     }
 
 } else {

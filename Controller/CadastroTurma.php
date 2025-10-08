@@ -2,43 +2,53 @@
 
 require_once('../Model/conexaoBanco/Conexao.php');
 
-$email = $_POST['email'];
 $nome = $_POST['nome'];
+$descricaoTurma = $_POST['descricao'];
 
-if(!empty($email) && !empty($senha) && !empty($nome)){
 
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+if (!empty($nome)) {
 
-    $sql = "INSERT INTO 
-    turma (email, 
-    nome, 
-    senha) 
-    VALUES 
-    (:email, 
-    :nome, 
-    :senha)";
+    try {
 
-    $requisicao = $conexao ->prepare("$sql");
+        $conexao->beginTransaction();
 
-    $requisicao -> bindParam(':nome', $nome);
-    $requisicao -> bindParam(':email', $email);
-    $requisicao -> bindParam(':senha', $senhaHash);
-    
+        $sql = "INSERT INTO 
+        turma (nome, 
+        descricao) 
+        VALUES 
+        (:nome,
+        :descricao)";
 
-    try{
+        $requisicao = $conexao->prepare("$sql");
 
-        $requisicao -> execute();
-        echo'Turma Cadastrada';
+        $requisicao->bindParam(':nome', $nome);
+        $requisicao->bindParam(':descricao', $descricaoTurma);
 
-    }catch(PDOException $e){
+        $requisicao->execute();
 
-        echo 'Turma não cadastrada, erro: '. $e -> getMessage();
+        $conexao->commit();
+
+        echo "<script>
+            alert('Turma Criada com Sucesso!');
+            setTimeout(function() {
+                window.location.href = '../View/logged/institution/sidebar/sidebar.html';
+            }, 50); 
+          </script>";
+
+
+    } catch (PDOException $e) {
+
+        echo"<script>
+            alert('Turma não cadastrada, erro: " . addslashes($e -> getMessage()) . "');
+        </script>";
 
     }
 
-}else{
+} else {
 
-echo'Insira todos os valores nos respectivos campos.';
+    echo "<script>
+    alert('Insira todos os valores nos respectivos campos');
+    </script>";
 
 }
 

@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once('../../../../Model/conexaoBanco/Conexao.php');
+require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -24,25 +24,36 @@ if (!empty($email) && !empty($senha)) {
             $_SESSION['id_professor'] = $professor['id'];
             $_SESSION['professor_nome'] = $professor['nome'];
 
-            header('Location: ../../../logged/teacher/teacher-home/teacher-home.html');
+            echo "<script> 
+            alert('Login feito com sucesso!'); 
+            setTimeout(function() { 
+            window.location.href = '../View/logged/teacher/teacher-home/teacher-home.html'; 
+            }, 30); 
+            </script>";
 
             exit;
 
         } else {
 
-            echo 'Senha incorreta';
-
+            echo "<script>
+            alert('Senha incorreta');
+            </script>";
+            
         }
 
     } else {
 
-        echo 'Usuário não encontrado!';
+    echo "<script>
+    alert('Usuário não encontrado!');
+    </script>";
 
     }
 
 } else {
-
-    echo 'Preencha todos os campos';
+    
+    echo "<script>
+    alert('Preencha todos os campos');
+    </script>";
 
 }
 ?>
