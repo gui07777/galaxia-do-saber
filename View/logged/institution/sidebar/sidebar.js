@@ -1,6 +1,7 @@
 var sidebar = document.querySelector('#sidebar');
 var openBtn = document.querySelector('#open_btn');
 var registerItems = document.querySelector('#register-items');
+var logoutModal = document.querySelector('#logout-modal');
 
 
 //muda o estado da sidebar para aberto ou fechado
@@ -19,4 +20,8 @@ document.addEventListener('click', (event) => {
 function toggleRegisterItems() {
     if (!registerItems) return;
     registerItems.classList.toggle('show-register-items');
+}
+
+function openLogoutModal() {
+    logoutModal.classList.add('');
 }

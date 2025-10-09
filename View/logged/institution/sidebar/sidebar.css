@@ -111,3 +111,8 @@ a {
     background-color: #d41010;
     border-radius: 15px
 }
+
+#logout-modal {
+    display: flex;
+}
+
