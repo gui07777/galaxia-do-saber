@@ -68,6 +68,18 @@ header {
     color: rgb(255, 255, 255);
 }
 
+#register-items {
+    display: none;
+}
+
+#register-items.show-register-items {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    border: 2px solid #27b178;
+    border-radius: 15px;
+}
+
 div .side-item {
     padding: 10px;
     cursor: pointer;

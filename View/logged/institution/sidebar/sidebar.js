@@ -1,5 +1,7 @@
 var sidebar = document.querySelector('#sidebar');
 var openBtn = document.querySelector('#open_btn');
+var registerItems = document.querySelector('#register-items');
+
 
 //muda o estado da sidebar para aberto ou fechado
 function toggleSidebar() {
@@ -13,3 +15,8 @@ document.addEventListener('click', (event) => {
     const clickedOutside = !sidebar.contains(event.target) && !(openBtn && openBtn.contains(event.target));
     if (clickedOutside) sidebar.classList.remove('show-sidebar');
 })
+
+function toggleRegisterItems() {
+    if (!registerItems) return;
+    registerItems.classList.toggle('show-register-items');
+}

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar</title>
-    <link rel="stylesheet" href="sidebar.css?v=4">
+    <link rel="stylesheet" href="sidebar.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
@@ -34,16 +34,40 @@
                         </span>
                     </a>
                 </div>
-                
-                <div class="side-item">
-                    <a href="#/institution-home" data-page="../institution-home/institution-home.html">
+                <div class="side-item" onclick="toggleRegisterItems()">
+                    <a>
                         <i class="material-symbols-outlined">add</i>
                         <span class="item-description">
-                            Cadastrar
+                            Cadastro
                         </span>
                     </a>
                 </div>
-
+                <div id="register-items">
+                    <div class="side-item">
+                        <a href="#/student-register" data-page="../student-register/student-register.html">
+                            <i class="material-symbols-outlined">face</i>
+                            <span class="item-description">
+                                Alunos
+                            </span>
+                        </a>
+                    </div>
+                    <div class="side-item">
+                        <a href="#/teacher-register" data-page="../teacher-register/teacher-register.html">
+                            <i class="material-symbols-outlined">school</i>
+                            <span class="item-description">
+                                Professores
+                            </span>
+                        </a>
+                    </div>
+                    <div class="side-item">
+                        <a href="#/class-creation" data-page="../class-creation/class-creation.html">
+                            <i class="material-symbols-outlined">class</i>
+                            <span class="item-description">
+                                Turma
+                            </span>
+                        </a>
+                    </div>
+                </div>
                 <div class="side-item">
                     <a href="#/institutional-agenda" data-page="../institutional-agenda/institutional-agenda.html">
                         <i class="material-symbols-outlined">calendar_month</i>
@@ -52,7 +76,6 @@
                         </span>
                     </a>
                 </div>
-
                 <div class="side-item">
                     <a href="#/general-communication" data-page="../general-communication/general-communication.html">
                         <i class="material-symbols-outlined">mail</i>
@@ -61,7 +84,6 @@
                         </span>
                     </a>
                 </div>
-
                 <div class="side-item">
                     <a href="#/general-reports" data-page="../general-reports/general-reports.html">
                         <i class="material-symbols-outlined">bar_chart_4_bars</i>
@@ -72,7 +94,6 @@
                 </div>
             </div>
         </div>
-        
         <div id="logout">
             <a href="">
                 <i class="material-symbols-outlined">logout</i>
@@ -82,7 +103,6 @@
             </a>
         </div>
     </nav>
-
     <main id="app-content">
     </main>
     <script src="sidebar.js"></script>
