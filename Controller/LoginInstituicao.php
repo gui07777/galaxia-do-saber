@@ -45,7 +45,7 @@ if (!empty($email) && !empty($senha)) {
     } else {
 
         echo "<script>
-        alert('Usuário não encontrado!');
+        alert('Instituição não encontrado!');
         </script>";
 
     }

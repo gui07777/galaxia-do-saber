@@ -2,46 +2,57 @@
 
 session_start();
 
-require_once('../../../Model/conexaoBanco/Conexao.php');
+require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-if(!empty($email) && !empty($senha)){
+if (!empty($email) && !empty($senha)) {
 
-$sql = 'SELECT * FROM aluno WHERE email = :email';
+    $sql = 'SELECT * FROM aluno WHERE email = :email';
 
-$requisicao = $conexao -> prepare($sql);
-$requisicao -> bindParam(':email', $email);
-$requisicao -> execute();
+    $requisicao = $conexao->prepare($sql);
+    $requisicao->bindParam(':email', $email);
+    $requisicao->execute();
 
-$aluno = $requisicao -> fetch(PDO::FETCH_ASSOC);
+    $aluno = $requisicao->fetch(PDO::FETCH_ASSOC);
 
-if($aluno){
-    if(password_verify($senha, $aluno['senha'])){
+    if ($aluno) {
+        if (password_verify($senha, $aluno['senha'])) {
 
-    $_SESSION['aluno_id'] = $aluno['id'];
-    $_SESSION['aluno_nome'] = $aluno['nome'];
+            $_SESSION['aluno_id'] = $aluno['id'];
+            $_SESSION['aluno_nome'] = $aluno['nome'];
 
-    header('Location: ../../../logged/student/student-home/student-home.html');
+            echo "<script> 
+            alert('Login feito com sucesso!'); 
+            setTimeout(function() { 
+            window.location.href = '../View/logged/student/student-home/student-home.html'; 
+            }, 30); 
+            </script>";
+            
+            exit;
 
-    exit;
+        } else {
 
-    }else{
+            echo "<script>
+        alert('Senha incorreta');
+        </script>";
 
-    echo'Senha incorreta';
+        }
+
+    } else {
+
+        echo "<script>
+    alert('Aluno não encontrado!');
+    </script>";
 
     }
 
-}else{
+} else {
 
-    echo'Usuário não encontrado!';
-
-}
-
-}else{
-
-echo'Preencha todos os campos';
+    echo "<script>
+    alert('Preencha todos os campos');
+    </script>";
 
 }
 ?>
