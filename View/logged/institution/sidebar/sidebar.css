@@ -5,6 +5,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
 header {
     background: #100629;
     display: flex;
@@ -76,7 +81,7 @@ header {
     display: flex;
     flex-direction: column;
     margin-left: 35px;
-    border: 2px solid #27b178;
+    /* border: 2px solid #27b178; */
     border-radius: 15px;
 }
 
@@ -112,7 +117,52 @@ a {
     border-radius: 15px
 }
 
-#logout-modal {
-    display: flex;
+/* #logout-modal {
+    display: none;
+} */
+
+#logout-modal.show-logout-modal {
+    display: flex !important;
+    flex-direction: column;
+    background: #100629;
+    height: 115px;
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: white;
+    border-radius: 15px;
 }
 
+#logout-modal .logout-buttons {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#logout-modal .logout-buttons button {
+    width: 50%;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    height: 25px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#logout-modal .logout-buttons button:first-child {
+    background: #d41010;
+
+    &:hover {
+        background-color: #971313;
+    }
+}
+
+#logout-modal .logout-buttons button:last-child {
+    background: #27b178;
+
+    &:hover {
+        background-color: #207753;
+    }
+}

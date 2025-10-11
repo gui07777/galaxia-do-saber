@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar</title>
-    <link rel="stylesheet" href="sidebar.css?v=6">
+    <link rel="stylesheet" href="sidebar.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div id="logout">
+        <div id="logout" onclick="openLogoutModal()">
             <a href="">
                 <i class="material-symbols-outlined">logout</i>
                 <span class="item-description">
@@ -103,11 +103,11 @@
             </a>
         </div>
     </nav>
-    <div id="logout-modal">
-        <h2>Tem certeza que deseja sair?</h2>
+    <div id="logout-modal" style="display: none">
+        <h3>Tem certeza que deseja sair?</h3>
         <div class="logout-buttons">
             <button>Sair</button>
-            <button>Cancelar</button>
+            <button onclick="closeLogoutModal()">Cancelar</button>
         </div>
     </div>
     <main id="app-content">

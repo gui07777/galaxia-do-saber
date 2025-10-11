@@ -22,6 +22,16 @@ function toggleRegisterItems() {
     registerItems.classList.toggle('show-register-items');
 }
 
+//AE o caramba
+
 function openLogoutModal() {
-    logoutModal.classList.add('');
+    if (sidebar.style.display === 'none') {
+        return;
+    } else {
+        logoutModal.classList.add('show-logout-modal');
+    }
+}
+
+function closeLogoutModal() {
+    logoutModal.classList.remove('show-logout-modal');
 }

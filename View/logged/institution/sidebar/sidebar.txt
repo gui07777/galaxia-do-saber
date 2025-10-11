@@ -1,5 +1,5 @@
 1 - no botao de cadastrar tem quer adapta-lo para exibir outros 3 botões, um para cada tipo de usuario; concluido
 
-2 - botao de sair precisa exibir uma modal perguntando se o usuario realmente quer sair; pendente
+2 - botao de sair precisa exibir uma modal perguntando se o usuario realmente quer sair; em andamento
 
 3 - sidebar precisa renderizar os componentes ja estilizados ao clicar nos respectivos botões; pendente
