@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre a sua turma!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="add-profile.css?v=3">
+</head>
+
+<body>
+    <form class="form" method="POST" action="../../../../Controller/TurmaController.php">
+        <div class="container">
+            <h1>Adicionar perfil</h1>
+            <div class="fields">
+                <div>
+                    <div>
+                        <input type="checkbox" name="professor" id="">
+                        <label for="">Professor</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="aluno" id="">
+                        <label for="">Aluno</label>
+                    </div>
+                </div>
+                <div>
+                    <label for="">Nome:</label>
+                    <input type="text" name="nome" required>
+                </div>
+            </div>
+            <div class="buttons">
+                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <input type="submit" value="Adicionar" name="requisicao">
+            </div>
+        </div>
+    </form>
+    <script src="add-profile.js"></script>
+</body>
+
+</html>

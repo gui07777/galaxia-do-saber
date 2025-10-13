@@ -25,8 +25,7 @@ function toggleRegisterItems() {
     registerItems.classList.toggle('show-register-items');
 }
 
-//AE o caramba
-
+//problema de conflito entre eventos de click
 function openLogoutModal() {
     if (!sidebar.classList.contains('show-sidebar')) {
         return;
