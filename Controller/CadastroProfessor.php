@@ -72,7 +72,16 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
         $requisicao->bindParam(':disciplina', $disciplina);
         $requisicao->bindParam(':id_instituicao', $idInstituicao);
 
-        $requisicao->execute();
+        $requisicao -> execute();
+
+        $idProfessor = $conexao -> lastInsertId();
+
+        $sqlEnsina = "INSERT INTO ensina(id_professor) 
+        VALUES (:id_professor)";
+        $stmtEnsina = $conexao -> prepare($sqlEnsina);
+        $stmtEnsina -> bindParam('id_professor', $idProfessor);
+
+        $stmtEnsina -> execute();
         
         $conexao->commit();
 
@@ -84,7 +93,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
           </script>";
 
     } catch (PDOException $e) {
-
+        $conexao -> rollBack();
         echo"<script>
             alert('Professor não cadastrado, erro: " . addslashes($e -> getMessage()) . "');
         </script>";
