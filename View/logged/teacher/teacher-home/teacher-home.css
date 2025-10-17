@@ -1,36 +1,110 @@
-.teacher-home {
+* {
     margin: 0;
     padding: 0;
-    height: 90vh;
-    width: 85vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.teacher-home header {
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background: #E2E6EF;
+    width: 500px;
+    height: 285px;
+    padding: 40px;
+    gap: 30px;
+    border-radius: 15px;
+}
+
+h1 {
+    text-align: center
+}
+
+h2 {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.teacher-home button {
-    background-color: #250664;
-    color: white;
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.fields div {
+    display: flex;
+    gap: 20px;
+}
+
+.fields div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type='text'] {
+    height: 40px;
+    border-radius: 15px;
     border: none;
-    border-radius: 20px;
-    height: 50px;
-    width: 260px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.teacher-home button:hover {
-    background-color: #3a0da5;
+input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+}
+
+input[type='checkbox']:checked {
+    background-color: #564caf;
+}
+
+div .buttons {
+    width: 100%;    
+    display: flex;          
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+}
+
+.buttons img {
+    width: 40px;
+    transition: 0.3s;
+
+    &:hover {
+        width: 45px;
+    }
+}
+
+input[type='submit'] {
+    width: 250px;
+    background: #100629;
+    border-radius: 15px;
+    color: white;
+    height: 40px;
+    border: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
 }
