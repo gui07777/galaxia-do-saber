@@ -10,63 +10,106 @@
 </head>
 
 <body>
+    <header>
+        <div id="open">
+            <span id="open_btn" onclick="toggleSidebar()">
+                <i id="open_btn_icon" class="material-symbols-outlined">menu</i>
+            </span>
+            <img src="../../../../assets/icons/logosemfundo.png" class="logo">
+        </div>
+        <div class="width"></div>
+        <div class="buttons">
+            <img src="../../../../assets/icons/sininho.png" alt="">
+            <img src="../../../../assets/icons/anonimous.png" alt="">
+        </div>
+    </header>
     <nav id="sidebar">
         <div id="sidebar_content">
-            <div id="open">
-                <button id="open_btn">
-                <i id="open_btn_icon" class="material-symbols-outlined">menu</i>
-            </button>
-            </div>
-    
-            <ul id="side_items">
-                <li class="side-item">
-                    <a href="#/institution-home" data-page="../teacher-home/teacher-home.html">
-                    <i class="material-symbols-outlined">home</i>
+            <div id="side_items">
+                <div class="side-item">
+                    <a href="#/institution-home" data-page="../institution-home/institution-home.html">
+                        <i class="material-symbols-outlined">home</i>
                         <span class="item-description">
                             Início
                         </span>
                     </a>
-                </li>
-    
-                <li class="side-item">
-                    <a href="#/institutional-agenda" data-page="../teacher-agenda/teacher-agenda.html">
-                    <i class="material-symbols-outlined">calendar_month</i>
+                </div>
+                <div class="side-item" onclick="toggleRegisterItems()">
+                    <a>
+                        <i class="material-symbols-outlined">add</i>
+                        <span class="item-description">
+                            Criar Atividade
+                        </span>
+                    </a>
+                </div>
+                <div id="register-items">
+                    <div class="side-item">
+                        <a href="#/student-register" data-page="../student-register/student-register.html">
+                            <i class="material-symbols-outlined">face</i>
+                            <span class="item-description">
+                                Alunos
+                            </span>
+                        </a>
+                    </div>
+                    <div class="side-item">
+                        <a href="#/teacher-register" data-page="../teacher-register/teacher-register.html">
+                            <i class="material-symbols-outlined">school</i>
+                            <span class="item-description">
+                                Professores
+                            </span>
+                        </a>
+                    </div>
+                    <div class="side-item">
+                        <a href="#/class-creation" data-page="../class-creation/class-creation.html">
+                            <i class="material-symbols-outlined">class</i>
+                            <span class="item-description">
+                                Turma
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="side-item">
+                    <a href="#/institutional-agenda" data-page="../institutional-agenda/institutional-agenda.html">
+                        <i class="material-symbols-outlined">calendar_month</i>
                         <span class="item-description">
                             Agenda
                         </span>
                     </a>
-                </li>
-    
-                <li class="side-item">
-                    <a href="#/general-communication" data-page="../general-comunication/general-comunication.html">
-                    <i class="material-symbols-outlined">mail</i>
+                </div>
+                <div class="side-item">
+                    <a href="#/general-communication" data-page="../general-communication/general-communication.html">
+                        <i class="material-symbols-outlined">mail</i>
                         <span class="item-description">
                             Comunicados
                         </span>
                     </a>
-                </li>
-    
-                <li class="side-item">
+                </div>
+                <div class="side-item">
                     <a href="#/general-reports" data-page="../general-reports/general-reports.html">
-                    <i class="material-symbols-outlined">bar_chart_4_bars</i>
+                        <i class="material-symbols-outlined">bar_chart_4_bars</i>
                         <span class="item-description">
                             Relatórios Gerais
                         </span>
                     </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-
-        <div id="logout">
-            <button id="logout_btn">
+        <div id="logout" onclick="openLogoutModal()">
+            <a href="">
                 <i class="material-symbols-outlined">logout</i>
                 <span class="item-description">
                     Sair
                 </span>
-            </button>
+            </a>
         </div>
     </nav>
-
+    <div id="logout-modal">
+        <h3>Tem certeza que deseja sair?</h3>
+        <div class="logout-buttons">
+            <button>Sair</button>
+            <button onclick="closeLogoutModal()">Cancelar</button>
+        </div>
+    </div>
     <main id="app-content">
     </main>
     <script src="teacher-sidebar.js"></script>
