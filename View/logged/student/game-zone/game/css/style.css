@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,10 +15,9 @@ body {
   color: #fff;
 }
 
-
 .header {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #250664;
   backdrop-filter: blur(10px);
   text-align: center;
   padding: 25px 0;
@@ -33,7 +32,6 @@ body {
   letter-spacing: 1px;
 }
 
-
 .tittle-content {
   margin-top: 50px;
   text-align: center;
@@ -41,10 +39,9 @@ body {
 
 .tittle-content h3 {
   font-size: 1.5rem;
-  color: #f1f1f1;
+  color: black;
   font-weight: 500;
 }
-
 
 .container {
   margin-top: 50px;
@@ -69,21 +66,16 @@ body {
   box-shadow: 0 8px 20px rgba(0, 114, 255, 0.3);
 }
 
-.item a {
-  text-decoration: none;
-  color: #fff;
-}
-
 .item:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 25px rgba(0, 114, 255, 0.6);
 }
 
-
 .container2 {
   background: rgba(255, 255, 255, 0.1);
-  margin-top: 80px;
-  padding: 45px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
   border-radius: 18px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -94,9 +86,17 @@ body {
 
 .container2 h1 {
   margin-bottom: 25px;
-  color: #ffffff;
+  color: black;
   font-weight: 600;
   letter-spacing: 1px;
+}
+
+#n1,
+#n2 {
+  background:#27b178;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 .contentbox {
@@ -106,10 +106,18 @@ body {
   gap: 15px;
 }
 
-.yeah {
+.contentbox div {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-operator {
   font-size: 2rem;
-  color: #fff;
+  color: black;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contenttext input {
@@ -122,29 +130,28 @@ body {
   color: #333;
   background: #fff;
   outline: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
 
 button {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   border: none;
   border-radius: 10px;
   color: #fff;
-  font-size: 1.2rem;
-  padding: 5px 14px;
+  font-size: 14px;
+  width: 100px;
+  height: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(37,117,252,0.3);
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
   font-weight: 500;
 }
 
 button:hover {
   transform: translateY(-3px);
   background: linear-gradient(135deg, #2575fc, #6a11cb);
-  box-shadow: 0 8px 25px rgba(37,117,252,0.5);
+  box-shadow: 0 8px 25px rgba(37, 117, 252, 0.5);
 }
-
 
 .final-content {
   margin-top: auto;
@@ -154,10 +161,9 @@ button:hover {
   font-size: 1rem;
   color: #e0e0e0;
   letter-spacing: 0.5px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #250664;
   width: 100%;
 }
-
 
 @media (max-width: 600px) {
   .item {

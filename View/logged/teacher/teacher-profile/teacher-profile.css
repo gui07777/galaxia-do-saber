@@ -46,7 +46,8 @@ label {
     font-size: 15px;
 }
 
-input[type='text'] {
+input[type='text'],
+input[type='date'] {
     height: 40px;
     width: 400px;
     border-radius: 15px;
