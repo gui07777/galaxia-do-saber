@@ -1,8 +1,6 @@
-1 - no botao de cadastrar tem quer adapta-lo para exibir outros 3 botões, um para cada tipo de usuario; concluido
+1 - botao de sair precisa exibir uma modal perguntando se o usuario realmente quer sair; standby
 
-2 - botao de sair precisa exibir uma modal perguntando se o usuario realmente quer sair; standby
-
-3 - sidebar precisa renderizar os componentes ja estilizados ao clicar nos respectivos botões; pendente
+2 - sidebar precisa renderizar os componentes ja estilizados ao clicar nos respectivos botões; pendente
 
 
 lógica da sidebar:
@@ -21,5 +19,5 @@ lógica da sidebar:
 
 1) Cache -> manter páginas carregadas em memória com objeto js para não refazer fetch toda hora
 2) Tratamento de erro -> se o arquivo nao for encontrado, renderize uma pagina de erro (404.html)
-3) Loading: mostre um spinner ou mensagem "Carregando..." enquanto o conteído chega
-4) Transições: pode usar animações de entrada e saída ao trocar o conteudo
+3) Loading -> mostre um spinner ou mensagem "Carregando..." enquanto o conteído chega
+4) Transições -> pode usar animações de entrada e saída ao trocar o conteudo

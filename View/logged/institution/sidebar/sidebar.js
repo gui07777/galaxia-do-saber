@@ -3,6 +3,7 @@ var openBtn = document.querySelector('#open_btn');
 var registerItems = document.querySelector('#register-items');
 var logoutModal = document.querySelector('#logout-modal');
 var logoutSidebarButton = document.querySelector('#logout');
+var link = document.querySelectorAll('a[data-page]')
 
 
 //muda o estado da sidebar para aberto ou fechado
@@ -37,3 +38,32 @@ function openLogoutModal() {
 function closeLogoutModal() {
     logoutModal.classList.remove('show-logout-modal');
 }
+
+//como sao mais de um link eu uso laço pra passar por cada um deles e colocar um ouvinte de clique
+link.forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault(); //impeço navegação padrão
+
+        const pageUrl = a.getAttribute('href');
+        const pageName = a.dataset.page;
+
+        //fetch para fazer uma requisiçaõ http ao pageUrl e pegar o href da pagina
+
+        fetch(pageUrl)
+        //tem esse then q nao sei oq faz mas ele tem como parametro uma response
+        //se nao for ok que tambem nao sei oq significa, da erro e exibe o texto da resposta na tela com o return
+            .then(response => {
+                if (!response.ok) throw new Error('Erro ao carregar pagina')
+                return response.text();
+            })
+
+            //nao entendi, nao sei oq o then faz
+            .then(html => {
+                document.querySelector('#main-content').innerHTML = html;
+            })
+
+            .catch(error => {
+                document.querySelector('#main-content').innerHTML = `<p style="color: red;">Erro ${error.message}</p>`
+            })
+    })
+})
