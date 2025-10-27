@@ -5,14 +5,11 @@ var logoutModal = document.querySelector('#logout-modal');
 var logoutSidebarButton = document.querySelector('#logout');
 var link = document.querySelectorAll('a[data-page]')
 
-
-//muda o estado da sidebar para aberto ou fechado
 function toggleSidebar() {
     if (!sidebar) return;
     sidebar.classList.toggle('show-sidebar');
 }
 
-//se clica fora da sidebar, fecha
 document.addEventListener('click', (event) => {
     if (!sidebar) return;
     const clickedOutside = !sidebar.contains(event.target)
@@ -26,7 +23,6 @@ function toggleRegisterItems() {
     registerItems.classList.toggle('show-register-items');
 }
 
-//problema de conflito entre eventos de click
 function openLogoutModal() {
     if (!sidebar.classList.contains('show-sidebar')) {
         return;
@@ -39,31 +35,33 @@ function closeLogoutModal() {
     logoutModal.classList.remove('show-logout-modal');
 }
 
-//como sao mais de um link eu uso laço pra passar por cada um deles e colocar um ouvinte de clique
 link.forEach(a => {
     a.addEventListener('click', e => {
-        e.preventDefault(); //impeço navegação padrão
+        e.preventDefault();
 
-        const pageUrl = a.getAttribute('href');
-        const pageName = a.dataset.page;
-
-        //fetch para fazer uma requisiçaõ http ao pageUrl e pegar o href da pagina
+        const pageUrl = a.dataset.page;
+        const cssUrl = pageUrl.replace('.html', '.css')
 
         fetch(pageUrl)
-        //tem esse then q nao sei oq faz mas ele tem como parametro uma response
-        //se nao for ok que tambem nao sei oq significa, da erro e exibe o texto da resposta na tela com o return
             .then(response => {
                 if (!response.ok) throw new Error('Erro ao carregar pagina')
                 return response.text();
             })
 
-            //nao entendi, nao sei oq o then faz
             .then(html => {
-                document.querySelector('#main-content').innerHTML = html;
-            })
+                document.querySelector('#app-content').innerHTML = html;
 
+                const oldLink = document.querySelector('#dynamic-style');
+                if (oldLink) oldLink.remove();
+
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = cssUrl;
+                link.id = 'dynamic-style';
+                document.head.appendChild(link);
+            })
             .catch(error => {
-                document.querySelector('#main-content').innerHTML = `<p style="color: red;">Erro ${error.message}</p>`
+                document.querySelector('#app-content').innerHTML = `<p style="color: red;">Erro ${error.message}</p>`
             })
     })
 })
