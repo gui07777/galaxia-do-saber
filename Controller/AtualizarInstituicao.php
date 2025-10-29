@@ -3,8 +3,10 @@
 require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'];
-$nome = $_POST['nome'];
+$nomeFantasia = $_POST['nome_fantasia'];
 $novaSenha = $_POST['senha'];
+$telefone = $_POST['telefone'];
+
 
 if (!empty($nome) && !empty($email)) {
 
@@ -12,12 +14,12 @@ if (!empty($nome) && !empty($email)) {
 
         $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
-        $sql = "UPDATE aluno SET nome = :nome, senha = :senha WHERE email = :email";
+        $sql = "UPDATE instituicao SET nome = :nome, senha = :senha, telefone = :telefone WHERE email = :email";
 
 
     } else {
 
-        $sql = "UPDATE aluno SET nome = :nome WHERE email = :email";
+        $sql = "UPDATE instituicao SET nome = :nome, telefone = :telefone WHERE email = :email";
 
     }
 
@@ -25,6 +27,7 @@ if (!empty($nome) && !empty($email)) {
 
     $requisicao->bindParam(':email', $email);
     $requisicao->bindParam(':nome', $nome);
+    $requisicao->bindParam(':telefone', $telefone);
 
     if (!empty($novaSenha)) {
 
@@ -35,17 +38,27 @@ if (!empty($nome) && !empty($email)) {
     try {
 
         $requisicao->execute();
-        echo 'Informações do Aluno atualizadas.';
+        
+        echo "<script>
+            alert('Informações da Instituição atualizadas!');
+            window.history.back()
+          </script>";
 
     } catch (PDOException $e) {
 
-        echo 'Erro: ' . $e->getMessage();
-
+        $conexao->rollBack();
+        echo "<script>
+            alert('Informações não atualizadas!. Erro: " . addslashes($e->getMessage()) . "');
+            window.history.back()
+        </script>";
     }
 
 } else {
 
-    echo 'Preencha o nome e o email para formalizar a atualização.';
+    echo "<script>
+            alert('Preencha o Nome e o Email para formalizar a atualização!');
+            window.history.back()
+          </script>";
 
 }
 
