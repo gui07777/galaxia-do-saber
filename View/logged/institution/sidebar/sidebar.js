@@ -40,7 +40,8 @@ link.forEach(a => {
         e.preventDefault();
 
         const pageUrl = a.dataset.page;
-        const cssUrl = pageUrl.replace('.html', '.css')
+        const cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
+        pageUrl.split('/').pop().replace('.html', '.css')
 
         fetch(pageUrl)
             .then(response => {
@@ -57,6 +58,7 @@ link.forEach(a => {
                 const link = document.createElement('link');
                 link.rel = 'stylesheet';
                 link.href = cssUrl;
+                console.log(link.href)
                 link.id = 'dynamic-style';
                 document.head.appendChild(link);
             })
