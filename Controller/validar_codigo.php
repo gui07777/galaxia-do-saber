@@ -2,22 +2,21 @@
 
 require_once('../Model/conexaoBanco/Conexao.php');
 
-$email = $_POST['email'] ?? '';
 $codigo = $_POST['codigo'] ?? '';
 
-if (empty($email) || empty($codigo)) {
+if (empty($codigo)) {
 
     echo "<script>
-    alert ('Por favor, preencha todos os campos.'); 
+    alert ('Por favor, preencha o campo.'); 
     window.history.back();
     </script>";
 
     exit;
 }
 
-$sql = "SELECT * FROM autenticacao WHERE email = :email AND codigo = :codigo";
+$sql = "SELECT * FROM autenticacao WHERE codigo = :codigo";
 $stmt = $conexao->prepare($sql);
-$stmt->execute([':email' => $email, ':codigo' => $codigo]);
+$stmt->execute([':codigo' => $codigo]);
 $dados = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$dados) {
@@ -32,12 +31,14 @@ if (!$dados) {
 
 
 $dataAtual = date('Y-m-d H:i:s');
+
 if ($dados['data_aut'] < $dataAtual) {
     echo "<script>
     alert('O código expirou. Solicite um novo.'); 
     window.location.href='index.html';
     </script>";
     exit;
+    
 }
 
 
@@ -45,4 +46,3 @@ echo "<script>
 alert('Código verificado com sucesso! Acesso liberado.'); 
 window.location.href='../View/logged/institution/sidebar/sidebar.html';
 </script>";
-

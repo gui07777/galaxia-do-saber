@@ -2,23 +2,25 @@
 
 require_once('../Model/conexaoBanco/Conexao.php');
 
-$email = $_POST['email'];
+
 $nome = $_POST['nome'];
+$descricaoTurma = $_POST['descricao'];
 
+if(!empty($nome) && !empty($descricaoTurma)){
 
-if(!empty($nome) && !empty($email)){
-
-    if(!empty($email)){
+    if(!empty($nome)){
 
         $sql = "UPDATE turma 
         SET nome = :nome,
+        descricao = :descricao
         WHERE email = :email";
 
 
     }else{
 
         $sql = "UPDATE turma 
-        SET nome = :nome
+        SET nome = :nome,
+        descricao = :descricao
         WHERE email = :email";
         
     }
@@ -27,21 +29,32 @@ if(!empty($nome) && !empty($email)){
 
     $requisicao -> bindParam(':email', $email);
     $requisicao -> bindParam(':nome', $nome);
+    $requisicao->bindParam(':descricao', $descricaoTurma);
 
     try{
 
         $requisicao -> execute();
-        echo'Informações do Aluno atualizadas.';
+        
+        echo "<script>
+            alert('Informações da Turma atualizadas!');
+            window.history.back() 
+          </script>";
 
     }catch(PDOException $e){
 
-    echo'Erro: ' . $e -> getMessage();
+    echo"<script>
+            alert('Turma não cadastrada, erro: " . addslashes($e -> getMessage()) . "');
+            window.history.back()
+        </script>";
 
     }
 
 }else{
 
-    echo'Preencha o nome e o email para formalizar a atualização.';
+    echo "<script>
+    alert('Insira todos os valores nos respectivos campos');
+    window.history.back()
+    </script>";
 
 }
 

@@ -52,7 +52,7 @@ try {
             ':data_aut2' => $data_aut
         ]);
 
-        $link = "https://localhost/GALAXIADOSABER/View/auth/institution/register/authentication/authenticator.html";
+        $link = "http://localhost/levi-modular/GALAXIADOSABER/View/auth/institution/register/authentication/authenticator.html";
 
         $mail->clearAllRecipients();
         $mail->addAddress($contato['email'], $contato['nome_fantasia']);

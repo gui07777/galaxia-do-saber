@@ -17,6 +17,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
 
         echo "<script>
         alert('As senhas não coincidem!');
+        window.history.back()
         </script>";
 
         exit;
@@ -38,7 +39,10 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
 
         if (!$instituicao) {
 
-            echo "<script>alert('Instituição não encontrada!');</script>";
+            echo "<script>
+            alert('Instituição não encontrada!');
+            window.history.back()
+            </script>";
             exit;
 
         }
@@ -96,6 +100,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
         $conexao -> rollBack();
         echo"<script>
             alert('Professor não cadastrado, erro: " . addslashes($e -> getMessage()) . "');
+            window.history.back()
         </script>";
     }
 
@@ -103,6 +108,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
 
     echo "<script>
     alert('Insira todos os valores nos respectivos campos');
+    window.history.back()
     </script>";
     
 }

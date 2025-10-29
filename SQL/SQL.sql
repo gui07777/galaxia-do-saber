@@ -131,3 +131,5 @@ data_aut DATETIME,
 id_status INT,
 FOREIGN KEY (id_status) REFERENCES status(id_status)
 );
+
+ALTER TABLE instituicao ADD COLUMN notificado TINYINT(1) DEFAULT 0;

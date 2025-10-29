@@ -30,9 +30,7 @@ if (!empty($nome)) {
 
         echo "<script>
             alert('Turma Criada com Sucesso!');
-            setTimeout(function() {
-                window.location.href = '../View/logged/institution/sidebar/sidebar.html';
-            }, 50); 
+            window.history.back()
           </script>";
 
 
@@ -40,6 +38,7 @@ if (!empty($nome)) {
 
         echo"<script>
             alert('Turma não cadastrada, erro: " . addslashes($e -> getMessage()) . "');
+            window.history.back()
         </script>";
 
     }
@@ -48,6 +47,7 @@ if (!empty($nome)) {
 
     echo "<script>
     alert('Insira todos os valores nos respectivos campos');
+    window.history.back()
     </script>";
 
 }

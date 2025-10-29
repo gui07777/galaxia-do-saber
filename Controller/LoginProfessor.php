@@ -37,6 +37,7 @@ if (!empty($email) && !empty($senha)) {
 
             echo "<script>
             alert('Senha incorreta');
+            window.history.back()
             </script>";
             
         }
@@ -45,6 +46,7 @@ if (!empty($email) && !empty($senha)) {
 
     echo "<script>
     alert('Usuário não encontrado!');
+    window.history.back()
     </script>";
 
     }
@@ -53,6 +55,7 @@ if (!empty($email) && !empty($senha)) {
     
     echo "<script>
     alert('Preencha todos os campos');
+    window.history.back()
     </script>";
 
 }
