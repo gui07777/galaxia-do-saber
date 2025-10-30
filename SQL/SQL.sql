@@ -125,9 +125,11 @@ FOREIGN KEY (id_atividade) REFERENCES atividades(id_atividade),
 FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno)
 );
 
-CREATE TABLE autenticação(
+CREATE TABLE autenticacao(
 id_autenticacao INT AUTO_INCREMENT PRIMARY KEY,
-data_aut DATETIME,
+data_aut DATETIME NOT NULL,
+email VARCHAR(100) NOT NULL,
+codigo VARCHAR(10) NOT NULL,
 id_status INT,
 FOREIGN KEY (id_status) REFERENCES status(id_status)
 );

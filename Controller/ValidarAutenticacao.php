@@ -16,6 +16,7 @@ if (empty($codigo)) {
 
 $sql = "SELECT * FROM autenticacao WHERE codigo = :codigo";
 $stmt = $conexao->prepare($sql);
+$smtm -> bindParam(':codigo', $codigo, PDO::PARAM_STR);
 $stmt->execute([':codigo' => $codigo]);
 $dados = $stmt->fetch(PDO::FETCH_ASSOC);
 

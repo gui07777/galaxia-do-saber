@@ -7,45 +7,39 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/PHPMailer/src/Exception.php';
-require __DIR__ . '/PHPMailer/src/SMTP.php';
+require __DIR__ . '/../Model/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/../Model/PHPMailer/src/Exception.php';
+require __DIR__ . '/../Model/PHPMailer/src/SMTP.php';
 
-$mail = new PHPMailer(true);
+function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
+{
+    $mail = new PHPMailer(true);
 
-try {
-    
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'phpmailerteste9@gmail.com';
-    $mail->Password = 'peqjdrdqezxqeqaz';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
-    $mail->CharSet = 'UTF-8';
-    $mail->setLanguage('pt_br', __DIR__ . '/PHPMailer/language/phpmailer.lang-pt_br.php');
-    $mail->setFrom('phpmailerteste9@gmail.com', 'Galáxia do Saber');
+    try {
 
-    $sql = "SELECT nome_fantasia, email FROM instituicao WHERE notificado = 0";
-    $stmt = $conexao->query($sql);
-    $contatos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'phpmailerteste9@gmail.com';
+        $mail->Password = 'peqjdrdqezxqeqaz';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+        $mail->CharSet = 'UTF-8';
+        $mail->setLanguage('pt_br', __DIR__ . '/../Model/PHPMailer/language/phpmailer.lang-pt_br.php');
+        $mail->setFrom('phpmailerteste9@gmail.com', 'Galáxia do Saber');
 
-    if (count($contatos) === 0) {
-        die('Nenhum novo e-mail encontrado para envio.');
-    }
 
-    foreach ($contatos as $contato) {
-        $codigo = rand(100000, 999999); 
-        $data_aut = date('Y-m-d H:i:s', time() + 3600); 
+        $codigo = rand(100000, 999999);
+        $data_aut = date('Y-m-d H:i:s', time() + 3600);
 
         $insert = $conexao->prepare("
             INSERT INTO autenticacao (email, codigo, data_aut)
             VALUES (:email, :codigo, :data_aut)
             ON DUPLICATE KEY UPDATE codigo = :codigo2, data_aut = :data_aut2
-        ");
+            ");
 
         $insert->execute([
-            ':email' => $contato['email'],
+            ':email' => $email,
             ':codigo' => $codigo,
             ':data_aut' => $data_aut,
             ':codigo2' => $codigo,
@@ -54,8 +48,8 @@ try {
 
         $link = "http://localhost/levi-modular/GALAXIADOSABER/View/auth/institution/register/authentication/authenticator.html";
 
-        $mail->clearAllRecipients();
-        $mail->addAddress($contato['email'], $contato['nome_fantasia']);
+
+        $mail->addAddress($email, $nomeFantasia);
         $mail->isHTML(true);
         $mail->Subject = 'Seu código de autenticação';
         $mail->Body = "
@@ -69,7 +63,7 @@ try {
                 </tr>
                 <tr>
                     <td style='padding: 30px; color: #333333;'>
-                        <h2 style='color: #7E3FF2;'>Olá, {$contato['nome_fantasia']}!</h2>
+                        <h2 style='color: #7E3FF2;'>Olá, {$nomeFantasia}!</h2>
                         <p>Recebemos uma solicitação para validar o acesso à sua conta.</p>
                         <p>Use o código abaixo para autenticação:</p>
                         <div style='background-color: #f3f0ff; border: 1px dashed #9C27F0; border-radius: 8px; text-align: center; padding: 15px; margin: 20px 0;'>
@@ -94,21 +88,19 @@ try {
             </table>
         </div>";
 
-        set_time_limit(60);
         $mail->send();
 
         $update = $conexao->prepare("UPDATE instituicao 
-        SET notificado = 1 
-        WHERE email = :email");
+                SET notificado = 1 
+                WHERE email = :email");
 
-        $update->execute([':email' => $contato['email']]);
+        $update->execute([':email' => ['email']]);
+
+    } catch (Exception $e) {
+
+        echo "<script>
+        alert('Erro ao enviar o e-mail: {$mail->ErrorInfo}');
+        </script>";
 
     }
-
-    echo "<script>
-    alert('Códigos enviados com sucesso!');
-    </script>";
-
-} catch (Exception $e) {
-    echo "Erro ao enviar o e-mail: {$mail->ErrorInfo}";
 }

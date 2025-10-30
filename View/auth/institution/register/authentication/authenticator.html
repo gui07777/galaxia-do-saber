@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,28 @@
     <link rel="stylesheet" href="authenticator.css?v=5">
     <script src="authenticator.js"></script>
 </head>
-
 <body>
-    <form class="form" action="../../../../../Controller/validar_codigo.php" method="POST">
+    <form class="form" action="../../../../../Controller/ValidarAutenticacao.php" method="POST">
         <div class="authenticator">
             <div class="text">
                 <p class="header">Autenticador</p><br><br>
-                <p>Um código de segurança foi enviado para o e-mail da instituição. <br>
-                    Verifique sua caixa de entrada e digite no campo abaixo.</p>
+                <p>Um código de segurança foi enviado para o e-mail da instituição.<br>
+                Verifique sua caixa de entrada e digite no campo abaixo.</p>
             </div>
+
             <div class="boxes">
-                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric">
-                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric">
-                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric">
-                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric">
-                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric">
-                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric">
+                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" class="code-input">
+                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" class="code-input">
+                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" class="code-input">
+                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" class="code-input">
+                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" class="code-input">
+                <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" class="code-input">
             </div>
-            <button>Confirmar</button>
+
+            <input type="hidden" name="codigo" id="codigo">
+            
+            <button type="submit">Confirmar</button>
         </div>
     </form>
 </body>
-
 </html>

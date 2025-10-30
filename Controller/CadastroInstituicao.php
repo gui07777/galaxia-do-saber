@@ -1,22 +1,23 @@
 <?php
 
 require_once('../Model/conexaoBanco/Conexao.php');
+require_once('../Controller/EmailAutenticacaoInstituicao.php');
 
-$email = $_POST['email'];
-$nomeFantasia = $_POST['nome_fantasia'];
-$repetirSenha = $_POST['repetir_senha'];
-$senha = $_POST['senha'];
-$razaoSocial = $_POST['razao_social'];
-$cnpj = $_POST['cnpj'];
-$codigoInep = $_POST['codigo_inep'];
-$telefone = $_POST['telefone'];
-$cep = $_POST['cep'];
-$estado = $_POST['estado'];
-$municipio = $_POST['municipio'];
-$bairro = $_POST['bairro'];
-$rua = $_POST['rua'];
-$numero = $_POST['numero'];
-$complemento = $_POST['complemento'];
+$email = $_POST['email'] ?? '';
+$nomeFantasia = $_POST['nome_fantasia'] ?? '';
+$repetirSenha = $_POST['repetir_senha'] ?? '';
+$senha = $_POST['senha'] ?? '';
+$razaoSocial = $_POST['razao_social'] ?? '';
+$cnpj = $_POST['cnpj'] ?? '';
+$codigoInep = $_POST['codigo_inep'] ?? '';
+$telefone = $_POST['telefone'] ?? '';
+$cep = $_POST['cep'] ?? '';
+$estado = $_POST['estado'] ?? '';
+$municipio = $_POST['municipio'] ?? '';
+$bairro = $_POST['bairro'] ?? '';
+$rua = $_POST['rua'] ?? '';
+$numero = $_POST['numero'] ?? '';
+$complemento = $_POST['complemento'] ?? '';
 
 
 try {
@@ -138,17 +139,24 @@ try {
 
     $conexao->commit();
 
+    AutenticacaoInstituicao($email, $nomeFantasia, $conexao);
+
     echo "<script>
-            alert('Instituição cadastrada com sucesso!');
+            alert('Instituição cadastrada com sucesso! Um e-mail foi enviado para validação.');
             setTimeout(function() {
-                window.location.href = '../View/auth/institution/login/institution-login.html';
-            }, 70); 
+                window.location.href = '../View/auth/institution/register/authentication/authenticator.html';
+            }, 70);
+
           </script>";
 
+    
 
 } catch (PDOException $e) {
 
-    $conexao->rollBack();
+    if($conexao->inTransaction()){
+        $conexao->rollBack();
+    }
+
     echo "<script>
             alert('Instituição não cadastrada, erro: " . addslashes($e->getMessage()) . "');
             window.history.back()
