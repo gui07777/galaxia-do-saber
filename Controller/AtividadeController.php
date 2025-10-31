@@ -6,24 +6,23 @@ switch ($requisicao) {
 
     case 'Atualizar':
 
-        include 'AtualizarInstituicao.php';
+        include 'AtualizarAtividade.php';
         break;
 
     case 'Cadastrar':
 
-        include 'CadastroInstituicao.php';
+        include 'CriarAtividade.php';
         break;
 
     case 'Consultar':
 
-        include 'ConsultarInstituicao.php';
+        include 'ConsultarAtividade.php';
         break;
 
     case 'Remover':
 
-        include 'RemoverInstituicao.php';
+        include 'RemoverAtividade.php';
         break;
-
 
     default:
 
