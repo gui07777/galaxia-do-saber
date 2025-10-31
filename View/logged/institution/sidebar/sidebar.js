@@ -41,7 +41,7 @@ link.forEach(a => {
 
         const pageUrl = a.dataset.page;
         const cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-        pageUrl.split('/').pop().replace('.html', '.css')
+            pageUrl.split('/').pop().replace('.html', '.css')
 
         fetch(pageUrl)
             .then(response => {
@@ -51,6 +51,17 @@ link.forEach(a => {
 
             .then(html => {
                 document.querySelector('#app-content').innerHTML = html;
+
+                const scriptUrl = pageUrl.substring(0, pageUrl.astIndexOf('/')) + '/' +
+                    pageUrl.split('/').pop().replace('.html.', '.js')
+
+                const oldScript = document.querySelector('#dynamic-script');
+                if (oldScript) oldScript.remove();
+
+                const script = document.createElement('script');
+                script.src = scriptUrl;
+                script.id = 'dynamic-script';
+                document.body.appendChild(script);
 
                 const oldLink = document.querySelector('#dynamic-style');
                 if (oldLink) oldLink.remove();
