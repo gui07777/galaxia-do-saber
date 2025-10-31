@@ -10,13 +10,14 @@
 </head>
 
 <body>
-    <form class="form" method="POST" enctype="multipart/form-data" action="../../../../Controller/TurmaController.php">
+    <form class="form" method="POST" enctype="multipart/form-data"
+        action="../../../../Controller/AtividadeController.php">
         <div class="container">
             <h1>Adicionar atividade</h1>
             <div class="fields">
                 <div>
                     <label for="titulo">Título da Atividade:</label>
-                    <input type="text" name="nome" id="titulo" required>
+                    <input type="text" name="titulo" id="titulo" required>
                 </div>
                 <div>
                     <label for="prazo">Prazo (data limite):</label>
@@ -26,6 +27,13 @@
                 <div>
                     <label for="data_post">Data de Publicação:</label>
                     <input type="datetime-local" name="data_post" id="data_post" required>
+                </div>
+
+                <div>
+
+                    <label for="turma">Turma: </label>
+                    <input type="text" id="turma" name="turma" placeholder="Digite o nome da turma" required>
+
                 </div>
 
                 <div>
@@ -41,7 +49,6 @@
             </div>
         </div>
     </form>
-    <script src="class-creation.js"></script>
 </body>
 
 </html>

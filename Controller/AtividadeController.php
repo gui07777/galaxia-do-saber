@@ -9,7 +9,7 @@ switch ($requisicao) {
         include 'AtualizarAtividade.php';
         break;
 
-    case 'Cadastrar':
+    case 'Criar':
 
         include 'CriarAtividade.php';
         break;
