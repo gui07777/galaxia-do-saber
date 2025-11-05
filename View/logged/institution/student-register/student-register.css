@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
+#student-register {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-.container {
+#student-register .container {
     display: flex;
     flex-direction: column;
     background: #E2E6EF;
@@ -26,27 +26,28 @@ body {
     margin-top: 10vh
 }
 
-h2 {
+#student-register h2 {
     text-align: center
 }
 
-.fields {
+#student-register .fields {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 40px
 }
 
-div {
+#student-register div {
     display: flex;
     flex-direction: column;
     gap: 8px
 }
 
-label {
+#student-register label {
     font-size: 15px;
 }
 
+#student-register 
 input[type='text'],
 input[type='password'] {
     height: 35px;
@@ -55,14 +56,14 @@ input[type='password'] {
     border: none;
 }
 
-div .buttons {
+#student-register div .buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top:40px;
 }
 
-.buttons img {
+#student-register .buttons img {
     width: 40px;
     transition: 0.3s;
 
@@ -71,7 +72,7 @@ div .buttons {
     }
 }
 
-input[type='submit'] {
+#student-register input[type='submit'] {
     width: 250px;
     background: #100629;
     border-radius: 15px;

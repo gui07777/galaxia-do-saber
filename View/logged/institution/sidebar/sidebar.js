@@ -52,7 +52,7 @@ link.forEach(a => {
             .then(html => {
                 document.querySelector('#app-content').innerHTML = html;
 
-                const scriptUrl = pageUrl.substring(0, pageUrl.astIndexOf('/')) + '/' +
+                const scriptUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
                     pageUrl.split('/').pop().replace('.html.', '.js')
 
                 const oldScript = document.querySelector('#dynamic-script');
