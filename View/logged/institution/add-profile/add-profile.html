@@ -1,42 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre a sua turma!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <link rel="stylesheet" href="add-profile.css?v=3">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relacionar perfis a turmas</title>
+  <link rel="stylesheet" href="add-profile.css?v=5">
 </head>
-
 <body>
-    <form class="form" method="POST" action="../../../../Controller/TurmaController.php">
-        <div class="container">
-            <h1>Adicionar perfil</h1>
-            <div class="fields">
-                <div>
-                    <div>
-                        <input type="checkbox" name="professor" id="">
-                        <label for="">Professor</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="aluno" id="">
-                        <label for="">Aluno</label>
-                    </div>
-                </div>
-                <div>
-                    <label for="">Nome:</label>
-                    <input type="text" name="nome" required>
-                </div>
-            </div>
-            <div class="buttons">
-                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
-                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-                <input type="submit" value="Adicionar" name="requisicao">
-            </div>
-        </div>
-    </form>
-    <script src="add-profile.js"></script>
-</body>
+  <form class="form" method="POST" action="../../../../Controller/RelacionarPerfil.php">
+    <div class="container">
+      <h1>Relacionar perfis a turmas</h1>
 
+      <div class="fields">
+        <div>
+          <input type="radio" name="tipo" value="professor" id="professor" required>
+          <label for="professor">Professor</label>
+
+          <input type="radio" name="tipo" value="aluno" id="aluno" required>
+          <label for="aluno">Aluno</label>
+        </div>
+
+        <div id="professorSelect" style="display:none;">
+          <label for="id_professor">Selecione o Professor:</label>
+          <select name="id_professor" id="selectProfessor">
+            <option value="">-- Escolha um professor --</option>
+          </select>
+        </div>
+
+        <div id="alunoSelect" style="display:none;">
+          <label for="id_aluno">Selecione o Aluno:</label>
+          <select name="id_aluno" id="selectAluno">
+            <option value="">-- Escolha um aluno --</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="id_turma">Selecione a Turma:</label>
+          <select name="id_turma" id="selectTurma" required>
+            <option value="">-- Escolha uma turma --</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="navigationBack()">
+        <input type="submit" value="Relacionar" name="relacionar">
+      </div>
+    </div>
+  </form>
+
+  <script src="add-profile.js"></script>
+  
+</body>
 </html>

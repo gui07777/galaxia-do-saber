@@ -1,43 +1,44 @@
-navigateBack = () => {
-        window.location.href = '../student-home/student-home.html';
-}
+async function carregarAtividades(idTurma) {
+    const lista = document.getElementById("activity-list");
 
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".activities");
+    try {
+        const resposta = await fetch(`consultarAtividade.php?id_turma=${idTurma}`);
+        const dados = await resposta.json();
 
-    fetch("consultaratividade.php")
-        .then(response => response.json())
-        .then(data => {
-            if (data.erro) {
-                container.innerHTML = `<p class="error">${data.erro}</p>`;
-                return;
-            }
+        lista.innerHTML = "";
 
-            if (data.length === 0) {
-                container.innerHTML += `<p class="empty">Nenhuma atividade encontrada.</p>`;
-                return;
-            }
+        if (dados.erro) {
+            lista.innerHTML = `<p>Erro: ${dados.erro}</p>`;
+            return;
+        }
 
-            data.forEach(atividade => {
-                const atividadeDiv = document.createElement("div");
-                atividadeDiv.classList.add("atividade");
+        if (dados.length === 0) {
+            lista.innerHTML = "<p>Não há atividades atribuídas a esta turma.</p>";
+            return;
+        }
 
-                atividadeDiv.innerHTML = `
-                    <div class="atividade-info">
-                        <h2>${atividade.titulo}</h2>
-                        <p>Postada em: ${atividade.data_post}</p>
-                    </div>
-                    <div class="atividade-status">
-                        <p>Prazo: ${atividade.prazo}</p>
-                        <p>Status: Pendente</p>
-                    </div>
-                `;
+        dados.forEach((atividade) => {
+            const item = document.createElement("div");
+            item.classList.add("activity-item");
 
-                container.appendChild(atividadeDiv);
-            });
-        })
-        .catch(err => {
-            console.error(err);
-            container.innerHTML = `<p class="error">Erro ao carregar atividades.</p>`;
+            const anexoBtn = atividade.link_anexo
+                ? `<a href="${atividade.link_anexo}" target="_blank" class="anexo-btn">Ver anexo</a>`
+                : `<span class="no-anexo">Sem anexo</span>`;
+
+            item.innerHTML = `
+                <div class="activity-title">
+                    ${atividade.titulo}
+                    ${anexoBtn}
+                </div>
+                <div class="activity-info">
+                    <span>${atividade.prazo || "Sem prazo definido"}</span>
+                    <span class="status">Pendente</span>
+                </div>
+            `;
+
+            lista.appendChild(item);
         });
-});
+    } catch (erro) {
+        lista.innerHTML = `<p>Erro ao carregar atividades: ${erro.message}</p>`;
+    }
+}

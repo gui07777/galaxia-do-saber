@@ -19,7 +19,7 @@ try {
 
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Conexão bem sucedida! <br><hr><br>";
+    // echo "Conexão bem sucedida! <br><hr><br>";
 
 } catch (PDOException $e) {
 

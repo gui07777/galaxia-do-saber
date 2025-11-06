@@ -1,16 +1,15 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['id_aluno'])) {
-    header('Location: ../../../auth/student/login/student-login.html');
-    exit;
-}
+require_once('../../../../Model/conexaoBanco/Conexao.php');
 
+$id_turma = $_SESSION['id_turma'] ?? $_GET['id_turma'] ?? null;
+$nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +20,7 @@ if (!isset($_SESSION['id_aluno'])) {
 
 <body>
     <header>
-        <img src="../../../../assets/icons/logosemfundo.png" class="logo">
+        <img src="../../../../assets/icons/logosemfundo.png" class="logo" alt="Logo">
         <div class="width"></div>
         <div class="buttons">
             <img src="../../../../assets/icons/sininho.png" alt="Notificações">
@@ -31,36 +30,41 @@ if (!isset($_SESSION['id_aluno'])) {
 
     <main>
         <div class="back">
-            <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="navigateBack()">
+            <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="history.back()">
         </div>
 
         <div class="titles">
-            <h1>Bem vindo(a), <?= htmlspecialchars($_SESSION['nome_aluno']) ?>!</h1>
+            <h1>Bem-vindo(a), <?= htmlspecialchars($nome_aluno) ?>!</h1>
 
-            <?php if (empty($_SESSION['id_turma'])): ?>
+            <?php if (empty($id_turma)): ?>
                 <p>Você ainda não está vinculado a uma turma. Aguarde a coordenação atribuir sua turma.</p>
             <?php else: ?>
-                <p>Veja as atividades da sua turma.</p>
+                <p>Veja as atividades da sua turma abaixo.</p>
             <?php endif; ?>
         </div>
 
         <div class="activities">
-            <?php if (empty($_SESSION['id_turma'])): ?>
-                <div class="status-bar" style="text-align:center; margin-top:20px;">
-                    <p>Sem atividades disponíveis no momento.</p>
+            <div class="status-bar">
+                <div><label>Tarefas</label></div>
+                <div>
+                    <label>Entrega</label>
+                    <label>Status</label>
                 </div>
-            <?php else: ?>
-                <div class="status-bar">
-                    <div><label>Tarefas</label></div>
-                    <div>
-                        <label>Entrega</label>
-                        <label>Status</label>
-                    </div>
-                </div>
-            <?php endif; ?>
+            </div>
+
+            <div class="activity-list">
+                <?php
+                if ($id_turma) {
+                    include('consultarAtividade.php');
+                } else {
+                    echo "<p style='text-align:center; margin-top: 20px;'>Nenhuma turma associada.</p>";
+                }
+                ?>
+            </div>
         </div>
     </main>
 
-    <script src="activities-zone.js?v=3"></script>
+    <script src="activities-zone.js?v=4"></script>
 </body>
+
 </html>
