@@ -1,6 +1,6 @@
 function navigate(path) {
     if (path === 'atividades') {
-        window.location.href = '../activities-zone/activities-zone.html';
+        window.location.href = '../activities-zone/activities-zone.php';
     }
     else if (path === 'agenda') {
         window.location.href = '../student-agenda/student-agenda.html';

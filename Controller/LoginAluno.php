@@ -4,58 +4,69 @@ session_start();
 
 require_once('../Model/conexaoBanco/Conexao.php');
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$email = $_POST['email'] ?? "";
+$senha = $_POST['senha'] ?? "";
 
 if (!empty($email) && !empty($senha)) {
 
-    $sql = 'SELECT * FROM aluno WHERE email = :email';
+    try {
+        $sql = 'SELECT * FROM aluno WHERE email = :email';
+        $requisicao = $conexao->prepare($sql);
+        $requisicao->bindParam(':email', $email);
+        $requisicao->execute();
 
-    $requisicao = $conexao->prepare($sql);
-    $requisicao->bindParam(':email', $email);
-    $requisicao->execute();
+        $aluno = $requisicao->fetch(PDO::FETCH_ASSOC);
 
-    $aluno = $requisicao->fetch(PDO::FETCH_ASSOC);
+        if ($aluno) {
+            if (password_verify($senha, $aluno['senha'])) {
 
-    if ($aluno) {
-        if (password_verify($senha, $aluno['senha'])) {
+                $_SESSION['id_aluno'] = $aluno['id_aluno'];
+                $_SESSION['nome_aluno'] = $aluno['nome'];
 
-            $_SESSION['aluno_id'] = $aluno['id'];
-            $_SESSION['aluno_nome'] = $aluno['nome'];
+                if (!empty($aluno['id_turma'])) {
+                    $_SESSION['id_turma'] = $aluno['id_turma'];
+                } else {
+                    $_SESSION['id_turma'] = null;
+                }
 
-            echo "<script> 
-            alert('Login feito com sucesso!'); 
-            setTimeout(function() { 
-            window.location.href = '../View/logged/student/student-home/student-home.html'; 
-            }, 30); 
-            </script>";
-            
-            exit;
+                echo "<script> 
+                    alert('Login feito com sucesso!'); 
+                    setTimeout(function() { 
+                        window.location.href = '../View/logged/student/activities-zone/activities-zone.php'; 
+                    }, 500); 
+                </script>";
+                exit;
+
+            } else {
+                echo "<script>
+                    alert('Senha incorreta');
+                    window.history.back();
+                </script>";
+                exit;
+            }
 
         } else {
-
+            
             echo "<script>
-        alert('Senha incorreta');
-        window.history.back()
-        </script>";
-
+                alert('Aluno não encontrado!');
+                window.history.back();
+            </script>";
+            exit;
         }
 
-    } else {
-
+    } catch (PDOException $e) {
         echo "<script>
-    alert('Aluno não encontrado!');
-    window.history.back()
-    </script>";
-
+            alert('Erro no banco de dados: " . $e->getMessage() . "');
+            window.history.back();
+        </script>";
+        exit;
     }
 
 } else {
-
     echo "<script>
-    alert('Preencha todos os campos');
-    window.history.back()
+        alert('Preencha todos os campos!');
+        window.history.back();
     </script>";
-
+    exit;
 }
 ?>
