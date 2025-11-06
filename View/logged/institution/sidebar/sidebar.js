@@ -35,6 +35,8 @@ function closeLogoutModal() {
     logoutModal.classList.remove('show-logout-modal');
 }
 
+
+
 link.forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();

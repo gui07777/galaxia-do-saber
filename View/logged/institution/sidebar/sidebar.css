@@ -8,7 +8,8 @@
 body {
     width: 100vw;
     height: 100vh;
-    overflow: hiden; /*impede o scroll do body - o scroll será só no main*/
+    overflow: hidden;
+    /*impede o scroll do body - o scroll será só no main*/
 }
 
 header {
@@ -18,11 +19,13 @@ header {
     padding: 10px 20px;
     align-items: center;
     height: 70px;
-    position: fixed; /*fica fixo no topo*/
+    position: fixed;
+    /*fica fixo no topo*/
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /*garante que o header fique acima da sidebar*/
+    z-index: 1000;
+    /*garante que o header fique acima da sidebar*/
 }
 
 #open {
@@ -61,10 +64,13 @@ header {
     flex-direction: column;
     justify-content: space-between;
     background-color: #100629;
-    height: calc(100vh - 70px); /*ocupa o resto da tela*/
+    height: calc(100vh - 70px);
+    /*ocupa o resto da tela*/
     width: 250px;
-    position: fixed; /*fixa na tela*/
-    top: 70px; /*começa logo após os 70px de altura do header*/
+    position: fixed;
+    /*fixa na tela*/
+    top: 70px;
+    /*começa logo após os 70px de altura do header*/
     left: 5px;
     border-radius: 15px;
     padding: 10px;
@@ -172,7 +178,14 @@ a {
 }
 
 main#app-content {
-    margin-left: 250px;
+    /* margin-left: 250px; */
+
+    position: fixed;
+    top: 70px;
+    left: 260px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 70px);
+
     padding: 20px;
     min-height: 100vh;
     background-color: #f5f5f5;
@@ -180,4 +193,7 @@ main#app-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
+    transition: left 0.3s, width 0.3s;
+    z-index: 500;
 }

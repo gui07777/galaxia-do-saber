@@ -6,8 +6,8 @@
 }
 
 #student-register {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,24 +17,20 @@
     display: flex;
     flex-direction: column;
     background: #E2E6EF;
-    width: 75%;
-    min-height: 55vh;
+    width: 900px;
     padding: 40px;
     gap: 30px;
     border-radius: 15px;
-    margin-left: 20vw;
-    margin-top: 10vh
 }
 
 #student-register h2 {
-    text-align: center
+    text-align: center;
 }
 
 #student-register .fields {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 40px
 }
 
 #student-register div {
@@ -60,7 +56,6 @@ input[type='password'] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top:40px;
 }
 
 #student-register .buttons img {
@@ -79,7 +74,7 @@ input[type='password'] {
     color: white;
     height: 35px;
     border: none;
-    font-size: 20px;
+    font-size: 1.5rem;
     transition: 0.3s;
 
     &:hover {

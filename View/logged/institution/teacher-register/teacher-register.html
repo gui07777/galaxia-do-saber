@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-<link rel="stylesheet" href="teacher-register.css?v=0">
+<link rel="stylesheet" href="teacher-register.css">
 <div id="teacher-register">
     <form class="form" method="POST" form action="../../../../Controller/CadastroProfessor.php">
         <div class="container">
@@ -22,9 +22,6 @@
                         <label for="">Disciplina:</label>
                         <input type="text" name="disciplina" required></input>
                     </div>
-                    <div class="buttons">
-                        <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-                    </div>
                 </div>
                 <div class="right-side">
                     <div>
@@ -43,11 +40,12 @@
                         <label for="">Repetir senha:</label>
                         <input type="password" name="repetir_senha" required></input>
                     </div>
-                    <div class="buttons">
-                        <!-- <span class="material-symbols-outlined">arrow_back</span> -->
-                        <input type="submit" value="Cadastrar">
-                    </div>
                 </div>
+            </div>
+            <div class="buttons">
+                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <input type="submit" name="requisicao" value="Cadastrar">
             </div>
         </div>
     </form>
