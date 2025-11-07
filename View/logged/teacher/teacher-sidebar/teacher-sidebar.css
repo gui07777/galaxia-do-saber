@@ -9,7 +9,6 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    /*impede o scroll do body - o scroll será só no main*/
 }
 
 header {
@@ -20,12 +19,10 @@ header {
     align-items: center;
     height: 70px;
     position: fixed;
-    /*fica fixo no topo*/
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    /*garante que o header fique acima da sidebar*/
 }
 
 #open {
@@ -55,27 +52,29 @@ header {
     width: 35px;
 }
 
+:root {
+    --sidebar-width: 240px;
+    --header-height: 70px;
+}
+
 #sidebar {
-    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    background-color: #100629;
+    height: calc(100vh - var(--header-height));
+    width: var(--sidebar-width);
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+    transition: transform 400ms ease;
+    z-index: 1200;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
 }
 
 #sidebar.show-sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #100629;
-    height: calc(100vh - 70px);
-    /*ocupa o resto da tela*/
-    width: 250px;
-    position: fixed;
-    /*fixa na tela*/
-    top: 70px;
-    /*começa logo após os 70px de altura do header*/
-    left: 5px;
-    border-radius: 15px;
-    padding: 10px;
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
+    transform: translateX(0)
 }
 
 .material-symbols-outlined {
@@ -90,21 +89,29 @@ header {
 #register-items.show-register-items {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
-    /* border: 2px solid #27b178; */
+    margin-left: 10px;
     border-radius: 15px;
 }
 
-div .side-item {
+.side-item {
     padding: 10px;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 15px
 }
 
-div .side-item:hover {
+.side-item:hover {
     background-color: #27b178;
-    border-radius: 15px
+    border-radius: 15px;
+}
+
+.side-item.active a {
+    color: #fff;
+}
+
+.side-item.active {
+    background: #27b178;
+    border-radius: 15px;
 }
 
 a {
@@ -138,12 +145,14 @@ a {
     height: 115px;
     width: 300px;
     padding: 20px;
-    position: absolute;
-    top: 40%;
-    left: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     border-radius: 15px;
     z-index: 2000;
+    transition: all 0.3s ease;
 }
 
 #logout-modal .logout-buttons {
@@ -172,28 +181,54 @@ a {
 
 #logout-modal .logout-buttons button:last-child {
     background: #27b178;
+    cursor: pointer;
 
     &:hover {
         background-color: #207753;
     }
 }
 
-main#app-content {
-    /* margin-left: 250px; */
-
+#overlay {
+    display: none;
     position: fixed;
-    top: 20px;
-    left: 240px;
-    width: calc(100% - 260px);
-    min-height: calc(100vh - 70px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 1500;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
 
+body.modal-open #overlay {
+    display: block;
+    opacity: 1;
+}
+
+body.modal-open *:not(#logout-modal):not(#logout-modal *) {
+    pointer-events: none;
+}
+
+main#app-content {
+    position: relative;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
     padding: 20px;
-    min-height: 100vh;
     box-sizing: border-box;
+    min-height: calc(100vh - var(--header-height));
+    transition: left 0.3s, width 0.3s;
+    z-index: 500;
+    margin-left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-y: auto;
-    transition: left 0.3s, width 0.3s;
-    z-index: 500;
+    transition: transform 0.4s ease;
+}
+
+body.sidebar-open main#app-content {
+    transform: translateX(120px);
 }
