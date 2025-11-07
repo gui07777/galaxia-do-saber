@@ -24,18 +24,17 @@ function toggleRegisterItems() {
 }
 
 function openLogoutModal() {
-    if (!sidebar.classList.contains('show-sidebar')) {
-        return;
-    } else {
-        logoutModal.classList.add('show-logout-modal')
-    }
+    sidebar.classList.remove('show-sidebar');
+    logoutModal.classList.add('show-logout-modal')
 }
 
 function closeLogoutModal() {
     logoutModal.classList.remove('show-logout-modal');
 }
 
-
+function logoutAccount() {
+    window.location.href = '../../../landing-page/landing-page.html';
+}
 
 link.forEach(a => {
     a.addEventListener('click', e => {

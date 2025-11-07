@@ -8,14 +8,24 @@
 body {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+    /*impede o scroll do body - o scroll será só no main*/
 }
 
 header {
     background: #100629;
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: space-between;
+    padding: 10px 20px;
     align-items: center;
+    height: 70px;
+    position: fixed;
+    /*fica fixo no topo*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /*garante que o header fique acima da sidebar*/
 }
 
 #open {
@@ -36,10 +46,6 @@ header {
     height: 45px;
 }
 
-.width {
-    width: 80%;
-}
-
 .buttons {
     display: flex;
     gap: 20px;
@@ -56,16 +62,20 @@ header {
 #sidebar.show-sidebar {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-between;
     background-color: #100629;
-    height: 90%;
+    height: calc(100vh - 70px);
+    /*ocupa o resto da tela*/
     width: 250px;
-    position: absolute;
+    position: fixed;
+    /*fixa na tela*/
     top: 70px;
+    /*começa logo após os 70px de altura do header*/
     left: 5px;
     border-radius: 15px;
     padding: 10px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
 }
 
 .material-symbols-outlined {
@@ -80,7 +90,7 @@ header {
 #register-items.show-register-items {
     display: flex;
     flex-direction: column;
-    margin-left: 35px;
+    margin-left: 20px;
     /* border: 2px solid #27b178; */
     border-radius: 15px;
 }
@@ -133,6 +143,7 @@ a {
     left: 40%;
     color: white;
     border-radius: 15px;
+    z-index: 2000;
 }
 
 #logout-modal .logout-buttons {
@@ -165,4 +176,24 @@ a {
     &:hover {
         background-color: #207753;
     }
+}
+
+main#app-content {
+    /* margin-left: 250px; */
+
+    position: fixed;
+    top: 20px;
+    left: 240px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 70px);
+
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    transition: left 0.3s, width 0.3s;
+    z-index: 500;
 }

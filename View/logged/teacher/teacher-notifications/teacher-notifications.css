@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-#notifications {
+#teacher-notifications {
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,7 +14,7 @@
     flex-direction: column;
 }
 
-#notifications .container {
+#teacher-notifications .container {
     display: flex;
     flex-direction: column;
     background: #E2E6EF;
@@ -24,17 +24,17 @@
     border-radius: 15px;
 }
 
-#notifications h2 {
+#teacher-notifications h2 {
     text-align: center
 }
 
-#notifications .fields {
+#teacher-notifications .fields {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-#notifications .notification {
+#teacher-notifications .notification {
     background: white;
     width: 100%;
     height: 40px;
@@ -43,6 +43,6 @@
     align-items: center;
 }
 
-#notifications p {
+#teacher-notifications p {
     font-weight: bold
 }

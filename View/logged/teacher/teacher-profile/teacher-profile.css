@@ -5,62 +5,58 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
+#teacher-profile {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container {
+#teacher-profile .container {
     display: flex;
     flex-direction: column;
     background: #E2E6EF;
-    width: 75%;
-    height: 70vh;
+    width: 900px;
     padding: 40px;
     gap: 30px;
     border-radius: 15px;
-    margin-left: 20vw;
-    margin-top: 10vh
 }
 
-h2 {
+#teacher-profile h2 {
     text-align: center
 }
 
-.fields {
+#teacher-profile .fields {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-div {
+#teacher-profile div {
     display: flex;
     flex-direction: column;
     gap: 8px
 }
 
-label {
+#teacher-profile label {
     font-size: 15px;
 }
 
-input[type='text'],
-input[type='date'] {
+#teacher-profile input[type='text'] {
     height: 40px;
     width: 400px;
     border-radius: 15px;
     border: none;
 }
 
-div .buttons {
+#teacher-profile div .buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.buttons img {
+#teacher-profile .buttons img {
     width: 40px;
     transition: 0.3s;
 
@@ -69,7 +65,7 @@ div .buttons {
     }
 }
 
-input[type='submit'] {
+#teacher-profile input[type='submit'] {
     width: 250px;
     background: #100629;
     border-radius: 15px;
