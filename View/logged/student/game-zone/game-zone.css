@@ -64,12 +64,21 @@ label {
 .games {
     display: flex;
     gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .background-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #FFFFFF;
     padding: 14px;
     border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .game {

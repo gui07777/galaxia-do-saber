@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Relacionar perfis a turmas</title>
-  <link rel="stylesheet" href="add-profile.css?v=5">
-</head>
-<body>
+  <link rel="stylesheet" href="add-profile.css">
+<div id="body">
   <form class="form" method="POST" action="../../../../Controller/RelacionarPerfil.php">
     <div class="container">
-      <h1>Relacionar perfis a turmas</h1>
+      <h1>Definir Participantes da Turma</h1>
 
       <div class="fields">
         <div>
-          <input type="radio" name="tipo" value="professor" id="professor" required>
+          <input type="checkbox" name="tipo" value="professor" id="professor" required>
           <label for="professor">Professor</label>
 
-          <input type="radio" name="tipo" value="aluno" id="aluno" required>
+          <input type="checkbox" name="tipo" value="aluno" id="aluno" required>
           <label for="aluno">Aluno</label>
         </div>
 
@@ -44,12 +38,12 @@
 
       <div class="buttons">
         <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="navigationBack()">
-        <input type="submit" value="Relacionar" name="relacionar">
+        <input type="submit" value="Salvar" name="relacionar">
       </div>
     </div>
   </form>
 
   <script src="add-profile.js"></script>
   
-</body>
-</html>
+</div>
+
