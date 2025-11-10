@@ -1,50 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<link rel="stylesheet" href="teacher-profile.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informações de perfil!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <link rel="stylesheet" href="teacher-profile.css?v=2">
-</head>
-
-<body>
-    <div class="container">
-        <h2>Informações do perfil</h2>
-        <div class="fields">
-            <div class="left-side">
-                <div>
-                    <label for="">Nome:</label>
-                    <input type="text">
+<div id="teacher-profile">
+    <form class="form" action="" method="post">
+        <div class="container">
+            <h2>Informações do perfil</h2>
+            <div class="fields">
+                <div class="left-side">
+                    <div>
+                        <label for="">Nome:</label>
+                        <input type="text" name="nome">
+                    </div>
+                    <div>
+                        <label for="">Número de matrícula:</label>
+                        <input type="text" name="matricula">
+                    </div>
+                    <div>
+                        <label for="">Data de nascimento:</label>
+                        <input type="text" name="nasc">
+                    </div>
                 </div>
-                <div>
-                    <label for="">Número da matrícula:</label>
-                    <input type="text"></input>
-                </div>
-                <div>
-                    <label for="">Data de nascimento:</label>
-                    <input type="date">
+                <div class="right-side">
+                    <div>
+                        <label for="">Email:</label>
+                        <input type="text" name="email">
+                    </div>
+                    <div>
+                        <label for="">Senha:</label>
+                        <input type="text" name="senha">
+                    </div>
                 </div>
             </div>
-            <div class="right-side">
-                <div>
-                    <label for="">Email:</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Senha:</label>
-                    <input type="text"></input>
-                </div>
+            <div class="buttons">
+                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <input type="submit" name="requisicao" value="Atualizar">
             </div>
-        </div>
-        <div class="buttons">
-            <!-- <span class="material-symbols-outlined">arrow_back</span> -->
-            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-            <input type="submit" value="Editar">
-        </div>
-    </div>
-    <script src="teacher-register.js"></script>
-</body>
-
-</html>
+    </form>
+</div>

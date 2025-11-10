@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+#digital-material {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#digital-material .card {
+  background-color: #e5e9f1;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 380px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#digital-material .card h1 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+#digital-material label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#digital-material input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#digital-material .descricao-wrapper {
+  position: relative;
+}
+
+#digital-material .icone-clipe {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  font-size: 18px;
+  color: #555;
+}
+
+#digital-material .botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#digital-material .voltar {
+  background-color: #0c0324;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#digital-material .adicionar {
+  background-color: #0c0324;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#digital-material .adicionar:hover {
+  background-color: #1c1040;
+}

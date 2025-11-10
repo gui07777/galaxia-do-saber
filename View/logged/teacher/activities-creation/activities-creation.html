@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crie sua Atividade!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <link rel="stylesheet" href="activities-creation.css">
-</head>
-
-<body>
+<div id="activities-creation">
     <form class="form" method="POST" enctype="multipart/form-data"
         action="../../../../Controller/AtividadeController.php">
         <div class="container">
@@ -43,12 +32,9 @@
 
             </div>
             <div class="buttons">
-                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
                 <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
                 <input type="submit" value="Criar" name="requisicao">
             </div>
         </div>
     </form>
-</body>
-
-</html>
+</div>
