@@ -24,11 +24,16 @@ try {
     $stmt->execute([':email' => $email]);
     $aluno = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($aluno) {
-        echo json_encode($aluno);
-    } else {
-        echo json_encode(['erro' => 'Aluno não encontrado.']);
+  if ($aluno) {
+    
+    if (!empty($aluno['data_nasc'])) {
+        $aluno['data_nasc'] = date('Y-m-d', strtotime($aluno['data_nasc']));
     }
+
+    echo json_encode($aluno);
+} else {
+    echo json_encode(['erro' => 'Aluno não encontrado.']);
+}
 
 } catch (PDOException $e) {
     echo json_encode(['erro' => 'Erro no banco: ' . $e->getMessage()]);

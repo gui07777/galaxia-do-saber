@@ -26,7 +26,7 @@ if (!empty($email) && !empty($senha)) {
                 echo "<script> 
                     alert('Login feito com sucesso!'); 
                     setTimeout(function() { 
-                        window.location.href = '../View/logged/student/student-home/student-home.php'; 
+                        window.location.href = '../View/logged/student/student-profile/student-profile.php'; 
                     }, 500); 
                 </script>";
                 exit;

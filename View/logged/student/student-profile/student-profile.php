@@ -63,7 +63,7 @@ if (!isset($_SESSION['email_aluno'])) {
         </div>
         <div class="buttons">
             <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-            <input type="submit" value="Salvar alterações">
+            <input type="submit" value="Salvar alterações" name="requisicao">
         </div>
     </form>
     <script src="student-profile.js"></script>
