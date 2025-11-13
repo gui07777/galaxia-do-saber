@@ -78,3 +78,83 @@ label {
     border-radius: 20px;
     width: 760px;
 }
+
+.activity {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 40px;
+    width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activity h2 {
+    text-align: center;
+    margin-top: 0;
+    color: black;
+}
+
+.label-black,
+.text-black {
+    color: black;
+}
+
+.file-display {
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-display img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.upload-box {
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.upload-box textarea {
+    border: none;
+    background: transparent;
+    width: 90%;
+    height: 100px;
+    resize: none;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.upload-box textarea:focus {
+    outline: none;
+}
+
+.upload-box img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.enviar {
+    background-color: #250664;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    width: 120px;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.enviar:hover {
+    background-color: #3F129D;
+}

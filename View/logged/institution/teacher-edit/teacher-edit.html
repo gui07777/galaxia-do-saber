@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<link rel="stylesheet" href="teacher-edit.css">
+<div id="teacher-edit">
+    <form class="form" method="POST" form action="../../../../Controller/">
+        <div class="container">
+            <h2>Editar Professor</h2>
+            <div class="fields">
+                <div class="left-side">
+                    <div>
+                        <label for="">Nome:</label>
+                        <input type="text" name="nome">
+                    </div>
+                    <div>
+                        <label for="">CPF:</label>
+                        <input type="text" name="cpf"></input>
+                    </div>
+                    <div>
+                        <label for="">Cargo:</label>
+                        <input type="text" name="cargo">
+                    </div>
+                    <div>
+                        <label for="">Disciplina:</label>
+                        <input type="text" name="disciplina"></input>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div>
+                        <label for="">Email:</label>
+                        <input type="text" name="email">
+                    </div>
+                    <div>
+                        <label for="instituicao_nome">Nome da Instituição:</label>
+                        <input type="text" name="razao_social">
+                    </div>
+                    <div>
+                        <label for="">Senha:</label>
+                        <input type="password" name="senha"></input>
+                    </div>
+                    <div>
+                        <label for="">Repetir senha:</label>
+                        <input type="password" name="repetir_senha"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <input type="submit" name="requisicao" value="Atualizar">
+            </div>
+        </div>
+    </form>
+</div>

@@ -15,7 +15,6 @@
         <div class="width"></div>
         <div class="buttons">
             <img src="../../../../../assets/icons/sininho.png" alt="">
-            <img src="../../../../../assets/icons/nova-mensagem.png" alt="" width="42px">
             <img src="../../../../../assets/icons/anonimous.png" alt="">
         </div>
     </header>
@@ -29,17 +28,30 @@
         <div class="activities">
             <div class="background-activity">
                 <div class="activity">
-                    <h2>Atividade 1</h2>
-                    <h2>Descrição:</h2>
-                    <p>Espaço para explicação da atividade</p>
-                    <input type="url" name="" id="">
-                    
+                    <h2>Atividade</h2>
+
+                    <label for="descricao" class="label-black">Descrição:</label>
+
+                    <div class="file-display">
+                        <span></span>
+                        <a href="#" download>
+                            <img src="../../../../../assets/icons/download.png" alt="Baixar" width="25px">
+                        </a>
+                     </div>
+                
+                    <label for="upload">Suba aqui sua Atividade:</label>
+                    <div class="upload-box">
+                        <textarea id="upload" placeholder="Comentário (100)"></textarea>
+                        <img src="../../../../../assets/icons/clipe.png" alt="Anexar arquivo" width="25px">
+                    </div>
+
+                    <button class="enviar">Enviar</button>
                 </div>
             </div>
         </div>
     </main>
 
+    <script src="activities-description.js"></script>
 </body>
-<script src="activities-description.js"></script>
 
 </html>
