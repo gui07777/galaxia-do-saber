@@ -12,12 +12,13 @@ if (!$id_turma) {
 }
 
 try {
-    $sql = "SELECT a.id_atividade, a.titulo, a.data_post, a.prazo,
-                   CASE WHEN a.anexo IS NOT NULL THEN 1 ELSE 0 END AS tem_anexo
-            FROM atividades a
-            INNER JOIN turmaAtividade ta ON a.id_atividade = ta.id_atividade
-            WHERE ta.id_turma = :id_turma
-            ORDER BY a.data_post DESC";
+
+    $sql = "SELECT id_atividade, titulo, data_post, prazo,
+            CASE WHEN anexo IS NOT NULL THEN 1 ELSE 0 END AS tem_anexo
+            FROM atividades
+            INNER JOIN turmaAtividade ON id_atividade = id_atividade
+            WHERE id_turma = :id_turma
+            ORDER BY data_post DESC";
 
     $stmt = $conexao->prepare($sql);
     $stmt->bindParam(':id_turma', $id_turma, PDO::PARAM_INT);
@@ -29,6 +30,7 @@ try {
         echo "<p style='text-align:center; margin-top:20px;'>Nenhuma atividade disponível para esta turma.</p>";
     } else {
         foreach ($atividades as $atividade) {
+
             $titulo = htmlspecialchars($atividade['titulo']);
             $data_post = date('d/m/Y H:i', strtotime($atividade['data_post']));
             $prazo = htmlspecialchars($atividade['prazo']);
@@ -52,6 +54,7 @@ try {
             }
 
             echo "</div><hr>";
+            
         }
     }
 
