@@ -48,7 +48,7 @@ body {
   height: 35px;
 }
 
-#activities-delivered tbody tr + tr {
+#activities-delivered tbody tr+tr {
   margin-top: 4px;
 }
 
@@ -67,4 +67,17 @@ body {
 
 #activities-delivered .btn-visualizar:hover {
   background-color: #bcbcbc;
+}
+
+#activities-delivered #modal {
+  position: fixed;
+  top: 50%;
+  left: 50%; 
+  display: flex;
+  flex-direction: column;
+}
+
+#activities-delivered .feedback {
+  display: flex;
+  flex-direction: column;
 }
