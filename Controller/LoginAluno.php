@@ -1,14 +1,11 @@
 <?php
-
 session_start();
-
 require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'] ?? "";
 $senha = $_POST['senha'] ?? "";
 
 if (!empty($email) && !empty($senha)) {
-
     try {
         $sql = 'SELECT * FROM aluno WHERE email = :email';
         $requisicao = $conexao->prepare($sql);
@@ -22,17 +19,14 @@ if (!empty($email) && !empty($senha)) {
 
                 $_SESSION['id_aluno'] = $aluno['id_aluno'];
                 $_SESSION['nome_aluno'] = $aluno['nome'];
+                $_SESSION['email_aluno'] = $aluno['email']; 
 
-                if (!empty($aluno['id_turma'])) {
-                    $_SESSION['id_turma'] = $aluno['id_turma'];
-                } else {
-                    $_SESSION['id_turma'] = null;
-                }
+                $_SESSION['id_turma'] = $aluno['id_turma'] ?? null;
 
                 echo "<script> 
                     alert('Login feito com sucesso!'); 
                     setTimeout(function() { 
-                        window.location.href = '../View/logged/student/activities-zone/activities-zone.php'; 
+                        window.location.href = '../View/logged/student/student-home/student-home.php'; 
                     }, 500); 
                 </script>";
                 exit;
@@ -46,7 +40,6 @@ if (!empty($email) && !empty($senha)) {
             }
 
         } else {
-            
             echo "<script>
                 alert('Aluno não encontrado!');
                 window.history.back();
@@ -56,7 +49,7 @@ if (!empty($email) && !empty($senha)) {
 
     } catch (PDOException $e) {
         echo "<script>
-            alert('Erro no banco de dados: " . $e->getMessage() . "');
+            alert('Erro no banco de dados: " . addslashes($e->getMessage()) . "');
             window.history.back();
         </script>";
         exit;

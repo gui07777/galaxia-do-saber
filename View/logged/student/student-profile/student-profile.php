@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['email_aluno'])) {
+    header("Location: ../../../auth/student/login/student-login.html");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,25 +39,25 @@
             <div class="left-side">
                 <div>
                     <label for="">Nome:</label>
-                    <input type="text" readonly>
+                    <input type="text" id="nome" name="nome" readonly>
                 </div>
                 <div>
                     <label for="">Data de nascimento:</label>
-                    <input type="date" readonly>
+                    <input type="date" id="data_nasc" name="data_nasc" readonly>
                 </div>
                 <div>
                     <label for="">Turma:</label>
-                    <input type="text" readonly></input>
+                    <input type="text" id="turma" name="turma" readonly></input>
                 </div>
             </div>
             <div class="right-side">
                 <div>
                     <label for="">Email:</label>
-                    <input type="text" readonly>
+                    <input type="text" id="email" name="email" readonly>
                 </div>
                 <div>
                     <label for="">Senha:</label>
-                    <input type="password"></input>
+                    <input type="password" id="novaSenha" name="novaSenha"></input>
                 </div>
             </div>
         </div>

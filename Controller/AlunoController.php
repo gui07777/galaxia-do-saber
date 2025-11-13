@@ -4,7 +4,7 @@ $requisicao = $_POST['requisicao'];
 
 switch ($requisicao) {
 
-    case 'Editar':
+    case 'Salvar alterações':
 
         include 'AtualizarAluno.php';
         break;

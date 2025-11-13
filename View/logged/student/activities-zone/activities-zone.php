@@ -1,6 +1,4 @@
 <?php
-
-session_start();
 require_once('../../../../Model/conexaoBanco/Conexao.php');
 
 $id_turma = $_SESSION['id_turma'] ?? $_GET['id_turma'] ?? null;
@@ -55,7 +53,7 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
             <div class="activity-list">
                 <?php
                 if ($id_turma) {
-                    include('consultarAtividade.php');
+                    include('../../../../Controller/ConsultarAtividade.php');
                 } else {
                     echo "<p style='text-align:center; margin-top: 20px;'>Nenhuma turma associada.</p>";
                 }
