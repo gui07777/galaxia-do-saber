@@ -17,7 +17,8 @@
     display: flex;
     flex-direction: column;
     background: #E2E6EF;
-    width: 900px;
+    width: 70%;
+    min-height: 50%;
     padding: 40px;
     gap: 30px;
     border-radius: 15px;
@@ -45,7 +46,7 @@
 
 #teacher-profile input[type='text'] {
     height: 40px;
-    width: 400px;
+    width: 100%;
     border-radius: 15px;
     border: none;
 }

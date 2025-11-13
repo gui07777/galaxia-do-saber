@@ -11,49 +11,51 @@
 
 <body>
     <header>
-        <img src="../../../../assets/icons/logosemfundo.png" class="logo">
-        <div class="width"></div>
-        <div class="buttons">
-            <img src="../../../../assets/icons/sininho.png" alt="">
-            <img src="../../../../assets/icons/anonimous.png" alt="">
+        <div>
+            <img src="../../../../assets/icons/logosemfundo.png" class="logo">
+        </div>
+        <div class="header-buttons">
+            <a href="#/teacher-notifications" data-page="../teacher-notifications/teacher-notifications.html">
+                <i class="material-symbols-outlined">notifications</i>
+            </a>
+            <a href="#/teacher-profile" data-page="../teacher-profile/teacher-profile.html">
+                <i class="material-symbols-outlined">account_circle</i>
+            </a>
         </div>
     </header>
-    <form action="../../../../Controller/AlunoController.php" method="POST">
-        <div class="container">
-            <h2>Informações do perfil</h2>
-            <div class="fields">
-                <div class="left-side">
-                    <div>
-                        <label for="">Nome:</label>
-                        <input type="text" name="nome" required>
-                    </div>
-                    <div>
-                        <label for="">Data de nascimento:</label>
-                        <input type="date" name="data_nasc">
-                        <div>
-                            <label for="">Turma:</label>
-                            <input type="text" name="turma"></input>
-                        </div>
-                    </div>
+    <form action="../../../../Controller/AlunoController.php" method="POST" class="container">
+        <h2>Informações do perfil</h2>
+        <div class="fields">
+            <div class="left-side">
+                <div>
+                    <label for="">Nome:</label>
+                    <input type="text" readonly>
                 </div>
-                <div class="right-side">
-                    <div>
-                        <label for="">Email:</label>
-                        <input type="text" name="email" required>
-                    </div>
-                    <div>
-                        <label for="">Senha:</label>
-                        <input type="text" name="novaSenha" placeholder="Deixe em branco se não for alterar"></input>
-                    </div>
+                <div>
+                    <label for="">Data de nascimento:</label>
+                    <input type="date" readonly>
+                </div>
+                <div>
+                    <label for="">Turma:</label>
+                    <input type="text" readonly></input>
                 </div>
             </div>
-            <div class="buttons">
-                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
-                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-                <input type="submit" value="Editar" name="requisicao">
+            <div class="right-side">
+                <div>
+                    <label for="">Email:</label>
+                    <input type="text" readonly>
+                </div>
+                <div>
+                    <label for="">Senha:</label>
+                    <input type="password"></input>
+                </div>
             </div>
+        </div>
+        <div class="buttons">
+            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+            <input type="submit" value="Salvar alterações">
+        </div>
     </form>
-    </div>
     <script src="student-profile.js"></script>
 </body>
 
