@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -18,39 +18,41 @@
             <img src="../../../../assets/icons/anonimous.png" alt="">
         </div>
     </header>
-    <div class="container">
-        <h2>Informações do perfil</h2>
-        <div class="fields">
-            <div class="left-side">
-                <div>
-                    <label for="">Nome:</label>
-                    <input type="text">
+    <form action="../../../../Controller/AlunoController.php" method="POST">
+        <div class="container">
+            <h2>Informações do perfil</h2>
+            <div class="fields">
+                <div class="left-side">
+                    <div>
+                        <label for="">Nome:</label>
+                        <input type="text" name="nome" required>
+                    </div>
+                    <div>
+                        <label for="">Data de nascimento:</label>
+                        <input type="date" name="data_nasc">
+                        <div>
+                            <label for="">Turma:</label>
+                            <input type="text" name="turma"></input>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label for="">Data de nascimento:</label>
-                    <input type="date">
-                 <div>
-                    <label for="">Turma:</label>
-                    <input type="text"></input>
-                </div>
+                <div class="right-side">
+                    <div>
+                        <label for="">Email:</label>
+                        <input type="text" name="email" required>
+                    </div>
+                    <div>
+                        <label for="">Senha:</label>
+                        <input type="text" name="novaSenha" placeholder="Deixe em branco se não for alterar"></input>
+                    </div>
                 </div>
             </div>
-            <div class="right-side">
-                <div>
-                    <label for="">Email:</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Senha:</label>
-                    <input type="text"></input>
-                </div>
+            <div class="buttons">
+                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <input type="submit" value="Editar" name="requisicao">
             </div>
-        </div>
-        <div class="buttons">
-            <!-- <span class="material-symbols-outlined">arrow_back</span> -->
-            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-            <input type="submit" value="Editar">
-        </div>
+    </form>
     </div>
     <script src="student-profile.js"></script>
 </body>
