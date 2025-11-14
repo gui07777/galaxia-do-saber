@@ -1,9 +1,9 @@
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-<link rel="stylesheet" href="student-area.css">
+<link rel="stylesheet" href="teacher-area.css">
 <div id="student-area">
     <div class="container">
-        <h1>Alunos matriculados</h1>
+        <h1>Professores cadastrados</h1>
         <table>
             <thead>
                 <th>Nome</th>
@@ -27,7 +27,7 @@
         </header>
         <div class="content">
             <div>
-                <label for="">Id do aluno:</label>
+                <label for="">Id do professor:</label>
                 <input type="text" readonly>
             </div>
             <div>
@@ -35,7 +35,7 @@
                 <input type="text" readonly>
             </div>
             <div>
-                <label for="">Número da matrícula:</label>
+                <label for="">CPF:</label>
                 <input type="text" readonly>
             </div>
             <div>
@@ -43,7 +43,11 @@
                 <input type="text" readonly>
             </div>
             <div>
-                <label for="">Data de nascimento:</label>
+                <label for="">Cargo:</label>
+                <input type="text" readonly>
+            </div>
+            <div>
+                <label for="">Disciplina:</label>
                 <input type="text" readonly>
             </div>
             <div>
@@ -51,10 +55,10 @@
                 <input type="text" readonly>
             </div>
             <div class="buttons">
-                <button>Editar</button>
+                <button onclick="editInformation()">Editar</button>
                 <button>Salvar</button>
             </div>
         </div>
     </div>
 </div>
-<script src="student-area.js"></script>
+<script src="teacher-area.js"></script>
