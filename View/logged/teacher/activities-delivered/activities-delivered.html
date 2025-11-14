@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="activities-delivered.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
-<!-- <div id="activities-delivered">
+<div id="activities-delivered">
   <div class="container">
     <h1>Atividades entregues</h1>
     <table>
@@ -9,7 +9,7 @@
         <tr>
           <th>Atividade 1</th>
           <th>Data de entrega</th>
-          <th>Nota</th>
+          <th>-</th>
         </tr>
       </thead>
       <tbody>
@@ -26,37 +26,37 @@
       </tbody>
     </table>
   </div>
-</div> -->
+</div>
 
-<div id="activities-delivered-modal">
-  <header>
-    <div></div>
-    <h3>Correção da Atividade</h3>
-    <i class="material-symbols-outlined">close</i>
-  </header>
-  <div class="content">
-    <div>
-      <label for="">Aluno:</label>
-      <label for="">Guilherme Monteiro</label>
-    </div>
-    <div>
-      <label for="">Atividade:</label>
-      <label for="">Matemática</label>
-    </div>
-    <div class="atividade">
-
-    </div>
-    <div class="nota">
-      <label for="">Nota:</label>
-      <input type="text">
-    </div>
-    <div class="feedback">
-      <label for="">Feedback do Professor:</label>
-      <textarea name="" id=""></textarea>
-    </div>
-    <div class="buttons">
-      <button>Cancelar</button>
-      <button>Salvar Nota</button>
+<div id="overlay-hide">
+  <div id="activities-delivered-modal-hide">
+    <header>
+      <div></div>
+      <h3>Correção da Atividade</h3>
+      <i class="material-symbols-outlined" onclick="closeModal()">close</i>
+    </header>
+    <div class="content">
+      <div>
+        <label for="">Aluno:</label>
+        <label for="">Guilherme Monteiro</label>
+      </div>
+      <div>
+        <label for="">Atividade:</label>
+        <label for="">Matemática</label>
+      </div>
+      <div class="atividade">
+        <div>
+          Visualizar entrega do aluno (Arquivo)
+        </div>
+      </div>
+      <div class="nota">
+        <label for="">Nota:</label>
+        <input type="text">
+      </div>
+      <div class="buttons">
+        <button>Salvar</button>
+      </div>
     </div>
   </div>
 </div>
+<script src="activities-delivered.js"></script>

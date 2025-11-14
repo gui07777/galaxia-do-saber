@@ -5,7 +5,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+#activities-delivered {
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -69,17 +69,40 @@ body {
   background-color: #bcbcbc;
 }
 
-#activities-delivered-modal {
-  position: fixed;
-  transform: translate(-20%, -35%);
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.5);
-  box-shadow: black;
+#overlay-hide {
+  display: none;
 }
 
-#activities-delivered-modal header {
+.overlay {
+  position: fixed;
+  display: flex;
+  background: rgba(240, 238, 238, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+  top: 0;
+  left: 0;
+}
+
+#activities-delivered-modal-hide {
+  display: none;
+}
+
+.activities-delivered-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  z-index: 99
+}
+
+.activities-delivered-modal header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,13 +112,62 @@ body {
   padding: 10px;
 }
 
-#activities-delivered-modal .content {
-  padding: 10px;
-  background: whitesmoke;
-  width: 500px;
+.activities-delivered-modal header i {
+  cursor: pointer;
 }
 
-#activities-delivered-modal .feedback {
+.activities-delivered-modal .content {
+  padding: 15px;
+  width: 500px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.activities-delivered-modal .feedback {
+  display: flex;
+  flex-direction: column;
+}
+
+.activities-delivered-modal .atividade {
+  background: whitesmoke;
+  border: 1px solid rgb(55, 121, 160);
+  width: 470px;
+  height: 60px;
+  border-radius: 4px;
+}
+
+.activities-delivered-modal .atividade div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activities-delivered-modal .nota input {
+  border-radius: 4px;
+  border: 1px solid rgb(207, 192, 192);
+  background: whitesmoke;
+  height: 28px;
+}
+
+.activities-delivered-modal .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px
+}
+
+.activities-delivered-modal .buttons button {
+  background: rgb(33, 112, 214);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  width: 90px;
+  height: 28px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(21, 88, 177);
+  }
 }

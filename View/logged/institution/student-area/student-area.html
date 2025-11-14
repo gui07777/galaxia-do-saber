@@ -1,71 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alunos!</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <link rel="stylesheet" href="student-area.css?v=2">
-</head>
-
-<body>
-    <header>
-        <h2>Lista de alunos</h2>
-    </header>
-    <div class="search-bar">
-        <input type="search" name="" id="">
-    </div>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+<link rel="stylesheet" href="student-area.css">
+<div id="student-area">
     <div class="container">
-        <div class="student">
-            <h2>Guilherme Monteiro Cardoso</h2>
-            <span class="material-symbols-outlined icon"  onclick="showStudentDetails()">quick_reference_all</span>
-        </div>
-        <div class="student">
-            <h2>Guilherme Monteiro Cardoso</h2>
-            <span class="material-symbols-outlined icon">quick_reference_all</span>
-        </div>
-        <div class="student">
-            <h2>Guilherme Monteiro Cardoso</h2>
-            <span class="material-symbols-outlined icon">quick_reference_all</span>
-        </div>
-        <button>Adicionar</button>
+        <h1>Alunos matriculados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Clique para ver mais informações</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nome Sobrenome</td>
+                    <td>01/01/2026</td>
+                    <td><button class="btn-visualizar">Visualizar</button></td>
+                </tr>
+                <tr>
+                    <td>Nome Sobrenome</td>
+                    <td>01/01/2026</td>
+                    <td><button class="btn-visualizar">Visualizar</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-    <div id="student-informations-modal">
-        <div class="data">
-            <label for="">Nome</label>
+</div>
+<div id="overlay-hide">
+    <div id="information-modal-hide">
+        <header>
+            <div></div>
+            <h3>Correção da Atividade</h3>
+            <i class="material-symbols-outlined" onclick="closeModal()">close</i>
+        </header>
+        <div class="content">
             <div>
-                <p>Guilherme</p>
+                <label for="">Aluno:</label>
+                <label for="">Guilherme Monteiro</label>
             </div>
-        </div>
-        <div class="data">
-            <label for="">Matrícula</label>
             <div>
-                <p>1234</p>
+                <label for="">Atividade:</label>
+                <label for="">Matemática</label>
             </div>
-        </div>
-        <div class="data">
-            <label for="">Email</label>
-            <div>
-                <p>guiteste@email</p>
+            <div class="atividade">
+                <div>
+                    Visualizar entrega do aluno (Arquivo)
+                </div>
             </div>
-        </div>
-        <div class="data">
-            <label for="">Data de Nascimento</label>
-            <div>
-                <p>12/12/2012</p>
+            <div class="nota">
+                <label for="">Nota:</label>
+                <input type="text">
             </div>
-        </div>
-        <div class="data">
-            <label for="">Turma</label>
-            <div>
-                <p>3 B</p>
+            <div class="buttons">
+                <button>Salvar</button>
             </div>
         </div>
     </div>
-    <script src="student-area.js"></script>
-</body>
-
-</html>
+</div>
+<script src="student-area.js"></script>
