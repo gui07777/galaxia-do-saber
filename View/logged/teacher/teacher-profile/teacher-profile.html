@@ -2,34 +2,33 @@
 <link rel="stylesheet" href="teacher-profile.css">
 
 <div id="teacher-profile">
-    <form class="form" action="" method="post">
-        <div class="container">
-            <h2>Informações do perfil</h2>
-            <div class="fields">
-                <div class="left-side">
-                    <div>
-                        <label for="">Nome:</label>
-                        <input type="text" name="nome" readonly>
-                    </div>
-                    <div>
-                        <label for="">Data de nascimento:</label>
-                        <input type="text" name="nasc" readonly>
-                    </div>
+    <form class="container" action="" method="post">
+        <h2>Informações do perfil</h2>
+        <div class="fields">
+            <div class="left-side">
+                <div>
+                    <label for="">Nome:</label>
+                    <input type="text" name="nome" readonly>
                 </div>
-                <div class="right-side">
-                    <div>
-                        <label for="">Email:</label>
-                        <input type="text" name="email" readonly>
-                    </div>
-                    <div>
-                        <label for="">Senha:</label>
-                        <input type="text" name="senha">
-                    </div>
+                <div>
+                    <label for="">Data de nascimento:</label>
+                    <input type="text" name="nasc" readonly>
                 </div>
             </div>
-            <div class="buttons">
-                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-                <input type="submit" name="requisicao" value="Atualizar">
+            <div class="right-side">
+                <div>
+                    <label for="">Email:</label>
+                    <input type="text" name="email" readonly>
+                </div>
+                <div>
+                    <label for="">Senha:</label>
+                    <input type="text" name="senha">
+                </div>
             </div>
+        </div>
+        <div class="buttons">
+            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+            <input type="submit" name="requisicao" value="Atualizar">
+        </div>
     </form>
 </div>
