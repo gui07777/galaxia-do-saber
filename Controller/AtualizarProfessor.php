@@ -1,73 +1,45 @@
 <?php
-
+session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
 
-$email = $_POST['email'];
-$nome = $_POST['nome'];
-$novaSenha = $_POST['senha'];
-$cpf = $_POST['cpf'];
-$cargo = $_POST['cargo'];
-$disciplina = $_POST['disciplina'];
+$email = $_POST['email'] ?? '';
+$novaSenha = $_POST['novaSenha'] ?? '';
 
-if(!empty($nome) && !empty($email)){
-
-    if(!empty($novaSenha)){
-
-        $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
-
-        $sql = "UPDATE professor 
-        SET 
-        nome = :nome, 
-        senha = :senha,
-        cpf = :cpf,
-        cargo = :cargo
-        disciplina = :disciplina 
-        WHERE 
-        email = :email";
-
-
-    }else{
-
-        $sql = "UPDATE professor 
-        SET 
-        nome = :nome
-        cpf = :cpf,
-        cargo = :cargo
-        disciplina = :disciplina 
-        WHERE 
-        email = :email";
-        
-    }
-
-    $requisicao = $conexao -> prepare($sql);
-
-    $requisicao -> bindParam(':email', $email);
-    $requisicao -> bindParam(':nome', $nome);
-    $requisicao -> bindParam('cpf', $cpf);
-    $requisicao -> bindParam('cargo', $cargo);
-    $requisicao -> bindParam('disciplina', $disciplina);
-
-    if(!empty($novaSenha)){
-
-        $requisicao -> bindParam(':senha', $senhaHash);
-
-    }
-
-    try{
-
-        $requisicao -> execute();
-        echo'Informações do Professor atualizadas.';
-
-    }catch(PDOException $e){
-
-    echo'Erro: ' . $e -> getMessage();
-
-    }
-
-}else{
-
-    echo'Preencha o nome e o email para formalizar a atualização.';
-
+if (empty($email)) {
+    echo "<script>
+        alert('Sessão expirada ou email não informado.');
+        window.history.back();
+    </script>";
+    exit;
 }
 
+if (empty($novaSenha)) {
+    echo "<script>
+        alert('Digite uma nova senha para atualizar.');
+        window.history.back();
+    </script>";
+    exit;
+}
+
+try {
+    $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
+
+    $sql = "UPDATE professor SET senha = :senha WHERE email = :email";
+    $requisicao = $conexao->prepare($sql);
+    $requisicao->execute([
+        ':senha' => $senhaHash,
+        ':email' => $email
+    ]);
+
+    echo "<script>
+        alert('Senha atualizada com sucesso!');
+        window.history.back();
+    </script>";
+
+} catch (PDOException $e) {
+    echo "<script>
+        alert('Erro ao atualizar senha: " . addslashes($e->getMessage()) . "');
+        window.history.back();
+    </script>";
+}
 ?>
