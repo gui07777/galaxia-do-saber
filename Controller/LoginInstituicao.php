@@ -25,11 +25,12 @@ if (!empty($email) && !empty($senha)) {
 
             $_SESSION['id_instituicao'] = $instituicao['id'];
             $_SESSION['instituicao_nome'] = $instituicao['nome'];
+            $_SESSION['email_instituicao'] = $instituicao['email'];
 
             echo "<script> 
             alert('Login feito com sucesso!'); 
             setTimeout(function() { 
-            window.location.href = '../View/logged/institution/sidebar/sidebar.html'; 
+            window.location.href = '../View/logged/institution/institution-profile/institution-profile.php'; 
             }, 30); 
             </script>";
 

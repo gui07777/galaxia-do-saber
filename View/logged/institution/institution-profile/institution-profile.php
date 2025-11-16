@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email_instituicao'])) {
+    header("Location: ../../../auth/institution/login/institution-login.html");
+    exit;
+}
+
+$email = $_SESSION['email_instituicao'];
+?>
+
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 <link rel="stylesheet" href="institution-profile.css">
 
@@ -13,7 +25,7 @@
                     </div>
                     <div>
                         <label for="">Telefone:</label>
-                        <input type="text" name="telefone">
+                        <input type="text" name="telefone" id="telefone" maxlength="15">
                     </div>
                 </div>
                 <div class="right-side"> 
@@ -23,7 +35,7 @@
                     </div>
                     <div>
                         <label for="">Senha:</label>
-                        <input type="text"></input>
+                        <input type="password" name="senha"></input>
                     </div>
                 </div>
             </div>
