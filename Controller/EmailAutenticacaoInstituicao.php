@@ -20,13 +20,13 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'phpmailerteste9@gmail.com';
-        $mail->Password = 'peqjdrdqezxqeqaz';
+        $mail->Username = 'galaxiadosaber2025@gmail.com';
+        $mail->Password = 'fjtfcxjftzodtrvf';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';
         $mail->setLanguage('pt_br', __DIR__ . '/../Model/PHPMailer/language/phpmailer.lang-pt_br.php');
-        $mail->setFrom('phpmailerteste9@gmail.com', 'Galáxia do Saber');
+        $mail->setFrom('galaxiadosaber2025@gmail.com', 'Galáxia do Saber');
 
 
         $codigo = rand(100000, 999999);
