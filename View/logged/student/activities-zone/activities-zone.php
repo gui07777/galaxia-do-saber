@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['email_aluno'])) {
+    header("Location: ../../../auth/student/login/student-login.html");
+    exit;
+}
+
 require_once('../../../../Model/conexaoBanco/Conexao.php');
 
 $id_turma = $_SESSION['id_turma'] ?? $_GET['id_turma'] ?? null;
