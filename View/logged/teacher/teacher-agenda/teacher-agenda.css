@@ -5,7 +5,7 @@
   --border: #e0e0e0;
 }
 
-#teacher-agenda {
+#institutional-agenda {
   background-color: #f9f9fb;
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -16,7 +16,7 @@
   color: var(--text);
 }
 
-#teacher-agenda .agenda-container {
+#institutional-agenda .agenda-container {
   width: 760px;
   background: var(--background);
   border-radius: 8px;
@@ -24,20 +24,20 @@
   padding: 20px 30px 30px;
 }
 
-#teacher-agenda h1 {
+#institutional-agenda h1 {
   text-align: center;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-#teacher-agenda .calendar-header {
+#institutional-agenda .calendar-header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-#teacher-agenda .year-box {
+#institutional-agenda .year-box {
   background-color: var(--primary);
   color: white;
   padding: 14px 22px;
@@ -46,7 +46,7 @@
   align-items: center;
 }
 
-#teacher-agenda .year-box input {
+#institutional-agenda .year-box input {
   width: 70px;
   font-size: 20px;
   font-weight: 700;
@@ -57,7 +57,7 @@
   text-align: center;
 }
 
-#teacher-agenda .month-box {
+#institutional-agenda .month-box {
   background-color: transparent;
   color: var(--primary);
   font-weight: 600;
@@ -66,7 +66,7 @@
   text-transform: lowercase;
 }
 
-#teacher-agenda .month-box select {
+#institutional-agenda .month-box select {
   border: none;
   outline: none;
   font-size: 22px;
@@ -76,14 +76,14 @@
   cursor: pointer;
 }
 
-#teacher-agenda .calendar-table {
+#institutional-agenda .calendar-table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
   margin-top: 10px;
 }
 
-#teacher-agenda .calendar-table thead th {
+#institutional-agenda .calendar-table thead th {
   background-color: var(--primary);
   color: white;
   padding: 8px;
@@ -91,7 +91,7 @@
   font-weight: 600;
 }
 
-#teacher-agenda .calendar-table td {
+#institutional-agenda .calendar-table td {
   border: 1px solid var(--border);
   padding: 14px;
   font-size: 14px;
@@ -100,20 +100,40 @@
   transition: background-color 0.2s;
 }
 
-#teacher-agenda .calendar-table td:hover {
+#institutional-agenda .calendar-table td:hover {
   background-color: #f0ebff;
 }
 
-#teacher-agenda .today {
+#institutional-agenda .today {
   background-color: var(--primary);
   color: white;
   border-radius: 4px;
 }
 
-#teacher-agenda .notes {
+#institutional-agenda .notes {
   font-size: 14px;
-  color: #555;
+  color: #ffffff;
   margin-top: 10px;
   border-top: 1px solid var(--border);
   padding-top: 6px;
+}
+.notes-section {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.notes-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  resize: none;
+  font-size: 1rem;
 }
