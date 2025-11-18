@@ -7,6 +7,8 @@ if (!isset($_SESSION['email_aluno'])) {
     exit;
 }
 
+$nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ if (!isset($_SESSION['email_aluno'])) {
     </header>
     <main>
         <div class="titles">
-            <h1>Bem vindo(a) Descobridor(a)!</h1>
+            <h1>Bem-vindo(a), <?= htmlspecialchars($nome_aluno) ?>!</h1>
             <p>Acesse os planetas</p>
         </div>
         <div class="planets">

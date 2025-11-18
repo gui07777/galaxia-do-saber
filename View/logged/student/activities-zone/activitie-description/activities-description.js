@@ -1,3 +1,3 @@
 navigateBack = () => {
-    window.location.href = '../activities-zone.html';
+    window.location.href = '../activities-zone.php';
 }
