@@ -54,7 +54,7 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
                 <div><label>Tarefas</label></div>
                 <div>
                     <label>Entrega</label>
-                    <label>Status</label>
+                    <label>Nota</label>
                 </div>
             </div>
 
