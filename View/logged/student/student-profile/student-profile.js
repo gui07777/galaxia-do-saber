@@ -25,5 +25,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function navigationBack() {
-    window.location.href = "../../institution/institution-home/institution-home.html";
+    window.location.href = "../../student/student-home/student-home.php";
 }
