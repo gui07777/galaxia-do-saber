@@ -1,19 +1,42 @@
 body {
     margin: 0;
     padding: 0;
-    min-width: 98vw;
+    width: 100vw;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(255, 250, 250, 0.5), rgba(255, 250, 250, 0.5)),
-        url(../../../../assets/Image/fundo1.jpg);
+
+    background: linear-gradient(
+        rgba(255, 250, 250, 0.5), 
+        rgba(255, 250, 250, 0.5)
+    ),
+    url(../../../../assets/Image/fundo1.jpg);
+
     background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 header {
     background: #250664;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo {
+    width: 165px;
+}
+
+.buttons img {
+    width: 35px;
+    margin-left: 15px;
+    cursor: pointer;
 }
 
 .back img {
@@ -21,7 +44,7 @@ header {
     cursor: pointer;
     transition: 0.2s;
     position: absolute;
-    left: 60px;
+    left: 40px;
     top: 120px;
 }
 
@@ -29,46 +52,87 @@ header {
     width: 45px;
 }
 
-h1,
-p {
+h1, p {
     color: black;
     text-align: center;
     font-weight: 600;
 }
 
-p {
-    position: relative;
-    bottom: 10px;
-}
-
-.logo {
-    width: 165px;
-}
-
-.width {
-    width: 70%;
+.titles {
+    margin-top: 40px;
 }
 
 .activities {
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .status-bar {
     background: #05B4F0;
     width: 80%;
     border-radius: 15px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px
+    padding: 12px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.status-bar div:last-child {
-    display: flex;
-    gap: 40px;
+.activity-item {
+    width: 80%;
+    padding: 20px 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  
+    align-items: center;
+
+    column-gap: 20px;
 }
 
-label {
-    font-weight: 600;
-    font-size: 1.5rem
+.activity-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.activity-date {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.activity-status {
+    text-align: center;
+}
+
+.status {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.atrasado {
+    color: red;
+}
+
+.pendente {
+    color: orange;
+}
+
+
+.anexo-btn {
+    color: blue;
+    text-decoration: underline;
+}
+
+.no-anexo {
+    color: gray;
+    font-size: 14px;
 }
