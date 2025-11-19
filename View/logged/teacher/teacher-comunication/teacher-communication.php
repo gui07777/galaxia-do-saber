@@ -1,3 +1,6 @@
+<?php
+?>
+
 <link rel="stylesheet" href="teacher-communication.css">
 <div id="teacher-communication">
   <div class="container">
