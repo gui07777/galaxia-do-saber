@@ -46,7 +46,7 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
             ':data_aut2' => $data_aut
         ]);
 
-        $link = "http://localhost/levi-modular/GALAXIADOSABER/View/auth/institution/register/authentication/authenticator.html";
+        $link = "http://localhost/GALAXIADOSABER/View/auth/institution/register/authentication/authenticator.html";
 
 
         $mail->addAddress($email, $nomeFantasia);
