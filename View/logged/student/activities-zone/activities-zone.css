@@ -109,13 +109,18 @@ h1, p {
     font-weight: 500;
 }
 
-.activity-status {
-    text-align: center;
+.anexo-btn {
+    color: blue;
+    text-decoration: underline;
 }
 
-.status {
-    font-weight: bold;
-    font-size: 17px;
+.no-anexo {
+    color: gray;
+    font-size: 14px;
+}
+
+.entregue {
+    color: green;
 }
 
 .atrasado {
@@ -126,13 +131,25 @@ h1, p {
     color: orange;
 }
 
+.corrigido {
+    color: #250664;
+}
 
-.anexo-btn {
-    color: blue;
+.activity-item {
+    display: grid;
+    grid-template-columns: 30% 20% 20% 20%;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.activity-send a.send-btn {
+    color: #0077ff;
+    font-weight: 600;
     text-decoration: underline;
 }
 
-.no-anexo {
-    color: gray;
-    font-size: 14px;
+.status-bar {
+    display: grid;
+    grid-template-columns: 30% 20% 20% 20%;
+    text-align: center;
 }

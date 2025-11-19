@@ -145,4 +145,4 @@ CREATE TABLE IF NOT EXISTS notifications(
     message_text VARCHAR(200),
     send_date DATE,
     is_read (0);
-)
+);
