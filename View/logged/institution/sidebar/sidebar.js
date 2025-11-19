@@ -54,17 +54,23 @@ function loadPage(pageUrl) {
         .then(html => {
             document.querySelector('#app-content').innerHTML = html;
 
-            const scriptUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-                pageUrl.split('/').pop().replace('.html', '.js');
-
             const oldScript = document.querySelector('#dynamic-script');
             if (oldScript) oldScript.remove();
+
+            const scriptUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
+                pageUrl.split('/').pop().replace('.html', '.js');
 
             const script = document.createElement('script');
             script.src = scriptUrl;
             script.id = 'dynamic-script';
             script.async = false;
             document.body.appendChild(script);
+
+            script.onload = () => {
+                if (typeof initAddProfile === 'function') {
+                    initAddProfile()
+                }
+            };
 
             const oldLink = document.querySelector('#dynamic-style');
             if (oldLink) oldLink.remove();

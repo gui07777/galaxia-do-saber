@@ -5,7 +5,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+#add-profile {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -13,36 +13,42 @@ body {
   align-items: center;
 }
 
-.container {
+#add-profile .container {
   display: flex;
   flex-direction: column;
   flex-direction: column;
   background: #E2E6EF;
-  width: 500px; 
+  width: 500px;
   padding: 30px;
   gap: 30px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+#add-profile h1 {
   text-align: center;
 }
 
-.fields {
+#add-profile .fields {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-.fields div {
+#add-profile .fields div {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
 
-input[type='checkbox'] {
+#add-profile .options {
+  display: flex;
+  justify-content: center;
+  gap: 50px !important;
+}
+
+#add-profile input[type='checkbox'] {
   appearance: none;
   -webkit-appearance: none;
   height: 18px;
@@ -54,12 +60,12 @@ input[type='checkbox'] {
   transition: all 0.2s ease-in-out;
 }
 
-input[type='checkbox']:checked {
-  background-color: #140a43; 
+#add-profile input[type='checkbox']:checked {
+  background-color: #140a43;
   border-color: #140a43;
 }
 
-input[type='text'] {
+#add-profile input[type='text'] {
   height: 36px;
   border-radius: 15px;
   border: 1px solid #ccc;
@@ -67,25 +73,24 @@ input[type='text'] {
   outline: none;
 }
 
-/* Botões */
-.buttons {
+#add-profile .buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.buttons img {
+/* #add-profile .buttons img {
   width: 36px;
   transition: 0.3s;
   cursor: pointer;
-}
+} */
 
-.buttons img:hover {
+/* #add-profile .buttons img:hover {
   transform: scale(1.1);
-}
+} */
 
-input[type='submit'] {
-  width: 160px;
+#add-profile input[type='submit'] {
+  width: 100%;
   background: #1b103f;
   border-radius: 10px;
   color: white;
@@ -97,19 +102,18 @@ input[type='submit'] {
   transition: 0.3s;
 }
 
-input[type='submit']:hover {
+#add-profile input[type='submit']:hover {
   background-color: white;
   color: #1b103f;
   border: 1px solid #1b103f;
 }
 
-label {
+#add-profile label {
   font-weight: 500;
   color: #222;
-  margin-bottom: 5px;
 }
 
-select {
+#add-profile select {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -120,12 +124,12 @@ select {
   color: #333;
   outline: none;
   transition: border-color 0.3s;
-  margin-top: 15px;
 }
-select:hover {
+
+#add-profile select:hover {
   border-color: #888;
 }
 
-select:focus {
-  border-color: #564caf; 
+#add-profile select:focus {
+  border-color: #564caf;
 }

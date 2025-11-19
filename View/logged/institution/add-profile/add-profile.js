@@ -1,8 +1,9 @@
-function navigationBack() {
-  window.location.href = '../institution-home/institution-home.html';
-}
+function initAddProfile() {
 
-document.addEventListener("DOMContentLoaded", () => {
+  function navigationBack() {
+    window.location.href = '../institution-home/institution-home.html';
+  }
+
   const radioProfessor = document.getElementById("professor");
   const radioAluno = document.getElementById("aluno");
   const selectProfessorDiv = document.getElementById("professorSelect");
@@ -15,14 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".form");
 
   function atualizarExibicao() {
+    console.log('função de mudança de estado sendo chamada')
     selectProfessorDiv.style.display = radioProfessor.checked ? "block" : "none";
     selectAlunoDiv.style.display = radioAluno.checked ? "block" : "none";
   }
 
   radioProfessor.addEventListener("change", atualizarExibicao);
   radioAluno.addEventListener("change", atualizarExibicao);
-
-  atualizarExibicao();
 
   fetch("../../../../Controller/getDados.php")
     .then(res => res.json())
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => {
       console.error("Erro ao carregar dados:", err);
-      alert("Erro ao carregar dados das turmas e perfis.");
+      alert("erro ao carregar dados das turmas e perfis.");
     });
 
   form.addEventListener("submit", (e) => {
@@ -83,4 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
   });
-});
+}
+
+initAddProfile();

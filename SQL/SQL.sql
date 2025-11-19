@@ -140,9 +140,10 @@ ALTER TABLE atividades ADD COLUMN nome_arquivo VARCHAR(100) AFTER anexo;
 ALTER TABLE resposta ADD COLUMN nome_arquivo VARCHAR(100) AFTER anexo;
 
 CREATE TABLE IF NOT EXISTS notifications(
-    sender_id INT AUTO_INCREMENT PRIMARY KEY,
-    receiver_id INT AUTO_INCREMENT,
-    message_text VARCHAR(200),
-    send_date DATE,
-    is_read (0);
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_id INT,
+    receiver_id INT,
+    message VARCHAR(200),
+    created_at DATETIME,
+    is_read TINYINT(1) NOT NULL DEFAULT 0
 );
