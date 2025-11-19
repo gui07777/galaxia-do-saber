@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="institution-communication.css">
-<div id="general-comunication">
+<div id="institution-comunication">
     <div class="header">
     <div class="container">
 

@@ -138,11 +138,11 @@ FOREIGN KEY (id_status) REFERENCES status(id_status)
 ALTER TABLE instituicao ADD COLUMN notificado TINYINT(1) DEFAULT 0;
 ALTER TABLE atividades ADD COLUMN nome_arquivo VARCHAR(255) AFTER anexo;
 
-
-CREATE TABLE IF NOT EXISTS notifications(
-    sender_id INT AUTO_INCREMENT PRIMARY KEY,
-    receiver_id INT AUTO_INCREMENT,
-    message_text VARCHAR(200),
-    send_date DATE,
-    is_read (0);
+CREATE TABLE IF NOT EXISTS notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_id INT NOT NULL,
+    receiver_id INT NOT NULL,
+    message TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_read TINYINT(1) DEFAULT 0
 );
