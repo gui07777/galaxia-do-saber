@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+#notifications {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#notifications .container {
+    display: flex;
+    flex-direction: column;
+    background: #E2E6EF;
+    width: 900px;
+    padding: 40px;
+    gap: 30px;
+    border-radius: 15px;
+}
+
+#notifications h2 {
+    text-align: center
+}
+
+#notifications .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#notifications .notification {
+    background: white;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#notifications p {
+    font-weight: bold
+}

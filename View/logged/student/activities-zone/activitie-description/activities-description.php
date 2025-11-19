@@ -7,6 +7,8 @@ if (!isset($_SESSION['email_aluno'])) {
     exit;
 }
 
+$id_atividade = $_GET['id'] ?? null;
+
 ?>
 
 <!DOCTYPE html>
@@ -36,27 +38,34 @@ if (!isset($_SESSION['email_aluno'])) {
         <div class="titles">
             <h1>Atividade</h1>
         </div>
+
         <div class="activities">
             <div class="background-activity">
                 <div class="activity">
+
                     <h2>Atividade</h2>
 
-                    <label for="descricao" class="label-black">Descrição:</label>
+                    <form action="../../../../../Controller/RespostaAluno.php" method="POST" enctype="multipart/form-data">
 
-                    <div class="file-display">
-                        <span></span>
-                        <a href="#" download>
-                            <img src="../../../../../assets/icons/download.png" alt="Baixar" width="25px">
-                        </a>
-                     </div>
-                
-                    <label for="upload">Suba aqui sua Atividade:</label>
-                    <div class="upload-box">
-                        <textarea id="upload" placeholder="Comentário (100)"></textarea>
-                        <img src="../../../../../assets/icons/clipe.png" alt="Anexar arquivo" width="25px">
-                    </div>
+                       <input type="hidden" name="id_atividade" value="<?= $_GET['id_atividade'] ?>">
 
-                    <button class="enviar">Enviar</button>
+
+                        <label for="anexo" class="label-black">Anexo:</label>
+
+                        <div>
+                            <label for="anexo">Enviar arquivo</label>
+                            <input type="file" name="anexo" id="anexo"
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip,.rar">
+                        </div>
+
+                        <label for="comentario">Suba aqui sua Atividade:</label>
+                        <div class="upload-box">
+                            <textarea id="comentario" name="comentario" placeholder="Comentário (100)"></textarea>
+                        </div>
+
+                        <button type="submit" class="enviar">Enviar</button>
+
+                    </form>
                 </div>
             </div>
         </div>

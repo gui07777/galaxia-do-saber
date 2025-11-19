@@ -1,0 +1,51 @@
+lógica para criação do sistema de notificações
+
+no geral:
+
+-o professor envia uma notificaçao (mensagem)
+- a notificação é armazenada no banco
+- um aluno logado consegue visualzar suas notificações
+- o aluno nao pode responder apenas ver
+- o sistema mostra lidas e não lidas
+
+é um sistema de mensagens unidirecional
+
+1) o banco de dados precisa guardar:
+- quem enviou a mensagem
+- pra quem foi enviada
+- a mensagem
+- quando foi enviada
+- se foi lida ou não
+(cada linha da tabela de notificação será literalmente uma notificação)
+
+2) envio de mensagem do lado do professor:
+
+quando o professor escreve uma mensagem e aperta enviar acontece:
+
+- o formulario envia os dados (a notificação/mensagem) para um arquivo php
+- o php cria um novo registro na tabela de notificações
+- a notificação agora existe no banco, aguardando o aluno ver
+
+3) exibição das notificações no lado do aluno:
+
+quando o aluno abre o painel:
+
+- o php faz uma consulta ao banco de dads buscando todas as notificaçoes onde o receiver_id é o id desse aluno
+- o sistema retorna uma lista com todas as notifica~eos
+- o frontend exibe na tela como uma caxa, card, lista sla
+
+4) marcar como lida:
+
+aluno clica na notificação:
+
+-o php recebe o id da notificação
+- muda o campo is_read de 0 para 1
+- a notificaçao agora fica marcada como lida
+- mostrar diferente na interface como outra cor ou negrito
+
+5) atualização da interface
+
+o sistema pode:
+
+- atualizar a llista automaticamente via AJAX
+- recarregar a pagina

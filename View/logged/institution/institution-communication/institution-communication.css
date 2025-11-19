@@ -1,20 +1,20 @@
 
 * { box-sizing: border-box; }
-#institution-comunication {
+body {
   margin: 0;
   font-family: "Arial", sans-serif;
   background: #f2f6ff;
   color: #0b0b2a;
 }
 
-#institution-comunication .container {
+.container {
   display: flex;
   gap: 20px;
   padding: 20px;
 }
 
 
-#institution-comunication .sidebar {
+.sidebar {
   width: 220px;
   background: #edf1fb;
   padding: 18px;
@@ -24,7 +24,7 @@
   gap: 12px;
 }
 
-#institution-comunication .menu-item {
+.menu-item {
   padding: 12px;
   border-radius: 10px;
   border: none;
@@ -34,13 +34,13 @@
   text-align: left;
   transition: transform .08s ease, background .12s;
 }
-#institution-comunication .menu-item:hover { transform: translateY(-2px); }
-#institution-comunication .menu-item.active {
+.menu-item:hover { transform: translateY(-2px); }
+.menu-item.active {
   background: #c3cced;
   font-weight: 600;
 }
 
-#institution-comunication .content {
+.content {
   flex: 1;
   background: #eef3fb;
   padding: 18px;
@@ -49,14 +49,14 @@
   flex-direction: column;
 }
 
-#institution-comunication h1 {
+h1 {
   margin: 0 0 12px;
   text-align: center;
   font-size: 26px;
 }
 
 
-#institution-comunication textarea {
+textarea {
   width: 100%;
   min-height: 220px;
   border-radius: 12px;
@@ -69,13 +69,13 @@
 }
 
 
-#institution-comunication .buttons {
+.buttons {
   margin-top: 18px;
   display: flex;
   justify-content: space-between;
   gap: 12px;
 }
-#institution-comunication .btn {
+.btn {
   flex: 1;
   padding: 12px;
   border-radius: 12px;
@@ -85,7 +85,7 @@
   cursor: pointer;
   font-size: 15px;
 }
-#institution-comunication .btn:hover { opacity: 0.95; }
+.btn:hover { opacity: 0.95; }
 
 
 @media (max-width: 700px) {
