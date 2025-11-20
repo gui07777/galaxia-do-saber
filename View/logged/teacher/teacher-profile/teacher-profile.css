@@ -49,7 +49,8 @@
     font-size: 15px;
 }
 
-#teacher-profile input[type='text'] {
+#teacher-profile input[type='text'],
+input[type='password'] {
     height: 40px;
     width: 100%;
     border-radius: 15px;
@@ -72,11 +73,11 @@
 }
 
 #teacher-profile input[type='submit'] {
-    width: 250px;
+    width: 100%;
     background: #100629;
     border-radius: 15px;
     color: white;
-    height: 35px;
+    height: 40px;
     border: none;
     font-size: 1.5rem;
     transition: 0.3s;

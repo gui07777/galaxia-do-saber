@@ -1,10 +1,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const TOTAL = 3; 
+  const TOTAL = 3;
   const LS_KEY = 'comunicados_v1';
 
- 
+
   const sidebar = document.getElementById('sidebar');
   const titulo = document.getElementById('titulo');
   const textarea = document.getElementById('texto');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnAdicionar = document.getElementById('btnAdicionar');
   const btnSalvar = document.getElementById('btnSalvar');
 
-  
+
   let atual = 1;
   let comunicados = loadComunicados();
 
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebar.appendChild(b);
   }
 
- 
+
   atualizarUI();
 
-  
+
   btnEditar.addEventListener('click', () => {
     textarea.disabled = false;
     textarea.focus();
-   
+
     textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
   });
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     saveComunicados();
     textarea.disabled = true;
     alertaCurto('Comunicado salvo.');
-    atualizarUI(); 
+    atualizarUI();
   });
 
   btnRemover.addEventListener('click', () => {
@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   btnAdicionar.addEventListener('click', () => {
-   
+
     const textoNovo = prompt('Digite o texto a adicionar ao comunicado (ou cancele):');
     if (textoNovo === null) return;
-    
+
     const chave = String(atual);
     comunicados[chave] = comunicados[chave] ? comunicados[chave] + '\n' + textoNovo : textoNovo;
     textarea.value = comunicados[chave];
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alertaCurto('Texto adicionado. Clique Salvar para persistir.');
   });
 
-  
+
   textarea.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
       e.preventDefault();
@@ -81,16 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function mudarPara(index) {
     atual = index;
-    textarea.disabled = true; 
+    textarea.disabled = true;
     atualizarUI();
   }
 
   function atualizarUI() {
-   
+
     titulo.textContent = `Comunicados ${atual}`;
-   
+
     textarea.value = comunicados[String(atual)] || '';
-    
+
     document.querySelectorAll('.menu-item').forEach(btn => {
       btn.classList.toggle('active', Number(btn.dataset.index) === atual);
     });
@@ -100,13 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const raw = localStorage.getItem(LS_KEY);
       if (!raw) {
-        
+
         const obj = {};
         for (let i = 1; i <= TOTAL; i++) obj[String(i)] = '';
         return obj;
       }
       const parsed = JSON.parse(raw);
-    
+
       for (let i = 1; i <= TOTAL; i++) {
         if (!(String(i) in parsed)) parsed[String(i)] = '';
       }
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function alertaCurto(msg) {
-  
+
     const div = document.createElement('div');
     div.textContent = msg;
     div.style.position = 'fixed';

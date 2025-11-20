@@ -43,8 +43,15 @@ function loadPage(pageUrl) {
         return;
     }
 
-    const cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-        pageUrl.split('/').pop().replace('.html', '.css');
+    let cssUrl = '';
+
+    if (pageUrl.includes('html')) {
+        cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
+            pageUrl.split('/').pop().replace('.html', '.css');
+    } else {
+        cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
+            pageUrl.split('/').pop().replace('.php', '.css');
+    }
 
     fetch(pageUrl)
         .then(response => {

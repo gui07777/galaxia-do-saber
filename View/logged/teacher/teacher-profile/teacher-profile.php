@@ -1,10 +1,10 @@
 <?php
-session_start();
+// session_start();
 
-if (!isset($_SESSION['email_professor'])) {
-    header("Location: ../../../auth/teacher/login/teacher-login.html");
-    exit;
-}
+// if (!isset($_SESSION['email_professor'])) {
+//     header("Location: ../../../auth/teacher/login/teacher-login.html");
+//     exit;
+// }
 ?>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -23,6 +23,10 @@ if (!isset($_SESSION['email_professor'])) {
                     <label for="">Cargo:</label>
                     <input type="text" id="cargo" name="cargo" readonly>
                 </div>
+                <div>
+                    <label for="">Senha:</label>
+                    <input type="password" id="senha" name="novaSenha">
+                </div>
             </div>
             <div class="right-side">
                 <div>
@@ -33,15 +37,11 @@ if (!isset($_SESSION['email_professor'])) {
                     <label for="">Disciplina:</label>
                     <input type="text" id="disciplina" name="disciplina" readonly>
                 </div>
-                <div>
-                    <label for="">Senha:</label>
-                    <input type="password" id="senha" name="novaSenha">
-                </div>
             </div>
         </div>
         <div class="buttons">
-            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-            <input type="submit" name="requisicao" value="Atualizar">
+            <!-- <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()"> -->
+            <input type="submit" name="requisicao" value="Editar">
         </div>
     </form>
 </div>

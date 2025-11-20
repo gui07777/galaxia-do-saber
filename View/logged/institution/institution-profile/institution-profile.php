@@ -10,7 +10,7 @@ $email = $_SESSION['email_instituicao'];
 ?>
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 <link rel="stylesheet" href="institution-profile.css">
 
 <div id="institution-profile">
@@ -40,8 +40,8 @@ $email = $_SESSION['email_instituicao'];
                 </div>
             </div>
             <div class="buttons">
-                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
-                <input type="submit" name="requisicao" value="Atualizar">
+                <!-- <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()"> -->
+                <input type="submit" name="requisicao" value="Editar">
             </div>
     </form>
 </div>

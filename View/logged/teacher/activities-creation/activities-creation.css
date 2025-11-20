@@ -54,7 +54,8 @@ input[type='datetime-local'] {
     background: #fff;
 }
 
-#activities-creation input[type='file'] {
+#activities-creation input[type='file'],
+select {
     border: none;
     border-radius: 15px;
     background: #fff;

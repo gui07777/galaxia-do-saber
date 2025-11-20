@@ -225,7 +225,7 @@ main#app-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: auto !important;
+    overflow-y: scroll;
     transition: transform 0.4s ease;
 }
 
