@@ -45,5 +45,5 @@ if ($dados['data_aut'] < $dataAtual) {
 
 echo "<script>
 alert('Código verificado com sucesso! Acesso liberado.'); 
-window.location.href='../View/logged/institution/sidebar/sidebar.html';
+window.location.href='../View/auth/institution/login/institution-login.html';
 </script>";

@@ -51,9 +51,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
         
         echo "<script>
             alert('Aluno(a) Cadastrado!');
-            setTimeout(function() {
-                window.location.href = '../View/auth/student/login/student-login.html';
-            }, 50); 
+            window.history.back(); 
           </script>";
 
     } catch (PDOException $e) {

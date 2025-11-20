@@ -30,7 +30,7 @@ if (!empty($email) && !empty($senha)) {
             echo "<script> 
             alert('Login feito com sucesso!'); 
             setTimeout(function() { 
-            window.location.href = '../View/logged/institution/institution-profile/institution-profile.php'; 
+            window.location.href = '../View/logged/institution/sidebar/sidebar.html'; 
             }, 30); 
             </script>";
 
