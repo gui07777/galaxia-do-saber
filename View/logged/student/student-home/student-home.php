@@ -1,13 +1,13 @@
 <?php
 
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['email_aluno'])) {
-//     header("Location: ../../../auth/student/login/student-login.html");
-//     exit;
-// }
+if (!isset($_SESSION['email_aluno'])) {
+    header("Location: ../../../auth/student/login/student-login.html");
+    exit;
+}
 
-// $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
+$nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
 
 ?>
 

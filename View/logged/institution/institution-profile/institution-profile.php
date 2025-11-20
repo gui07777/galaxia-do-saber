@@ -41,7 +41,7 @@ $email = $_SESSION['email_instituicao'];
             </div>
             <div class="buttons">
                 <!-- <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()"> -->
-                <input type="submit" name="requisicao" value="Editar">
+                <input type="submit" name="requisicao" value="Atualizar">
             </div>
     </form>
 </div>

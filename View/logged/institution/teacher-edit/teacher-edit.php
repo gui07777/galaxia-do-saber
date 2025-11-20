@@ -1,9 +1,24 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email_instituicao'])) {
+    echo "<script>
+        alert('Sessão expirada. Faça login novamente.');
+        window.location.href='../../auth/login/institution-login.html';
+    </script>";
+    exit;
+}
+
+require_once('../../../../Model/conexaoBanco/Conexao.php');
+?>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-<link rel="stylesheet" href="student-edit.css">
-<div id="student-edit">
-    <form class="form" method="POST" form action="../../../../Controller/AlunoController.php">
+<link rel="stylesheet" href="teacher-edit.css">
+<div id="teacher-edit">
+    <form class="form" method="POST" action="../../../../Controller/AtualizarProfessorSidebar.php">
+
         <div class="container">
-            <h2>Editar Aluno</h2>
+            <h2>Editar Professor</h2>
             <div class="fields">
                 <div class="left-side">
                     <div>
@@ -11,18 +26,26 @@
                         <input type="text" name="nome">
                     </div>
                     <div>
-                        <label for="">Número da matrícula:</label>
-                        <input type="text" name="numero_matricula"></input>
+                        <label for="">CPF:</label>
+                        <input type="text" name="cpf"></input>
                     </div>
                     <div>
-                        <label for="">Data de Nascimento:</label>
-                        <input type="text" name="data_nasc">
+                        <label for="">Cargo:</label>
+                        <input type="text" name="cargo">
+                    </div>
+                    <div>
+                        <label for="">Disciplina:</label>
+                        <input type="text" name="disciplina"></input>
                     </div>
                 </div>
                 <div class="right-side">
                     <div>
                         <label for="">Email:</label>
                         <input type="text" name="email">
+                    </div>
+                    <div>
+                        <label for="instituicao_nome">Nome da Instituição:</label>
+                        <input type="text" name="razao_social">
                     </div>
                     <div>
                         <label for="">Senha:</label>
