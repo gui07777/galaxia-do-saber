@@ -1,10 +1,11 @@
 <?php
-// session_start();
 
-// if (!isset($_SESSION['email_professor'])) {
-//     header("Location: ../../../auth/teacher/login/teacher-login.html");
-//     exit;
-// }
+session_start();
+
+if (!isset($_SESSION['email_professor'])) {
+header("Location: ../../../auth/teacher/login/teacher-login.html");
+exit;
+}
 ?>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
