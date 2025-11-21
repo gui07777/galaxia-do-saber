@@ -1,85 +1,139 @@
 <?php
+
 require_once('../Model/conexaoBanco/Conexao.php');
 session_start();
 
-$email = $_POST['email'] ?? null;
-$tipo = $_POST['tipo'] ?? null;
-$id_turma = $_POST['id_turma'] ?? null;
 
-if (!$email || !$tipo || !$id_turma) {
+header("Content-Type: text/html; charset=UTF-8");
+
+
+$id_professor = $_POST['id_professor'] ?? null;
+$id_aluno     = $_POST['id_aluno'] ?? null;
+$id_turma     = $_POST['id_turma'] ?? null;
+$tipos_raw    = $_POST['tipo'] ?? null;
+
+if (is_null($tipos_raw)) {
+    $tipos = [];
+} elseif (is_array($tipos_raw)) {
+    $tipos = $tipos_raw;
+} else {
+    $tipos = [$tipos_raw];
+}
+
+if (empty($tipos)) {
     echo "<script>
-    alert('Dados incompletos.'); 
-    history.back();
+        alert('Selecione se é Professor ou Aluno.');
+        history.back();
     </script>";
     exit;
 }
 
-if ($tipo === 'professor') {
-    $tabela = "professor";
-    $tabela_rel = "turma_professor";
-    $campo_id = "id_professor";
-
-} else if ($tipo === 'aluno') {
-    $tabela = "aluno";
-    $tabela_rel = "turma_aluno";
-    $campo_id = "id_aluno";
-
-} else {
+if (empty($id_turma)) {
     echo "<script>
-    alert('Tipo inválido.'); 
-    history.back();
+        alert('Selecione uma turma.');
+        history.back();
+    </script>";
+    exit;
+}
+
+if (in_array('professor', $tipos) && empty($id_professor)) {
+    echo "<script>
+        alert('Você selecionou Professor, mas não escolheu qual professor.');
+        history.back();
+    </script>";
+    exit;
+}
+
+if (in_array('aluno', $tipos) && empty($id_aluno)) {
+    echo "<script>
+        alert('Você selecionou Aluno, mas não escolheu qual aluno.');
+        history.back();
     </script>";
     exit;
 }
 
 try {
 
-    $sqlCheck = "SELECT id FROM $tabela WHERE email = :email LIMIT 1";
-    $stmt = $conexao->prepare($sqlCheck);
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
-    $registro = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (in_array('professor', $tipos) && !empty($id_professor)) {
 
-    if (!$registro) {
-        echo "<script>
-        alert('Este email não está cadastrado como $tipo.'); 
-        history.back();
-        </script>";
-        exit;
+        $checkProf = $conexao->prepare("
+            SELECT 1 FROM ensina
+            WHERE id_professor = :prof AND id_turma = :turma
+            LIMIT 1
+        ");
+        $checkProf->execute([
+            ':prof'  => $id_professor,
+            ':turma' => $id_turma
+        ]);
+
+        if ($checkProf->rowCount() > 0) {
+            echo "<script>
+                alert('Este professor já está vinculado à turma.');
+                history.back();
+            </script>";
+            exit;
+        }
+
+        $insertProf = $conexao->prepare("
+            INSERT INTO ensina (id_professor, id_turma)
+            VALUES (:prof, :turma)
+        ");
+        $insertProf->execute([
+            ':prof'  => $id_professor,
+            ':turma' => $id_turma
+        ]);
     }
 
-    $id_perfil = $registro['id'];
+    if (in_array('aluno', $tipos) && !empty($id_aluno)) {
 
-    $sqlDup = "SELECT id FROM $tabela_rel WHERE id_turma = :id_turma AND $campo_id = :id_perfil";
-    $stmtDup = $conexao->prepare($sqlDup);
-    $stmtDup->bindParam(':id_turma', $id_turma);
-    $stmtDup->bindParam(':id_perfil', $id_perfil);
-    $stmtDup->execute();
+        $checkAluno = $conexao->prepare("
+            SELECT 1 FROM matricula
+            WHERE id_aluno = :aluno AND id_turma = :turma
+            LIMIT 1
+        ");
+        $checkAluno->execute([
+            ':aluno' => $id_aluno,
+            ':turma' => $id_turma
+        ]);
 
-    if ($stmtDup->rowCount() > 0) {
-        echo "<script>
-        alert('Este perfil já está relacionado à turma.'); 
-        history.back();
-        </script>";
-        exit;
+        if ($checkAluno->rowCount() > 0) {
+            echo "<script>
+                alert('Este aluno já está matriculado nesta turma.');
+                history.back();
+            </script>";
+            exit;
+        }
+
+        $insertAluno = $conexao->prepare("
+            INSERT INTO matricula (id_aluno, id_turma)
+            VALUES (:aluno, :turma)
+        ");
+        $insertAluno->execute([
+            ':aluno' => $id_aluno,
+            ':turma' => $id_turma
+        ]);
+
+        $updateAluno = $conexao->prepare("
+            UPDATE aluno SET id_turma = :turma WHERE id_aluno = :aluno
+        ");
+        $updateAluno->execute([
+            ':turma' => $id_turma,
+            ':aluno' => $id_aluno
+        ]);
     }
-
-    $sqlInsert = "INSERT INTO $tabela_rel (id_turma, $campo_id) VALUES (:id_turma, :id_perfil)";
-    $stmtInsert = $conexao->prepare($sqlInsert);
-    $stmtInsert->bindParam(':id_turma', $id_turma);
-    $stmtInsert->bindParam(':id_perfil', $id_perfil);
-    $stmtInsert->execute();
 
     echo "<script>
-            alert('Perfil relacionado com sucesso!');
-            window.location.href = '../View/logged/institution/sidebar/sidebar.html';
-         </script>";
+        alert('Relacionamento(s) realizado(s) com sucesso!');
+        window.location.href = '../View/logged/institution/sidebar/sidebar.html';
+    </script>";
     exit;
 
 } catch (PDOException $e) {
+ 
+    $msg = addslashes($e->getMessage());
     echo "<script>
-    alert('Erro: " . $e->getMessage() . "'); 
-    history.back();
+        alert('Erro ao relacionar: {$msg}');
+        history.back();
     </script>";
     exit;
 }
