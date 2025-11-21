@@ -1,91 +1,86 @@
 <?php
 require_once('../Model/conexaoBanco/Conexao.php');
+session_start();
 
-$id_turma = $_POST['id_turma'] ?? null;
-$id_aluno = $_POST['id_aluno'] ?? null;
-$id_professor = $_POST['id_professor'] ?? null;
+$email = $_POST['email'] ?? null;
 $tipo = $_POST['tipo'] ?? null;
+$id_turma = $_POST['id_turma'] ?? null;
 
+if (!$email || !$tipo || !$id_turma) {
+    echo "<script>
+    alert('Dados incompletos.'); 
+    history.back();
+    </script>";
+    exit;
+}
 
-header('Content-Type: application/json');
+if ($tipo === 'professor') {
+    $tabela = "professor";
+    $tabela_rel = "turma_professor";
+    $campo_id = "id_professor";
 
-if (empty($id_turma) || empty($tipo)) {
-  echo json_encode(['status' => 'erro', 'mensagem' => 'Por favor, selecione o tipo e a turma.']);
-  exit;
+} else if ($tipo === 'aluno') {
+    $tabela = "aluno";
+    $tabela_rel = "turma_aluno";
+    $campo_id = "id_aluno";
+
+} else {
+    echo "<script>
+    alert('Tipo inválido.'); 
+    history.back();
+    </script>";
+    exit;
 }
 
 try {
-  if ($tipo === 'aluno' && !empty($id_aluno)) {
 
-    $check = $conexao->prepare("
-      SELECT 1 FROM matricula 
-      WHERE id_aluno = :id_aluno AND id_turma = :id_turma
-    ");
-    $check->execute([
-      ':id_aluno' => $id_aluno,
-      ':id_turma' => $id_turma
-    ]);
+    $sqlCheck = "SELECT id FROM $tabela WHERE email = :email LIMIT 1";
+    $stmt = $conexao->prepare($sqlCheck);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $registro = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($check->rowCount() > 0) {
-      echo json_encode(['status' => 'aviso', 'mensagem' => 'O aluno já está matriculado nesta turma.']);
-      exit;
+    if (!$registro) {
+        echo "<script>
+        alert('Este email não está cadastrado como $tipo.'); 
+        history.back();
+        </script>";
+        exit;
     }
 
-    $stmt = $conexao->prepare("
-      INSERT INTO matricula (id_aluno, id_turma) 
-      VALUES (:id_aluno, :id_turma)
-    ");
-    $stmt->execute([
-      ':id_aluno' => $id_aluno,
-      ':id_turma' => $id_turma
-    ]);
+    $id_perfil = $registro['id'];
 
-    $update = $conexao->prepare("
-      UPDATE aluno SET id_turma = :id_turma 
-      WHERE id_aluno = :id_aluno
-    ");
-    $update->execute([
-      ':id_turma' => $id_turma,
-      ':id_aluno' => $id_aluno
-    ]);
+    $sqlDup = "SELECT id FROM $tabela_rel WHERE id_turma = :id_turma AND $campo_id = :id_perfil";
+    $stmtDup = $conexao->prepare($sqlDup);
+    $stmtDup->bindParam(':id_turma', $id_turma);
+    $stmtDup->bindParam(':id_perfil', $id_perfil);
+    $stmtDup->execute();
 
-    echo json_encode(['status' => 'sucesso', 'mensagem' => 'Aluno relacionado com sucesso à turma!']);
-    exit;
-  }
-
-  if ($tipo === 'professor' && !empty($id_professor)) {
-
-    $check = $conexao->prepare("
-      SELECT 1 FROM ensina 
-      WHERE id_professor = :id_professor AND id_turma = :id_turma
-    ");
-    $check->execute([
-      ':id_professor' => $id_professor,
-      ':id_turma' => $id_turma
-    ]);
-
-    if ($check->rowCount() > 0) {
-      echo json_encode(['status' => 'aviso', 'mensagem' => 'O professor já está vinculado a esta turma.']);
-      exit;
+    if ($stmtDup->rowCount() > 0) {
+        echo "<script>
+        alert('Este perfil já está relacionado à turma.'); 
+        history.back();
+        </script>";
+        exit;
     }
 
+    $sqlInsert = "INSERT INTO $tabela_rel (id_turma, $campo_id) VALUES (:id_turma, :id_perfil)";
+    $stmtInsert = $conexao->prepare($sqlInsert);
+    $stmtInsert->bindParam(':id_turma', $id_turma);
+    $stmtInsert->bindParam(':id_perfil', $id_perfil);
+    $stmtInsert->execute();
 
-    $stmt = $conexao->prepare("
-      INSERT INTO ensina (id_professor, id_turma) 
-      VALUES (:id_professor, :id_turma)
-    ");
-    $stmt->execute([
-      ':id_professor' => $id_professor,
-      ':id_turma' => $id_turma
-    ]);
-
-    echo json_encode(['status' => 'sucesso', 'mensagem' => 'Professor relacionado com sucesso à turma!']);
+    echo "<script>
+            alert('Perfil relacionado com sucesso!');
+            window.location.href = '../View/logged/institution/sidebar/sidebar.html';
+         </script>";
     exit;
-  }
 
-  echo json_encode(['status' => 'erro', 'mensagem' => 'Selecione um professor ou aluno válido.']);
-  
 } catch (PDOException $e) {
-  echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao relacionar: ' . $e->getMessage()]);
+    echo "<script>
+    alert('Erro: " . $e->getMessage() . "'); 
+    history.back();
+    </script>";
+    exit;
 }
 ?>
