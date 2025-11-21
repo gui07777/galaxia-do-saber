@@ -3,23 +3,27 @@
     <div class="header">
     <div class="container">
 
-   <aside class="sidebar" id="sidebar">
-     
-    </aside>
+   <div class="page">
+        <h1 class="title">Comunicados</h1>
 
-    <main class="content">
-      <h1 id="titulo">Comunicados 1</h1>
+        <div class="layout">
+            <aside class="left-panel">
+                <span class="aside-title">Publicados</span>
 
-      <textarea id="texto" placeholder="Selecione um comunicado e clique em Editar para alterar." disabled></textarea>
+                <div class="aside-content" id="aside-empty">
+                    Você não tem<br>comunicados<br>publicados
+                </div>
 
-     <div class="buttons">
-        <button id="btnEditar" class="btn">Editar</button>
-        <button id="btnRemover" class="btn">Remover</button>
-        <button id="btnAdicionar" class="btn">Adicionar</button>
-        <button id="btnSalvar" class="btn">Salvar</button>
-      </div>
-    </main>
+                <ul id="lista-comunicados" class="lista"></ul>
+            </aside>
 
-  </div>
+            <main class="right-panel">
+                <div class="card">
+                    <h2 class="card-title">Criar um<br>comunicado</h2>
+                    <button id="btn-add" class="btn">Adicionar</button>
+                </div>
+            </main>
+        </div>
+    </div>
 
 <script src="institution-communication.js"></script>
