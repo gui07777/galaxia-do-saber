@@ -94,7 +94,7 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
                 SET notificado = 1 
                 WHERE email = :email");
 
-        $update->execute([':email' => ['email']]);
+        $update->execute([':email' => $email]);
 
     } catch (Exception $e) {
 
