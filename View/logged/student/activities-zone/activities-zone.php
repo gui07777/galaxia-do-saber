@@ -39,7 +39,6 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
         </div>
 
         <div class="titles">
-            ```
 <div class="titles">
     <h1>Bem-vindo(a), <?= htmlspecialchars($nome_aluno) ?>!</h1>
 
@@ -57,6 +56,7 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
         <div><label>Tarefas</label></div>
         <div><label>Entrega</label></div>
         <div><label>Nota</label></div>
+        <div><label>Ação</label></div>
     </div>
 
     <div id="activity-list" class="activity-list">
@@ -140,4 +140,3 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
 
     </div>
 </div>
-```

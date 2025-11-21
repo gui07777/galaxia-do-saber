@@ -30,9 +30,16 @@
           <label>CNPJ:</label> <br>
           <input type="text" name="cnpj" id="cnpj" required />
         </div>
-        <div>
-          <label>Código Inep:</label> <br>
-          <input type="text" name="codigo_inep" required />
+        <div class="inep-wrapper">
+            <div class="inep-label">
+                <label>Código Inep:</label>
+                <span class="help-icon">?</span>
+                <div class="tooltip">
+                    O Código INEP é um identificador único da instituição de ensino fornecido pelo MEC (consulte no Censo Escolar, site do INEP ou com a secretaria de educação).
+                </div>
+            </div>
+
+            <input type="text" name="codigo_inep" required />
         </div>
         <div>
           <label>Telefone:</label> <br>
@@ -107,7 +114,7 @@
         </div>
         <div>
           <label>Complemento:</label> <br>
-          <input type="text" name="complemento" id="complemento" required />
+          <input type="text" name="complemento" id="complemento" />
         </div>
       </section>
     </div>
