@@ -28,8 +28,12 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
         <img src="../../../../assets/icons/logosemfundo.png" class="logo" alt="Logo">
         <div class="width"></div>
         <div class="buttons">
-            <img src="../../../../assets/icons/sininho.png" alt="Notificações">
-            <img src="../../../../assets/icons/anonimous.png" alt="Perfil">
+            <a href="">
+                <img src="../../../../assets/icons/sininho.png" alt="">
+            </a>
+            <a href="../student-profile/student-profile.php">
+                <img src="../../../../assets/icons/anonimous.png" alt="">
+            </a>
         </div>
     </header>
 

@@ -27,9 +27,12 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
         <img src="../../../../assets/icons/logosemfundo.png" class="logo">
         <div class="width"></div>
         <div class="buttons">
-            <img src="../../../../assets/icons/sininho.png" alt="">
-            <img src="../../../../assets/icons/nova-mensagem.png" alt="" width="42px">
-            <img src="../../../../assets/icons/anonimous.png" alt="">
+            <a href="">
+                <img src="../../../../assets/icons/sininho.png" alt="">
+            </a>
+            <a href="../student-profile/student-profile.php">
+                <img src="../../../../assets/icons/anonimous.png" alt="">
+            </a>
         </div>
     </header>
     <main>
@@ -49,10 +52,6 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
             <div onclick="navigate('jogos')">
                 <img src="../../../../assets/icons/plan-jogos.png" alt="">
                 <label for="">Jogos</label>
-            </div>
-            <div onclick="navigate('progresso')">
-                <img src="../../../../assets/icons/plan-progresso.png" alt="">
-                <label for="">Progresso</label>
             </div>
         </div>
     </main>

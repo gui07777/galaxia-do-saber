@@ -50,13 +50,13 @@ $id_atividade = $_GET['id'] ?? null;
                        <input type="hidden" name="id_atividade" value="<?= $_GET['id_atividade'] ?>">
 
 
-                        <label for="anexo" class="label-black">Anexo:</label>
+                        <label class="label-black">Anexo:</label>
 
-                        <div>
-                            <label for="anexo">Enviar arquivo</label>
-                            <input type="file" name="anexo" id="anexo"
+                        <label class="file-upload-box" for="anexo">
+                            <span id="file-name">Clique para escolher um arquivo...</span>
+                            <input type="file" name="anexo" id="anexo" 
                             accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip,.rar">
-                        </div>
+                        </label>
 
                         <label for="comentario">Suba aqui sua Atividade:</label>
                         <div class="upload-box">
@@ -72,6 +72,13 @@ $id_atividade = $_GET['id'] ?? null;
     </main>
 
     <script src="activities-description.js"></script>
+    <script>
+    document.getElementById("anexo").addEventListener("change", function(){
+        let text = this.files.length ? this.files[0].name : "Clique para escolher um arquivo...";
+        document.getElementById("file-name").textContent = text;
+    });
+    </script>
+
 </body>
 
 </html>

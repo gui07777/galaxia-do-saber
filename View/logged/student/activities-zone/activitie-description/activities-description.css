@@ -158,3 +158,22 @@ label {
 .enviar:hover {
     background-color: #3F129D;
 }
+
+.file-upload-box {
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.file-upload-box span {
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+}
+
+.file-upload-box input[type="file"] {
+    display: none; 
+
+}

@@ -1,5 +1,5 @@
 navigateBack = () => {
-    window.location.href = '../student-home/student-home.html';
+    window.location.href = '../student-home/student-home.php';
 }
 
 function navigateGame(page) {

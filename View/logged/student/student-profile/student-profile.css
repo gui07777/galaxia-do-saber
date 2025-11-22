@@ -6,7 +6,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 98vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,10 +37,6 @@ header {
 .logo {
     width: 155px;
     height: 45px;
-}
-
-.material-symbols-outlined {
-    color: white;
 }
 
 h2 {

@@ -25,11 +25,11 @@ if (!isset($_SESSION['email_aluno'])) {
             <img src="../../../../assets/icons/logosemfundo.png" class="logo">
         </div>
         <div class="header-buttons">
-            <a href="#/teacher-notifications" data-page="../teacher-notifications/teacher-notifications.html">
-                <i class="material-symbols-outlined">notifications</i>
+            <a href="#/student-notifications" data-page="">
+                <img src="../../../../assets/icons/sininho.png" alt="">
             </a>
-            <a href="#/teacher-profile" data-page="../teacher-profile/teacher-profile.html">
-                <i class="material-symbols-outlined">account_circle</i>
+            <a href="#/student-profile" data-page="../student-profile/student-profile.php">
+                <img src="../../../../assets/icons/anonimous.png" alt="">
             </a>
         </div>
     </header>

@@ -65,5 +65,6 @@
     generateCalendar(parseInt(yearInput.value), parseInt(monthSelect.value));
   });
 })();
-function voltar() {
+function voltar() { 
+  window.location.href = '../student-home/student-home.php';
 }

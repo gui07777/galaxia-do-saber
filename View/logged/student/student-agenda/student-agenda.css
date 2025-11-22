@@ -5,11 +5,33 @@
   --border: #e0e0e0;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 98vw;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
+
+header {
+    background: #250664;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.buttons img {
+    margin-right: 10px;
+}
+
+.logo {
+    width: 165px;
+}
+
+.width {
+    width: 70%;
+}
+
 #institutional-agenda {
   background-image: url("assets/Image/fundo1.jpg");
   background-size: cover;
@@ -32,12 +54,16 @@ body, html {
 }
 
 .btn-voltar {
-  width: 45px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 100;
+    width: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    left: 60px;
+    top: 120px;
+}
+
+.btn-voltar img:hover{
+      width: 45px;
 }
 #institutional-agenda h1 {
   text-align: center;
