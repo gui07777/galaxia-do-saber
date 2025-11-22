@@ -108,7 +108,7 @@ links.forEach(a => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    const defaultPage = "../teacher-home/teacher-home.html";
+    const defaultPage = "../teacher-home/teacher-home.php";
 
     const homeItem = document.querySelector('a[data-page="' + defaultPage + '"]');
     if (homeItem && homeItem.closest('.side-item')) {

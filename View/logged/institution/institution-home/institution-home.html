@@ -4,5 +4,29 @@
         <h1>Seja bem-vindo, Instituição!</h1>
         <h2>Crie a sua primeira turma</h2>
     </div>
-    <button onclick="navigation()">Criar</button>
+    <button onclick="changeToClassCreation()">Criar</button>
 </div>
+
+<div id="class-creation" style="display: none">
+    <form class="form" method="POST" action="../../../../Controller/TurmaController.php">
+        <div class="container">
+            <h1>Cadastro de turmas</h1>
+            <div class="fields">
+                <div>
+                    <label for="">Nome da Turma:</label>
+                    <input type="text" name="nome" required>
+                </div>
+                <div>
+                    <label for="">Descrição:</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="5" required></textarea>
+                </div>
+            </div>
+            <div class="buttons">
+                <!-- <span class="material-symbols-outlined">arrow_back</span> -->
+                <img src="../../../../assets/icons/volte.png" alt="" onclick="backToInstitutionHome()">
+                <input type="submit" value="Cadastrar" name="requisicao">
+            </div>
+        </div>
+    </form>
+</div>
+<script src="institution-home.js"></script>

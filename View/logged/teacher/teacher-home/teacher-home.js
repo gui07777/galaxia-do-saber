@@ -1,3 +1,12 @@
-navigationBack = () => {
-    window.location.href = '../teacher-home/teacher-home.html';
+const teacherHome = document.querySelector('#teacher-home');
+const activitiesCreation = document.querySelector('#activities-creation');
+
+function changeToActivitiesCreation() {
+    teacherHome.style.display = 'none';
+    activitiesCreation.style.display = 'flex';
+}
+
+function backToTeacherHome() {
+    activitiesCreation.style.display = 'none';
+    teacherHome.style.display = 'flex';
 }
