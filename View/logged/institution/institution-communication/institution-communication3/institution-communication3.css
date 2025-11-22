@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background: #ffffff;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 22px;
+    color: #0e0726;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.wrapper {
+    width: 95%;
+    height: 430px;
+    margin: 20px auto;
+    background: #eef1fb;
+    border-radius: 20px;
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.menu-esquerdo {
+    width: 200px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #0e0726;
+    font-weight: 700;
+}
+
+.titulo-publicados {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.item-comunicado {
+    background: #dde3f1;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.area-principal {
+    flex: 1;
+    background: white;
+    margin-left: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-centro {
+    background: #e6e9f3;
+    padding: 40px 60px;
+    border-radius: 15px;
+    text-align: center;
+    color: #0e0726;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-centro button {
+    margin-top: 18px;
+    background: #0d0820;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
