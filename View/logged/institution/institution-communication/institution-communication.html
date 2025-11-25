@@ -3,27 +3,36 @@
     <div class="header">
     <div class="container">
 
-   <div class="page">
-        <h1 class="title">Comunicados</h1>
+      
+    <h1 class="titulo">Comunicados</h1>
+    <div class="layout">
+      <aside class="publicados">
+        <h2>Publicados</h2>
+        <ul id="lista-comunicados"></ul>
+        <p id="sem-comunicados">Você não tem comunicados publicados</p>
+      </aside>
 
-        <div class="layout">
-            <aside class="left-panel">
-                <span class="aside-title">Publicados</span>
-
-                <div class="aside-content" id="aside-empty">
-                    Você não tem<br>comunicados<br>publicados
-                </div>
-
-                <ul id="lista-comunicados" class="lista"></ul>
-            </aside>
-
-            <main class="right-panel">
-                <div class="card">
-                    <h2 class="card-title">Criar um<br>comunicado</h2>
-                    <button id="btn-add" class="btn">Adicionar</button>
-                </div>
-            </main>
+      <main class="painel">
+        <div id="mensagem-inicial" class="mensagem">
+          <p>Você não selecionou nenhum comunicado. Deseja criar um comunicado?</p>
+          <button id="btn-adicionar" class="btn">Adicionar</button>
         </div>
-    </div>
 
-<script src="institution-communication.js"></script>
+        <form id="form-comunicado" class="form hidden">
+          <label for="assunto">Ass:</label>
+          <input type="text" id="assunto" required />
+          <label for="descricao">Descrição:</label>
+          <textarea id="descricao" required></textarea>
+          <button type="submit" class="btn">Salvar</button>
+        </form>
+
+        <div id="detalhes-comunicado" class="detalhes hidden">
+          <p><strong>Ass:</strong> <span id="detalhe-assunto"></span></p>
+          <p><strong>Descrição:</strong> <span id="detalhe-descricao"></span></p>
+          <button id="btn-editar" class="btn">Editar</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="institution-communication.js"></script>
