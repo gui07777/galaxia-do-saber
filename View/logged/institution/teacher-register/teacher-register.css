@@ -68,7 +68,7 @@ input[type='password'] {
 }
 
 #teacher-register input[type='submit'] {
-    width: 250px;
+    width: 100%;
     background: #100629;
     border-radius: 15px;
     color: white;

@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
 #institution-home {
     margin: 0;
     height: 100%;
@@ -113,4 +118,14 @@
         color: black;
         border: 1px solid black;
     }
+}
+
+#turmas .card {
+    background: #E2E6EF;
+    width: 170px;
+    height: 120px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

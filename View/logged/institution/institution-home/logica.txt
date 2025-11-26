@@ -1,0 +1,17 @@
+1) O que eu quero?
+
+implementar um terceiro na institution-home, o estado de turmas em formato de cards, então:
+
+- se a instituição não cadastrou nenhuma turma ainda, entende-se que o usuario entrou pela primeira vez então exibe primeiro estado de boas vindas.
+
+- se já tem turma cadastrada, exibe-a em formato de card clicável.
+
+FLUXO:
+
+1) instituição loga
+2) faz select no banco
+   - tem turma = exibe turmas
+   - não tem = institution-home
+
+
+"tecnologia + termos tecnico + example"
