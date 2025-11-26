@@ -22,7 +22,10 @@ $temTurmas = count($data) > 0;
     <div id="turmas">
         <div class='cards-turma'>
             <?php foreach ($data as $row): ?>
-                <a href="class.php?id_turma=<?= $row['id_turma'] ?>" class="card-link">
+                <a href="#"
+                  class="card-link"
+                  data-page="../class/class.php?id_turma=<?= $row['id_turma'] ?>">
+
                     <div class='card'>
                         <h2><?= $row['nome'] ?></h2>
                     </div>

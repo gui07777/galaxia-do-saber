@@ -70,3 +70,21 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+#class .btn-delete {
+    background: linear-gradient(135deg, #ff3c3c, #c40000);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+#class .btn-delete:hover {
+    background: white;
+    color: #c40000;
+    border: 1px solid #c40000;
+}

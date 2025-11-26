@@ -17,7 +17,7 @@ if (!$turma) {
     return;
 }
 ?>
-
+<link rel="stylesheet" href="class.css">
 <div id="class">
 
     <div class="class-header">
@@ -32,14 +32,13 @@ if (!$turma) {
 
             <?php
             $sqlProf = "
-              SELECT u.nome 
-              FROM turma_professores tp
-              JOIN usuarios u ON tp.professor_id = u.id
-              WHERE tp.id_turma = '$id_turma'
+              SELECT p.nome, p.email, p.disciplina
+              FROM ensina e
+              JOIN professor p ON e.id_professor = p.id_professor
+              WHERE e.id_turma = '$id_turma'
             ";
             $resProf = mysqli_query($con, $sqlProf);
             ?>
-
             <div class="users-list">
                 <?php while($p = mysqli_fetch_assoc($resProf)): ?>
                     <div class="user-card professor"><?= $p['nome'] ?></div>
@@ -52,10 +51,9 @@ if (!$turma) {
 
             <?php
             $sqlAluno = "
-              SELECT u.nome 
-              FROM turma_alunos ta
-              JOIN usuarios u ON ta.aluno_id = u.id
-              WHERE ta.id_turma = '$id_turma'
+              SELECT nome, email, numero_matricula
+    FROM aluno
+    WHERE id_turma = '$id_turma'
             ";
             $resAluno = mysqli_query($con, $sqlAluno);
             ?>
