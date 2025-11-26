@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email_professor'])) {
+    header("Location: ../../../../auth/teacher/login/teacher-login.html");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

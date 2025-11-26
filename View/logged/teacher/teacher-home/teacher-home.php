@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email_professor'])) {
+header("Location: ../../../auth/teacher/login/teacher-login.html");
+exit;
+}
+?>
+
+
 <link rel="stylesheet" href="teacher-home.css">
 <div id="teacher-home">
     <div class="header">

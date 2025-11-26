@@ -43,19 +43,19 @@ function loadPage(pageUrl) {
         return;
     }
 
-    let cssUrl = '';
+    const fileName = pageUrl.split('/').pop();
+    const filePath = pageUrl.substring(0, pageUrl.lastIndexOf('/'));
+    const baseName = fileName.replace('.html', '').replace('.php', '');
 
-    if (pageUrl.includes('html')) {
-        cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-            pageUrl.split('/').pop().replace('.html', '.css');
-    } else {
-        cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-            pageUrl.split('/').pop().replace('.php', '.css');
-    }
+    const cssUrl = `${filePath}/${baseName}.css`;
+
+    const scriptUrl = `${filePath}/${baseName}.js`;
 
     fetch(pageUrl)
         .then(response => {
-            if (!response.ok) throw new Error('Erro ao carregar página: ' + response.statusText);
+            if (!response.ok)
+                throw new Error('Erro ao carregar página: ' + response.statusText);
+
             return response.text();
         })
         .then(html => {
@@ -63,9 +63,6 @@ function loadPage(pageUrl) {
 
             const oldScript = document.querySelector('#dynamic-script');
             if (oldScript) oldScript.remove();
-
-            const scriptUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-                pageUrl.split('/').pop().replace('.html', '.js');
 
             const script = document.createElement('script');
             script.src = scriptUrl;
@@ -75,9 +72,11 @@ function loadPage(pageUrl) {
 
             script.onload = () => {
                 if (typeof initAddProfile === 'function') {
-                    initAddProfile()
+                    console.log("initAddProfile detectado → executando");
+                    initAddProfile();
                 }
             };
+
 
             const oldLink = document.querySelector('#dynamic-style');
             if (oldLink) oldLink.remove();
@@ -90,7 +89,8 @@ function loadPage(pageUrl) {
         })
         .catch(error => {
             console.error(error);
-            document.querySelector('#app-content').innerHTML = `<p style="color: red;">Erro: ${error.message}</p>`;
+            document.querySelector('#app-content').innerHTML =
+                `<p style="color: red;">Erro: ${error.message}</p>`;
         });
 }
 

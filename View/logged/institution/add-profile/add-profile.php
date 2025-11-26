@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['email_instituicao'])) {
+  header("Location: ../../../auth/institution/login/institution-login.html");    
+  exit;
+}
+?>
+
 <link rel="stylesheet" href="add-profile.css">
 <div id="add-profile">
   <form class="form" method="POST" action="../../../../Controller/RelacionarPerfil.php">
