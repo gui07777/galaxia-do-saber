@@ -1,6 +1,6 @@
 1) O que eu quero?
 
-implementar um terceiro na institution-home, o estado de turmas em formato de cards, então:
+implementar um terceiro estado na institution-home, o estado de turmas em formato de cards, então:
 
 - se a instituição não cadastrou nenhuma turma ainda, entende-se que o usuario entrou pela primeira vez então exibe primeiro estado de boas vindas.
 
