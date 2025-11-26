@@ -123,3 +123,77 @@ textarea {
 .hidden {
   display: none;
 }
+/* ----------------------------- */
+/*         RESPONSIVIDADE       */
+/* ----------------------------- */
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .publicados {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .painel {
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 20px;
+  }
+
+  .publicados {
+    padding: 12px;
+  }
+
+  #lista-comunicados li {
+    font-size: 12px;
+    padding: 7px;
+  }
+
+  .painel {
+    padding: 20px;
+  }
+
+  .mensagem p {
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .titulo {
+    font-size: 18px;
+  }
+
+  .painel {
+    padding: 15px;
+  }
+
+  .mensagem p {
+    font-size: 13px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+}
+
