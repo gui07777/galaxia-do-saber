@@ -66,7 +66,7 @@ function loadPage(pageUrl) {
 
             let scriptUrl;
             if (pageUrl.endsWith('.html')) {
-                scriptUrl = pagerUrl.replace('.html', '.js')
+                scriptUrl = pageUrl.replace('.html', '.js')
             } else if (pageUrl.endsWith('.php')) {
                 scriptUrl = pageUrl.replace('.php', '.js')
             } else {
