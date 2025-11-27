@@ -43,15 +43,15 @@ function loadPage(pageUrl) {
         return;
     }
 
-    let cssUrl = '';
-
-    if (pageUrl.includes('html')) {
-        cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-            pageUrl.split('/').pop().replace('.html', '.css');
+    let cssUrl;
+    if (pageUrl.endsWith('.html')) {
+        cssUrl = pageUrl.replace('.html', '.css');
+    } else if (pageUrl.endsWith('.php')) {
+        cssUrl = pageUrl.replace('.php', '.css');
     } else {
-        cssUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-            pageUrl.split('/').pop().replace('.php', '.css');
+        cssUrl = pageUrl.replace(/\.[^/.]+$/, '.css');
     }
+
 
     fetch(pageUrl)
         .then(response => {
@@ -64,8 +64,14 @@ function loadPage(pageUrl) {
             const oldScript = document.querySelector('#dynamic-script');
             if (oldScript) oldScript.remove();
 
-            const scriptUrl = pageUrl.substring(0, pageUrl.lastIndexOf('/')) + '/' +
-                pageUrl.split('/').pop().replace('.html', '.js');
+            let scriptUrl;
+            if (pageUrl.endsWith('.html')) {
+                scriptUrl = pagerUrl.replace('.html', '.js')
+            } else if (pageUrl.endsWith('.php')) {
+                scriptUrl = pageUrl.replace('.php', '.js')
+            } else {
+                scriptUrl = pageUrl.replace(/\.[^/.]+$/, '.js');
+            }
 
             const script = document.createElement('script');
             script.src = scriptUrl;
