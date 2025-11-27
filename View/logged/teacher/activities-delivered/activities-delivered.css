@@ -6,134 +6,143 @@
 }
 
 #activities-delivered {
-  width: 100%;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding-top: 120px;
   display: flex;
   justify-content: center;
-  padding: 30px 0;
 }
 
 #activities-delivered .container {
-  width: 900px;
+  width: 650px;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 
 #activities-delivered h1 {
-  font-size: 28px;
-  margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a1a2e;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-}
-
-thead {
-  background-color: #0057b7;
-  color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 thead th {
-  padding: 12px;
+  background-color: #0d0b33;
+  color: white;
+  padding: 14px;
   text-align: left;
+  font-size: 15px;
 }
 
 tbody td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 13px 14px;
+  background: #e6e9ef;
+  font-size: 15px;
+  color: #222;
+  border-bottom: 1px solid #d0d3da;
 }
 
-tbody tr:hover {
-  background-color: #f5f5f5;
+tbody tr:hover td {
+  background: #e6e9ef;
 }
 
 .btn-visualizar {
-  padding: 6px 12px;
-  background-color: #0057b7;
-  color: #fff;
+  padding: 6px 18px;
+  background-color: #d9dbe0;
   border: none;
-  border-radius: 6px;
+  color: #333;
+  border-radius: 10px;
   cursor: pointer;
-  transition: .2s;
+  font-size: 14px;
+  transition: 0.2s;
 }
 
 .btn-visualizar:hover {
-  background-color: #003f8a;
+  background-color: #c8cacf;
 }
 
 #overlay-hide {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.55);
-  z-index: 999;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 50;
 }
 
 #activities-delivered-modal-hide {
   display: none;
+  flex-direction: column;
+  background: white;
+  width: 420px;
+  padding: 20px 25px;
+  border-radius: 14px;
   position: fixed;
+  z-index: 100;
   top: 50%;
   left: 50%;
-  width: 420px;
-  min-height: 260px;
   transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  z-index: 1000;
-  animation: fadeIn .25s ease-out;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  animation: fadeIn 0.25s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translate(-50%, -45%); }
-  to   { opacity: 1; transform: translate(-50%, -50%); }
+  from { opacity: 0; transform: translate(-50%, -46%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 #activities-delivered-modal-hide header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
 #activities-delivered-modal-hide header h2 {
   font-size: 20px;
+  color: #1a1a2e;
 }
 
 #closeModal {
   cursor: pointer;
-  font-size: 26px;
+  font-size: 22px;
+  padding: 4px;
+  border-radius: 6px;
   color: #333;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #closeModal:hover {
-  color: #d00;
+  background: #eee;
 }
 
-.content .feedback {
-  margin-bottom: 12px;
-  font-size: 16px;
+
+#activities-delivered-modal-hide .content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.content .nota {
-  margin: 15px 0;
+.feedback {
+  font-size: 15px;
+  color: #000000;
 }
 
-#modal-nota {
-  width: 120px;
-  padding: 6px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.feedback b {
+  font-weight: 600;
 }
 
 #modal-arquivo {
-  color: #0057b7;
+  color: #2457ff;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -141,21 +150,37 @@ tbody tr:hover {
   text-decoration: underline;
 }
 
+.nota {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nota input {
+  width: 90px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  font-size: 15px;
+  text-align: center;
+}
+
 .buttons {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: right;
 }
 
 #btnSalvarNota {
-  padding: 8px 16px;
-  background-color: #0057b7;
-  color: #fff;
+  background-color: #2457ff;
+  padding: 10px 20px;
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: .2s;
+  font-size: 15px;
+  transition: 0.2s;
 }
 
 #btnSalvarNota:hover {
-  background-color: #003f8a;
+  background-color: #1b47d3;
 }

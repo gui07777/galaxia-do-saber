@@ -57,8 +57,11 @@ $sql = $conexao->prepare("
 $sql->execute([$id_turma]);
 $entregas = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<link rel="stylesheet" href="activities-delivered.css">
+
+
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<link rel="stylesheet" href="activities-delivered.css">
 
 <div id="activities-delivered">
   <div class="container">

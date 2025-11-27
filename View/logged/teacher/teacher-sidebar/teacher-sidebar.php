@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email_professor'])) {
-    header("Location: ../../../../auth/teacher/login/teacher-login.html");
+    header("Location: ../../../auth/teacher/login/teacher-login.html");
     exit;
 }
 ?>
