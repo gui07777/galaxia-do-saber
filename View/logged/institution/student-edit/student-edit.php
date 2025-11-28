@@ -51,7 +51,9 @@ require_once('../../../../Model/conexaoBanco/Conexao.php');
                 </div>
             </div>
             <div class="buttons">
-                <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
+                <a href="../student-edit/student-edit.php">
+                    <img src="../../../../assets/icons/volte.png" alt="">
+                </a>
                 <input type="submit" name="requisicao" value="Atualizar">
             </div>
         </div>

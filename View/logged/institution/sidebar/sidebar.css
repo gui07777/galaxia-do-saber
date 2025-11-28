@@ -93,6 +93,17 @@ header {
     border-radius: 15px;
 }
 
+#consultar-items {
+    display: none;
+}
+
+#consultar-items.show-consultar-items {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
 .side-item {
     padding: 10px;
     cursor: pointer;

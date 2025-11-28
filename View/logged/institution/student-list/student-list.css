@@ -5,6 +5,12 @@
   font-family: "Poppins", sans-serif;
 }
 
+#app-content {
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+}
+
 #student-area {
   background-color: #fff;
   display: flex;

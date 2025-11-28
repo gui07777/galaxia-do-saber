@@ -1,6 +1,7 @@
 var sidebar = document.querySelector('#sidebar');
 var openBtn = document.querySelector('#open_btn');
 var registerItems = document.querySelector('#register-items');
+var consultarItems = document.querySelector('#consultar-items');
 var logoutModal = document.querySelector('#logout-modal');
 var logoutSidebarButton = document.querySelector('#logout');
 var links = document.querySelectorAll('a[data-page]');
@@ -21,6 +22,11 @@ function toggleSidebar() {
 function toggleRegisterItems() {
     if (!registerItems) return;
     registerItems.classList.toggle('show-register-items');
+}
+
+function toggleConsultarItems() {
+    if (!consultarItems) return;
+    consultarItems.classList.toggle('show-consultar-items');
 }
 
 function openLogoutModal() {

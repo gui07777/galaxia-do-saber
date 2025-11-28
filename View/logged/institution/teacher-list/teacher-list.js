@@ -23,7 +23,12 @@ function closeModal() {
     overlayHide.classList.remove('overlay');
     overlayHide.style.display = 'none';
   }
+
 }
+function editInformation(){
+  window.location.href = "../teacher-edit/teacher-edit.php";
+}
+
   if (inputs.length > 0) {
     inputs[0].focus();
   }

@@ -24,7 +24,9 @@ function closeModal() {
     overlayHide.style.display = 'none';
   }
 }
-
+function editInformation(){
+  window.location.href = "../student-edit/student-edit.php";
+}
   if (inputs.length > 0) {
     inputs[0].focus();
   }
