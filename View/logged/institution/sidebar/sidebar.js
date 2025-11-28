@@ -66,7 +66,7 @@ function loadPage(pageUrl) {
         })
         .then(html => {
             document.querySelector('#app-content').innerHTML = html;
-
+            
             const oldScript = document.querySelector('#dynamic-script');
             if (oldScript) oldScript.remove();
 
@@ -106,19 +106,6 @@ function loadPage(pageUrl) {
         });
 }
 
-links.forEach(a => {
-    a.addEventListener('click', e => {
-        e.preventDefault();
-
-        document.querySelectorAll('.side-item').forEach(item => item.classList.remove('active'));
-        const sideItem = a.closest('.side-item');
-        if (sideItem) sideItem.classList.add('active');
-
-        const pageUrl = a.dataset.page;
-        loadPage(pageUrl);
-    });
-});
-
 window.addEventListener('DOMContentLoaded', () => {
     const defaultPage = "../institution-home/institution-home.php";
 
@@ -131,4 +118,17 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     loadPage(defaultPage);
+});
+
+links.forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+
+        document.querySelectorAll('.side-item').forEach(item => item.classList.remove('active'));
+        const sideItem = a.closest('.side-item');
+        if (sideItem) sideItem.classList.add('active');
+
+        const pageUrl = a.dataset.page;
+        loadPage(pageUrl);
+    });
 });

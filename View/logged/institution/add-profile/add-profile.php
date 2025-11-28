@@ -8,7 +8,7 @@ if (!isset($_SESSION['email_instituicao'])) {
 }
 ?>
 
-<link rel="stylesheet" href="add-profile.css">
+<!-- <link rel="stylesheet" href="add-profile.css"> -->
 <div id="add-profile">
   <form class="form" method="POST" action="../../../../Controller/RelacionarPerfil.php">
     <div class="container">
@@ -44,10 +44,9 @@ if (!isset($_SESSION['email_instituicao'])) {
         </div>
       </div>
       <div class="buttons">
-        <!-- <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="navigationBack()"> -->
         <input type="submit" value="Salvar" name="relacionar">
       </div>
     </div>
   </form>
 </div>
-<script src="add-profile.js"></script>
+<!-- <script src="add-profile.js"></script> -->

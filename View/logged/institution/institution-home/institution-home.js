@@ -8,5 +8,5 @@ window.changeToClassCreation = function () {
 
 window.backToInstitutionHome = function () {
     classCreation.style.display = 'none';
-    institutionHome.style.display = 'block';
+    institutionHome.style.display = 'flex';
 }

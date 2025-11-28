@@ -64,7 +64,7 @@ if (!isset($_SESSION['email_professor'])) {
                         </a>
                     </div>
                     <div class="side-item">
-                        <a href="#/delivered-activities" data-page="../activities-delivered/activities-delivered.html">
+                        <a href="#/delivered-activities" data-page="../activities-delivered/activities-delivered.php">
                             <i class="material-symbols-outlined">list_alt_check</i>
                             <span class="item-description">
                                 Atividades entregues

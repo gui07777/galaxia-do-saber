@@ -13,7 +13,7 @@ $idInstituicao = $_SESSION['id_instituicao'] ?? null;
 ?>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-<link rel="stylesheet" href="institution-home.css">
+<!-- <link rel="stylesheet" href="institution-home.css"> -->
 
 <div id="institution-home">
     <div class="header">
@@ -33,11 +33,11 @@ $idInstituicao = $_SESSION['id_instituicao'] ?? null;
 
             <div class="fields">
                 <div>
-                    <label for="">Nome da Turma:</label>
+                    <label>Nome da Turma:</label>
                     <input type="text" name="nome" required>
                 </div>
                 <div>
-                    <label for="">Descrição:</label>
+                    <label>Descrição:</label>
                     <textarea name="descricao" id="descricao" cols="30" rows="5" required></textarea>
                 </div>
             </div>
@@ -49,3 +49,4 @@ $idInstituicao = $_SESSION['id_instituicao'] ?? null;
         </div>
     </form>
 </div>
+<!-- <script src="institution-home.js"></script> -->
