@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'];
@@ -12,9 +11,7 @@ if (!empty($email) && !empty($senha)) {
     $sql = 'SELECT * FROM instituicao WHERE email = :email';
 
     $requisicao = $conexao->prepare($sql);
-
     $requisicao->bindParam(':email', $email);
-
     $requisicao->execute();
 
     $instituicao = $requisicao->fetch(PDO::FETCH_ASSOC);
@@ -23,15 +20,15 @@ if (!empty($email) && !empty($senha)) {
 
         if (password_verify($senha, $instituicao['senha'])) {
 
-            $_SESSION['id_instituicao'] = $instituicao['id'];
-            $_SESSION['instituicao_nome'] = $instituicao['nome'];
+            $_SESSION['id_instituicao'] = $instituicao['id_instituicao'];
+            $_SESSION['instituicao_nome'] = $instituicao['nome_fantasia'];
             $_SESSION['email_instituicao'] = $instituicao['email'];
 
             echo "<script> 
-            alert('Login feito com sucesso!'); 
-            setTimeout(function() { 
-            window.location.href = '../View/logged/institution/sidebar/sidebar.html'; 
-            }, 30); 
+                alert('Login feito com sucesso!'); 
+                setTimeout(function() { 
+                    window.location.href = '../View/logged/institution/sidebar/sidebar.html'; 
+                }, 30); 
             </script>";
 
             exit;
@@ -40,26 +37,23 @@ if (!empty($email) && !empty($senha)) {
 
             echo "<script>
             alert('Senha incorreta');
-            window.history.back()
+            window.history.back();
             </script>";
-
         }
+
     } else {
-
         echo "<script>
-        alert('Instituição não encontrado!');
-        window.history.back()
+        alert('Instituição não encontrada!');
+        window.history.back();
         </script>";
-
     }
+
 } else {
 
     echo "<script>
     alert('Preencha todos os campos');
-    window.history.back()
+    window.history.back();
     </script>";
-
 }
-
 
 ?>

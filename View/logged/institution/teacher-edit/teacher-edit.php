@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['email_instituicao'])) {
     echo "<script>
         alert('Sessão expirada. Faça login novamente.');
-        window.location.href='../../auth/login/institution-login.html';
+        window.location.href='../../../auth/institution/login/institution-login.html';
     </script>";
     exit;
 }
