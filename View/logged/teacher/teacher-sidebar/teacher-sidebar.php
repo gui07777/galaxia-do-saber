@@ -73,14 +73,6 @@ if (!isset($_SESSION['email_professor'])) {
                     </div>
                 </div>
                 <div class="side-item">
-                    <a href="#/teacher-communication" data-page="../teacher-comunication/teacher-communication.php">
-                        <i class="material-symbols-outlined">mail</i>
-                        <span class="item-description">
-                            Comunicados
-                        </span>
-                    </a>
-                </div>
-                <div class="side-item">
                     <a href="#/institutional-agenda" data-page="../teacher-agenda/teacher-agenda.html">
                         <i class="material-symbols-outlined">calendar_month</i>
                         <span class="item-description">
