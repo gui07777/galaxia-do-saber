@@ -80,13 +80,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
 
         $idProfessor = $conexao -> lastInsertId();
 
-        $sqlEnsina = "INSERT INTO ensina(id_professor) 
-        VALUES (:id_professor)";
-        $stmtEnsina = $conexao -> prepare($sqlEnsina);
-        $stmtEnsina -> bindParam('id_professor', $idProfessor);
-
-        $stmtEnsina -> execute();
-        
+    
         $conexao->commit();
 
         echo "<script>

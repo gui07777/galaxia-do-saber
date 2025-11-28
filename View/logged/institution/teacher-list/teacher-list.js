@@ -1,34 +1,48 @@
 const modal = document.querySelector('#information-modal-hide');
-const btnVisualizar = document.querySelectorAll('.btn-visualizar');
 const overlayHide = document.querySelector('#overlay-hide');
+const btnVisualizar = document.querySelectorAll('.btn-visualizar');
+
+const cpf = document.querySelector('#cpf');
+const email = document.querySelector('#email');
+const cargo = document.querySelector('#cargo');
+const disciplina = document.querySelector('#disciplina');
+const turma = document.querySelector('#turma');
 
 btnVisualizar.forEach(btn => {
-  btn.addEventListener('click', () => {
-    viewActivitie();
-  });
+    btn.addEventListener('click', () => {
+        const id = btn.getAttribute("data-id");
+        loadInformation(id);
+    });
 });
 
-function viewActivitie() {
-  if (!modal && !overlayHide) return;
-  overlayHide.classList.add('overlay');
-  overlayHide.style.display = 'flex';
-  modal.classList.add('information-modal');
-  modal.style.display = 'flex';
+function loadInformation(id) {
+    fetch(`../../../../Controller/BuscarProfessorLista.php?id=${id}`)
+        .then(res => res.json())
+        .then(data => {
+
+            cpf.value = data.cpf ?? "";
+            email.value = data.email ?? "";
+            cargo.value = data.cargo ?? "";
+            disciplina.value = data.disciplina ?? "Nenhuma";
+            turma.value = data.turma ?? "Nenhuma";
+
+            viewModal();
+        })
+        .catch(err => console.error(err));
+}
+
+function viewModal() {
+    overlayHide.classList.add('overlay');
+    overlayHide.style.display = 'flex';
+    modal.classList.add('information-modal');
+    modal.style.display = 'flex';
 }
 
 function closeModal() {
-  if (modal) {
-    modal.classList.remove('information-modal');
     modal.style.display = 'none';
-    overlayHide.classList.remove('overlay');
     overlayHide.style.display = 'none';
-  }
-
-}
-function editInformation(){
-  window.location.href = "../teacher-edit/teacher-edit.php";
 }
 
-  if (inputs.length > 0) {
-    inputs[0].focus();
-  }
+function editInformation() {
+    window.location.href = "../teacher-edit/teacher-edit.php";
+}
