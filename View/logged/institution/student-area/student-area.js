@@ -25,14 +25,6 @@ function closeModal() {
   }
 }
 
-function editInformation() {
-  if (!modal) return;
-  const inputs = document.querySelectorAll('input[readonly]');
-  inputs.forEach(input => {
-    input.removeAttribute('readonly');
-  })
-
   if (inputs.length > 0) {
     inputs[0].focus();
   }
-}

@@ -59,7 +59,7 @@ if (!isset($_SESSION['email_professor'])) {
                         <a href="#/posted-activities" data-page="../activities-creation/activities-creation.php">
                             <i class="material-symbols-outlined">face</i>
                             <span class="item-description">
-                                Atividades postadas
+                                Criar atividades
                             </span>
                         </a>
                     </div>

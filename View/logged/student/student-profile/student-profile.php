@@ -33,6 +33,7 @@ if (!isset($_SESSION['email_aluno'])) {
             </a>
         </div>
     </header>
+    <img src="../../../../assets/icons/white-back.png" alt="" class="back" onclick="navigationBack()">
     <form action="../../../../Controller/AlunoController.php" method="POST" class="container">
         <h2>Informações do perfil</h2>
         <div class="fields">
@@ -62,7 +63,6 @@ if (!isset($_SESSION['email_aluno'])) {
             </div>
         </div>
         <div class="buttons">
-            <img src="../../../../assets/icons/volte.png" alt="" onclick="navigationBack()">
             <input type="submit" value="Salvar alterações" name="requisicao">
         </div>
     </form>

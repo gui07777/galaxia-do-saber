@@ -1,33 +1,39 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    width: 98vw;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #3F129D;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #3F129D;
 }
 
 header {
-    background: #100629;
+    background: #250664;
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
     align-items: center;
-    height: 70px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    padding: 10px 20px;
+    height: 90px;
+
 }
+
+.container {
+    background: #E2E6EF;
+    width: 70%;
+    padding: 40px;
+    border-radius: 15px;
+
+    margin: 120px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 
 .header-buttons {
     display: flex;
@@ -39,27 +45,21 @@ header {
     height: 45px;
 }
 
-h2 {
-    color: #000;
-    text-align: center;
+.back {
+    width: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    left: 60px;
+    top: 120px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    background: #E2E6EF;
-    width: 70%;
-    min-height: 50%;
-    padding: 40px;
-    gap: 30px;
-    border-radius: 15px;
-    margin-top: 10vh;
+.back:hover {
+    width: 45px;
 }
 
 .fields {
     display: flex;
-    flex-direction: row;
-    width: 100%;
     gap: 20px;
 }
 
@@ -97,20 +97,18 @@ input[type='password'] {
 
 .buttons {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: right;
 }
 
-.buttons img {
+/*.buttons img {
     width: 40px;
     margin-right: 10px;
     transition: 0.3s;
-
-    &:hover {
-        width: 45px;
-    }
 }
+
+.buttons img:hover {
+    width: 45px;
+}*/
 
 input[type='submit'] {
     width: 250px;
@@ -121,12 +119,12 @@ input[type='submit'] {
     border: none;
     font-size: 1.5rem;
     transition: 0.3s;
+}
 
-    &:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-    }
+input[type='submit']:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }
 
 @media screen and (max-width: 860px) {
