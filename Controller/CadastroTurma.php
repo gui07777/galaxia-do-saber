@@ -1,10 +1,12 @@
 <?php
 
+session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
+
+$idInstituicao = $_SESSION['id_instituicao'] ?? null;
 
 $nome = $_POST['nome'] ?? null;
 $descricaoTurma = $_POST['descricao'] ?? null;
-$idInstituicao = $_POST['id_instituicao'] ?? null;
 
 if (!empty($nome) && !empty($descricaoTurma) && !empty($idInstituicao)) {
 
@@ -17,13 +19,13 @@ if (!empty($nome) && !empty($descricaoTurma) && !empty($idInstituicao)) {
         VALUES 
         (:nome, :descricao, :id_instituicao)";
 
-        $requisicao = $conexao->prepare($sql);
+        $stmt = $conexao->prepare($sql);
 
-        $requisicao->bindParam(':nome', $nome);
-        $requisicao->bindParam(':descricao', $descricaoTurma);
-        $requisicao->bindParam(':id_instituicao', $idInstituicao, PDO::PARAM_INT);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':descricao', $descricaoTurma);
+        $stmt->bindParam(':id_instituicao', $idInstituicao, PDO::PARAM_INT);
 
-        $requisicao->execute();
+        $stmt->execute();
 
         $conexao->commit();
 
