@@ -48,6 +48,7 @@
         </select>
       </div>
     </div>
+
     <table class="calendar-table">
       <thead>
         <tr>
@@ -62,11 +63,16 @@
       </thead>
       <tbody id="calendar-body"></tbody>
     </table>
-    <div class="notes-section">
-        <label for="notes" class="notes-label">Anotações:</label>
-        <textarea id="notes" placeholder="Escreva suas anotações aqui..."></textarea>
-      </div>
+
+    
+    <div class="notes-section" id="notes-section" style="display:none;">
+      <label class="notes-label">Anotações:</label>
+      <textarea id="notes" placeholder="Escreva suas anotações aqui..."></textarea>
+      <button id="save-notes">Salvar</button>
+    </div>
+
   </div>
 </div>
+
 <script src="student-agenda.js" defer></script>
 </html>

@@ -2,19 +2,32 @@
   const calendarBody = document.getElementById("calendar-body");
   const monthSelect = document.getElementById("month");
   const yearInput = document.getElementById("year");
+  const notesSection = document.getElementById("notes-section");
+  const notesArea = document.getElementById("notes");
+  const saveButton = document.getElementById("save-notes");
 
-  if (!calendarBody || !monthSelect || !yearInput) {
-    console.warn("Agenda institucional não encontrada nesta página.");
-    return;
+  let selectedDate = null;
+
+ 
+  function getStorageKey(year, month, day) {
+    return `agenda-notes-${year}-${month}-${day}`;
   }
+
+ 
+  function loadNotes() {
+    if (!selectedDate) return;
+    const key = getStorageKey(selectedDate.year, selectedDate.month, selectedDate.day);
+    notesArea.value = localStorage.getItem(key) || "";
+  }
+
 
   function generateCalendar(year, month) {
     calendarBody.innerHTML = "";
-
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     let date = 1;
+
     for (let i = 0; i < 6; i++) {
       const row = document.createElement("tr");
 
@@ -26,22 +39,23 @@
         } else if (date > daysInMonth) {
           cell.textContent = "";
         } else {
-          cell.textContent = date;
+          
+          const thisDate = date;
+          cell.textContent = thisDate;
 
-          const today = new Date();
-          if (
-            date === today.getDate() &&
-            month === today.getMonth() &&
-            year === today.getFullYear()
-          ) {
-            cell.classList.add("today");
-          }
-
+          
           cell.addEventListener("click", () => {
-            document.querySelectorAll("td").forEach((td) =>
-              td.classList.remove("today")
-            );
+            document.querySelectorAll("td").forEach(td => td.classList.remove("today"));
             cell.classList.add("today");
+
+            selectedDate = {
+              year,
+              month,
+              day: thisDate
+            };
+
+            notesSection.style.display = "block";
+            loadNotes(); 
           });
 
           date++;
@@ -54,14 +68,29 @@
     }
   }
 
+ 
+  saveButton.addEventListener("click", () => {
+    if (!selectedDate) return;
+
+    const key = getStorageKey(selectedDate.year, selectedDate.month, selectedDate.day);
+    localStorage.setItem(key, notesArea.value);
+
+    saveButton.textContent = "Salvo!";
+    setTimeout(() => saveButton.textContent = "Salvar", 1200);
+  });
+
+  
   const today = new Date();
   generateCalendar(today.getFullYear(), today.getMonth());
 
+
   monthSelect.addEventListener("change", () => {
     generateCalendar(parseInt(yearInput.value), parseInt(monthSelect.value));
+    notesSection.style.display = "none";
   });
 
   yearInput.addEventListener("input", () => {
     generateCalendar(parseInt(yearInput.value), parseInt(monthSelect.value));
+    notesSection.style.display = "none";
   });
 })();
