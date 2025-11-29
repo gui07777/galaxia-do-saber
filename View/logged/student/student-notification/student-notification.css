@@ -1,14 +1,48 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-  background: #f5f6ff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
+header {
+    background: #250664;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 90px;
+
+}
+
+.header-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.logo {
+    width: 155px;
+    height: 45px;
+}
+
+.back {
+    width: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    left: 60px;
+    top: 120px;
+}
+
+.back:hover {
+    width: 45px;
+}
 
 .titulo {
   text-align: center;  
@@ -33,6 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
+
 }
 
 .publicados h2 {
@@ -41,6 +76,7 @@ body {
   color: #0b052b;
   text-align: center;
 }
+
 
 #lista-comunicados {
   list-style: none;
@@ -88,7 +124,6 @@ textarea {
   border-radius: 8px;
   font-size: 14px;
 }
-
 
 @media (max-width: 900px) {
   .layout {

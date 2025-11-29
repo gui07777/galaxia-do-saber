@@ -12,7 +12,7 @@ if (!isset($_SESSION['email_instituicao'])) {
 $idInstituicao = $_SESSION['id_instituicao'] ?? null;
 ?>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 <!-- <link rel="stylesheet" href="institution-home.css"> -->
 
 <div id="institution-home">

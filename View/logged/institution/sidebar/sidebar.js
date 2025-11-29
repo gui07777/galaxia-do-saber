@@ -99,6 +99,7 @@ function loadPage(pageUrl) {
             stylesheetLink.href = cssUrl;
             stylesheetLink.id = 'dynamic-style';
             document.head.appendChild(stylesheetLink);
+
         })
         .catch(error => {
             console.error(error);
