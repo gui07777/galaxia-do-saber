@@ -18,8 +18,6 @@ try {
             p.cpf,
             p.cargo,
             p.disciplina,
-            
-            -- busca a turma que ele ensina (através da tabela ensina)
             t.nome AS turma
 
         FROM professor p

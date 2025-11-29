@@ -1,5 +1,5 @@
 function navigationBack() {
-  window.location.href = '../institution-home/institution-home.html';
+  window.location.href = '../institution-home/institution-home.php';
 }
 function initAddProfile() {
 

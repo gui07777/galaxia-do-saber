@@ -124,7 +124,7 @@ try {
 
     echo "<script>
         alert('Relacionamento(s) realizado(s) com sucesso!');
-        window.location.href = '../View/logged/institution/sidebar/sidebar.html';
+        window.location.href = '../View/logged/institution/sidebar/sidebar.php';
     </script>";
     exit;
 

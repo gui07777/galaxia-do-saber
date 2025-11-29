@@ -33,7 +33,7 @@ $sql->bindParam(':email', $email);
 if ($sql->execute()) {
     echo "<script>
         alert('Professor atualizado com sucesso!');
-        window.location.href='../View/logged/institution/sidebar/sidebar.html';
+        window.location.href='../View/logged/institution/sidebar/sidebar.php';
     </script>";
 } else {
     echo "<script>

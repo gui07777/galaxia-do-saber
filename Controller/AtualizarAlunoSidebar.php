@@ -96,7 +96,7 @@ try {
     if ($stmt->execute()) {
         echo "<script>
             alert('Aluno atualizado com sucesso!');
-            window.location.href='../View/logged/institution/sidebar/sidebar.html';
+            window.location.href='../View/logged/institution/sidebar/sidebar.php';
         </script>";
     } else {
         echo "<script>
