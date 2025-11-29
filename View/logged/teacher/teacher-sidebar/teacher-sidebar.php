@@ -27,7 +27,7 @@ if (!isset($_SESSION['email_professor'])) {
             <img src="../../../../assets/icons/logosemfundo.png" class="logo">
         </div>
         <div class="buttons">
-            <a href="#/teacher-notifications" data-page="../teacher-notifications/teacher-notifications.html">
+            <a href="#/teacher-notifications" data-page="../teacher-notifications/teacher-notifications.php">
                 <i class="material-symbols-outlined">notifications</i>
             </a>
             <a href="#/teacher-profile" data-page="../teacher-profile/teacher-profile.php">

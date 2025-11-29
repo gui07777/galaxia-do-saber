@@ -1,152 +1,156 @@
-const comunicados = [];
+let comunicados = [];
 let selecionado = null;
 
-const lista = document.getElementById("lista-comunicados");
-const semComunicados = document.getElementById("sem-comunicados");
+var lista = document.getElementById("lista-comunicados");
+var semComunicados = document.getElementById("sem-comunicados");
 
-const mensagemInicial = document.getElementById("mensagem-inicial");
-const formComunicado = document.getElementById("form-comunicado");
-const detalhesComunicado = document.getElementById("detalhes-comunicado");
+var mensagemInicial = document.getElementById("mensagem-inicial");
+var formComunicado = document.getElementById("form-comunicado");
+var detalhesComunicado = document.getElementById("detalhes-comunicado");
 
-const btnAdicionar = document.getElementById("btn-adicionar");
-const btnEditar = document.getElementById("btn-editar");
+var btnAdicionar = document.getElementById("btn-adicionar");
+var btnEditar = document.getElementById("btn-editar");
 
-const inputAssunto = document.getElementById("assunto");
-const inputDescricao = document.getElementById("descricao");
+var inputAssunto = document.getElementById("assunto");
+var inputDescricao = document.getElementById("descricao");
 
-const detalheAssunto = document.getElementById("detalhe-assunto");
-const detalheDescricao = document.getElementById("detalhe-descricao");
+var cbProfessor = document.getElementById("cbProfessor");
+var cbAluno = document.getElementById("cbAluno");
 
-/* ===================================================
-   Atualiza a lista local (lado esquerdo)
-=================================================== */
-function atualizarLista() {
-  lista.innerHTML = "";
+var detalheAssunto = document.getElementById("detalhe-assunto");
+var detalheDescricao = document.getElementById("detalhe-descricao");
 
-  if (comunicados.length === 0) {
-    semComunicados.style.display = "block";
-  } else {
-    semComunicados.style.display = "none";
+function carregarComunicados() {
+  fetch("../../../../Controller/ListarComunicadosInstituicao.php")
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) {
+        console.error("Erro ao buscar comunicados:", data.error);
+        return;
+      }
 
-    comunicados.forEach((comunicado, index) => {
-      const li = document.createElement("li");
-      li.textContent = comunicado.assunto;
-      li.onclick = () => mostrarDetalhes(index);
-      lista.appendChild(li);
-    });
-  }
+      comunicados = data.comunicados;
+      atualizarLista();
+    })
+    .catch(err => console.error("Erro de conexão:", err));
 }
 
-/* ===================================================
-   Exibe detalhes do comunicado
-=================================================== */
+function atualizarLista() {
+  lista.innerHTML = "";
+  selecionado = null;
+
+  mensagemInicial.classList.remove("hidden");
+  detalhesComunicado.classList.add("hidden");
+
+  if (!comunicados || comunicados.length === 0) {
+    semComunicados.style.display = "block";
+    return;
+  }
+
+  semComunicados.style.display = "none";
+
+  comunicados.forEach((c, index) => {
+    const li = document.createElement("li");
+    li.textContent = c.titulo;
+    li.classList.add("item-comunicado");
+
+    li.onclick = () => mostrarDetalhes(index);
+
+    lista.appendChild(li);
+  });
+}
+
 function mostrarDetalhes(index) {
   selecionado = index;
-  const comunicado = comunicados[index];
+  const c = comunicados[index];
 
-  detalheAssunto.textContent = comunicado.assunto;
-  detalheDescricao.textContent = comunicado.descricao;
+  document.querySelectorAll("#lista-comunicados li").forEach(li => {
+    li.style.background = "#eef1fb";
+    li.style.fontWeight = "normal";
+  });
+
+  const liSel = lista.children[index];
+  liSel.style.background = "#d7dcfa";
+  liSel.style.fontWeight = "bold";
+
+  detalheAssunto.textContent = c.titulo;
+  detalheDescricao.textContent = c.conteudo;
 
   mensagemInicial.classList.add("hidden");
   formComunicado.classList.add("hidden");
   detalhesComunicado.classList.remove("hidden");
 }
 
-/* ===================================================
-   Botão "Adicionar"
-=================================================== */
 btnAdicionar.onclick = () => {
   selecionado = null;
+
   inputAssunto.value = "";
   inputDescricao.value = "";
+  cbProfessor.checked = false;
+  cbAluno.checked = false;
 
   mensagemInicial.classList.add("hidden");
   detalhesComunicado.classList.add("hidden");
   formComunicado.classList.remove("hidden");
 };
 
-/* ===================================================
-   Submit do formulário (AGORA COM BACKEND)
-=================================================== */
 formComunicado.onsubmit = (e) => {
   e.preventDefault();
 
-  const novo = {
-    assunto: inputAssunto.value,
-    descricao: inputDescricao.value
-  };
+  const assunto = inputAssunto.value.trim();
+  const descricao = inputDescricao.value.trim();
 
-  // Atualiza UI local
-  if (selecionado !== null) {
-    comunicados[selecionado] = novo;
-  } else {
-    comunicados.push(novo);
-  }
-
-  // === ENVIO PARA O BACKEND ===
   const formData = new FormData();
-  formData.append("assunto", novo.assunto);
-  formData.append("descricao", novo.descricao);
+  formData.append("assunto", assunto);
+  formData.append("descricao", descricao);
 
-  // ... dentro do seu formComunicado.onsubmit após formData criado ...
+  formData.append("professor", cbProfessor.checked ? 1 : 0);
+  formData.append("aluno", cbAluno.checked ? 1 : 0);
 
   fetch("../../../../Controller/SalvarComunicado.php", {
     method: "POST",
     body: formData
   })
-    .then(async res => {
-      const text = await res.text();
-
-      // Tenta parsear JSON. Se falhar, mostra o texto bruto para debugging.
+    .then(r => r.text())
+    .then(text => {
       try {
         const data = JSON.parse(text);
 
         if (data.success) {
-          console.log("Comunicado salvo e notificação enviada!", data);
-          // opcional: atualizar lista a partir do backend ou mostrar mensagem
+          alert("Comunicado salvo com sucesso!");
+          carregarComunicados();
         } else {
-          console.error("Erro do backend:", data.error);
-          alert("Erro ao salvar comunicado: " + (data.error || 'Erro desconhecido'));
+          alert("Erro ao salvar comunicado: " + (data.error || "Erro desconhecido"));
         }
-      } catch (parseErr) {
-        // Quando o parse falha, mostramos o conteúdo retornado (provavelmente HTML)
-        console.error("Resposta inesperada do servidor (não JSON):", text);
-        alert("Resposta inesperada do servidor. Veja console para detalhes.");
+      } catch (e) {
+        console.error("Resposta inesperada do servidor:", text);
+        alert("Erro inesperado do servidor.");
       }
     })
     .catch(err => {
       console.error("Erro de rede:", err);
-      alert("Erro de conexão com o servidor");
+      alert("Falha ao conectar ao servidor.");
     });
 
-
-  // Reset UI
   inputAssunto.value = "";
   inputDescricao.value = "";
-  selecionado = null;
+  cbProfessor.checked = false;
+  cbAluno.checked = false;
 
   formComunicado.classList.add("hidden");
   mensagemInicial.classList.remove("hidden");
-
-  atualizarLista();
 };
 
-/* ===================================================
-   Editar comunicado (somente visual)
-=================================================== */
 btnEditar.onclick = () => {
   if (selecionado === null) return;
 
-  const comunicado = comunicados[selecionado];
+  const c = comunicados[selecionado];
 
-  inputAssunto.value = comunicado.assunto;
-  inputDescricao.value = comunicado.descricao;
+  inputAssunto.value = c.titulo;
+  inputDescricao.value = c.conteudo;
 
   detalhesComunicado.classList.add("hidden");
   formComunicado.classList.remove("hidden");
 };
 
-/* ===================================================
-   Inicializar lista vazia
-=================================================== */
-atualizarLista();
+carregarComunicados();

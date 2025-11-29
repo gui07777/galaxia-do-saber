@@ -7,9 +7,6 @@ function navigate(path) {
     }
     else if (path === 'jogos') {
         window.location.href = '../game-zone/game-zone.html';
-    }
-    else if (path === 'progresso') {
-        window.location.href = '../progress-zone/progress-zone.html';
     } else {
         //toastr erro
         console.error('erro')

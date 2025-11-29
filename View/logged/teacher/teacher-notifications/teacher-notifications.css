@@ -9,51 +9,36 @@ body {
   background: #f5f6ff;
 }
 
+#general-comunication {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+}
 
 .titulo {
-  text-align: center;  
+  text-align: center;
   font-size: 22px;
   font-weight: bold;
   color: #0b052b;
-  margin-top: 20px;  
+  margin-bottom: 20px;
 }
 
-.layout {
-  display: flex;
-  gap: 20px;
-}
-
-.publicados {
-  width: 70%;
-  padding: 40px;
+.painel {
+  width: 100%;
   background: #fff;
   border: 2px solid #e3e7f3;
-  border-radius: 15px;
-  margin: 120px auto 0 auto;
+  border-radius: 12px;
+  padding: 40px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-}
-
-.publicados h2 {
-  font-size: 13px;
-  font-weight: bold;
-  color: #0b052b;
-  text-align: center;
-}
-
-#lista-comunicados {
-  list-style: none;
-  margin-top: 20px;
-}
-
-#lista-comunicados li {
-  background: #eef1fb;
-  padding: 8px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  font-size: 13px;
-  cursor: pointer;
+  justify-content: center;
 }
 
 .mensagem {
@@ -63,49 +48,27 @@ body {
 .mensagem p {
   font-size: 16px;
   color: #0b052b;
-  margin-bottom: 20px;
 }
 
-.form,
 .detalhes {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.detalhes p {
+  font-size: 16px;
+  color: #0b052b;
+  margin-bottom: 15px;
+}
+
+.detalhes strong {
   font-weight: bold;
   color: #0b052b;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-
-@media (max-width: 900px) {
-  .layout {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .publicados {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .painel {
-    width: 100%;
-    margin-top: 20px;
-    padding: 30px;
-  }
+.hidden {
+  display: none;
 }
 
 @media (max-width: 600px) {
@@ -113,32 +76,13 @@ textarea {
     font-size: 20px;
   }
 
-  .publicados {
-    padding: 12px;
-  }
-
-  #lista-comunicados li {
-    font-size: 12px;
-    padding: 7px;
-  }
-
   .painel {
-    padding: 20px;
+    padding: 25px;
   }
 
-  .mensagem p {
+  .mensagem p,
+  .detalhes p {
     font-size: 14px;
-  }
-
-  input,
-  textarea {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 10px;
   }
 }
 
@@ -148,15 +92,6 @@ textarea {
   }
 
   .painel {
-    padding: 15px;
-  }
-
-  .mensagem p {
-    font-size: 13px;
-  }
-
-  label {
-    font-size: 13px;
+    padding: 20px;
   }
 }
-

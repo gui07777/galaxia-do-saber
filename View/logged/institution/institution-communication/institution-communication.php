@@ -17,14 +17,27 @@
             <p>Você não selecionou nenhum comunicado. Deseja criar um comunicado?</p>
             <button id="btn-adicionar" class="btn">Adicionar</button>
           </div>
-
           <form id="form-comunicado" class="form hidden">
+
             <label for="assunto">Ass:</label>
             <input type="text" id="assunto" required />
+
             <label for="descricao">Descrição:</label>
             <textarea id="descricao" required></textarea>
+
+            <div class="checkbox-area">
+              <label>
+                <input type="checkbox" id="cbProfessor" name="professor"> Enviar para Professores
+              </label>
+
+              <label>
+                <input type="checkbox" id="cbAluno" name="aluno"> Enviar para Alunos
+              </label>
+            </div>
+
             <button type="submit" class="btn">Salvar</button>
           </form>
+
 
           <div id="detalhes-comunicado" class="detalhes hidden">
             <p><strong>Ass:</strong> <span id="detalhe-assunto"></span></p>

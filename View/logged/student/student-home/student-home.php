@@ -27,7 +27,7 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
         <img src="../../../../assets/icons/logosemfundo.png" class="logo">
         <div class="width"></div>
         <div class="buttons">
-            <a href="../student-notification/student-notification.html">
+            <a href="../student-notification/student-notification.php">
                 <img src="../../../../assets/icons/sininho.png" alt="">
             </a>
             <a href="../student-profile/student-profile.php">

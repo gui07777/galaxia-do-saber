@@ -139,11 +139,12 @@ ALTER TABLE instituicao ADD COLUMN notificado TINYINT(1) DEFAULT 0;
 ALTER TABLE atividades ADD COLUMN nome_arquivo VARCHAR(100) AFTER anexo;
 ALTER TABLE resposta ADD COLUMN nome_arquivo VARCHAR(100) AFTER anexo;
 
-CREATE TABLE IF NOT EXISTS notifications(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    sender_id INT,
-    receiver_id INT,
-    message VARCHAR(200),
-    created_at DATETIME,
-    is_read TINYINT(1) NOT NULL DEFAULT 0
-);
+ALTER TABLE comunicados 
+ADD COLUMN id_instituicao INT AFTER id_comunicado;
+
+ALTER TABLE comunicados
+ADD FOREIGN KEY (id_instituicao) REFERENCES instituicao(id_instituicao);
+
+ALTER TABLE comunicados
+ADD COLUMN enviar_professor TINYINT(1) DEFAULT 0 AFTER data_post,
+ADD COLUMN enviar_aluno TINYINT(1) DEFAULT 0 AFTER enviar_professor;

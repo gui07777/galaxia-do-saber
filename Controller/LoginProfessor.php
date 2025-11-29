@@ -19,7 +19,7 @@ if (!empty($email) && !empty($senha)) {
 
         if (password_verify($senha, $professor['senha'])) {
  
-            $_SESSION['id_professor'] = $professor['id'];
+            $_SESSION['id_professor'] = $professor['id_professor'];
             $_SESSION['professor_nome'] = $professor['nome'];
             $_SESSION['email_professor'] = $professor['email'];
 

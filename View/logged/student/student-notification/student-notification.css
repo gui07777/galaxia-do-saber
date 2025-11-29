@@ -9,6 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
+    background: #f5f6ff;
 }
 
 header {
@@ -18,7 +19,6 @@ header {
     align-items: center;
     padding: 10px 20px;
     height: 90px;
-
 }
 
 .header-buttons {
@@ -45,153 +45,146 @@ header {
 }
 
 .titulo {
-  text-align: center;  
-  font-size: 22px;
-  font-weight: bold;
-  color: #0b052b;
-  margin-top: 20px;  
+    text-align: center;  
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b052b;
+    margin-top: 20px;
 }
 
 .layout {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 40px;
 }
 
 .publicados {
-  width: 70%;
-  padding: 40px;
-  background: #fff;
-  border: 2px solid #e3e7f3;
-  border-radius: 15px;
-  margin: 120px auto 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
+    width: 220px;
+    background: #fff;
+    border: 2px solid #e3e7f3;
+    border-radius: 10px;
+    padding: 15px;
 }
 
 .publicados h2 {
-  font-size: 13px;
-  font-weight: bold;
-  color: #0b052b;
-  text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0b052b;
+    text-align: center;
 }
 
+#sem-comunicados {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #5c5c5c;
+    text-align: center;
+}
 
 #lista-comunicados {
-  list-style: none;
-  margin-top: 20px;
+    list-style: none;
+    margin-top: 20px;
 }
 
 #lista-comunicados li {
-  background: #eef1fb;
-  padding: 8px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  font-size: 13px;
-  cursor: pointer;
+    background: #eef1fb;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.painel {
+    flex: 1;
+    background: #fff;
+    border: 2px solid #e3e7f3;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mensagem {
-  text-align: center;
+    text-align: center;
 }
 
 .mensagem p {
-  font-size: 16px;
-  color: #0b052b;
-  margin-bottom: 20px;
+    font-size: 16px;
+    color: #0b052b;
+    margin-bottom: 20px;
 }
 
-.form,
 .detalhes {
-  width: 100%;
-  max-width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #0b052b;
+.detalhes p {
+    font-size: 14px;
+    color: #0b052b;
+    margin-bottom: 12px;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
+.hidden {
+    display: none;
 }
 
 @media (max-width: 900px) {
-  .layout {
-    flex-direction: column;
-    align-items: center;
-  }
+    .layout {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .publicados {
-    width: 100%;
-    max-width: 500px;
-  }
+    .publicados {
+        width: 100%;
+        max-width: 500px;
+    }
 
-  .painel {
-    width: 100%;
-    margin-top: 20px;
-    padding: 30px;
-  }
+    .painel {
+        width: 100%;
+        margin-top: 20px;
+        padding: 30px;
+    }
 }
 
 @media (max-width: 600px) {
-  .titulo {
-    font-size: 20px;
-  }
+    .titulo {
+        font-size: 20px;
+    }
 
-  .publicados {
-    padding: 12px;
-  }
+    .publicados {
+        padding: 12px;
+    }
 
-  #lista-comunicados li {
-    font-size: 12px;
-    padding: 7px;
-  }
+    #lista-comunicados li {
+        font-size: 12px;
+        padding: 7px;
+    }
 
-  .painel {
-    padding: 20px;
-  }
+    .painel {
+        padding: 20px;
+    }
 
-  .mensagem p {
-    font-size: 14px;
-  }
-
-  input,
-  textarea {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 10px;
-  }
+    .mensagem p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 420px) {
-  .titulo {
-    font-size: 18px;
-  }
+    .titulo {
+        font-size: 18px;
+    }
 
-  .painel {
-    padding: 15px;
-  }
+    .painel {
+        padding: 15px;
+    }
 
-  .mensagem p {
-    font-size: 13px;
-  }
-
-  label {
-    font-size: 13px;
-  }
+    .mensagem p {
+        font-size: 13px;
+    }
 }
-

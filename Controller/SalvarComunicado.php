@@ -7,69 +7,78 @@ require_once __DIR__ . '/../Model/conexaoBanco/Conexao.php';
 session_start();
 
 try {
+    if (!isset($_SESSION['id_instituicao'])) {
+        echo json_encode(['success' => false, 'error' => 'Instituição não logada']);
+        exit;
+    }
+    $idInstituicao = $_SESSION['id_instituicao'];
+
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        http_response_code(405);
-        echo json_encode(['success' => false, 'error' => 'Método não permitido']);
+        echo json_encode(['success' => false, 'error' => 'Método inválido']);
         exit;
     }
 
-    $assunto   = trim($_POST['assunto'] ?? '');
+    $assunto = trim($_POST['assunto'] ?? '');
     $descricao = trim($_POST['descricao'] ?? '');
+    $enviarProfessor = isset($_POST['professor']) ? intval($_POST['professor']) : 0;
+    $enviarAluno = isset($_POST['aluno']) ? intval($_POST['aluno']) : 0;
 
     if ($assunto === '' || $descricao === '') {
-        http_response_code(400);
-        echo json_encode(['success' => false, 'error' => 'Campos obrigatórios vazios']);
+        echo json_encode(['success' => false, 'error' => 'Campos obrigatórios']);
         exit;
     }
 
-    $db = $conexao;
+    $conexao->beginTransaction();
 
-    // pega id da instituição
-    $idInstituicao = $_SESSION['id_instituicao'] ?? 1;
-
-    // inicia transaction antes de tudo
-    $db->beginTransaction();
-
-    // 1) salva comunicado
-    $stmt = $db->prepare("INSERT INTO comunicados (titulo, conteudo, data_post) VALUES (?, ?, NOW())");
-    $stmt->execute([$assunto, $descricao]);
-
-    $idComunicado = $db->lastInsertId();
-
-    // 2) pega professores
-    $stmtProf = $db->prepare("SELECT id_professor FROM professor WHERE id_instituicao = ?");
-    $stmtProf->execute([$idInstituicao]);
-
-    $professores = $stmtProf->fetchAll(PDO::FETCH_ASSOC);
-
-    // 3) salva notificações
-    $stmtNotif = $db->prepare("
-        INSERT INTO notifications (sender_id, receiver_id, message, created_at)
-        VALUES (?, ?, ?, NOW())
+    $stmt = $conexao->prepare("
+        INSERT INTO comunicados (id_instituicao, titulo, conteudo, data_post, enviar_professor, enviar_aluno)
+        VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%d/%m/%Y'), ?, ?)
     ");
+    $stmt->execute([$idInstituicao, $assunto, $descricao, $enviarProfessor, $enviarAluno]);
+    $idComunicado = $conexao->lastInsertId();
 
-    foreach ($professores as $p) {
-        $stmtNotif->execute([
-            $idInstituicao,
-            $p['id_professor'],
-            $assunto
-        ]);
+    $qtdProf = 0;
+    $qtdTurma = 0;
+
+    $conexao->prepare("DELETE FROM profComunicado WHERE id_comunicado = ?")->execute([$idComunicado]);
+    $conexao->prepare("DELETE FROM turmaComunicado WHERE id_comunicado = ?")->execute([$idComunicado]);
+
+    if ($enviarProfessor === 1) {
+        $stmtProf = $conexao->prepare("SELECT id_professor FROM professor WHERE id_instituicao = ?");
+        $stmtProf->execute([$idInstituicao]);
+        $professores = $stmtProf->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmtInsertProf = $conexao->prepare("INSERT INTO profComunicado (id_comunicado, id_professor) VALUES (?, ?)");
+        foreach ($professores as $p) {
+            $stmtInsertProf->execute([$idComunicado, $p['id_professor']]);
+            $qtdProf++;
+        }
     }
 
-    $db->commit();
+    if ($enviarAluno === 1) {
+        $stmtTurma = $conexao->prepare("SELECT id_turma FROM turma WHERE id_instituicao = ?");
+        $stmtTurma->execute([$idInstituicao]);
+        $turmas = $stmtTurma->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmtInsertTurma = $conexao->prepare("INSERT INTO turmaComunicado (id_comunicado, id_turma) VALUES (?, ?)");
+        foreach ($turmas as $t) {
+            $stmtInsertTurma->execute([$idComunicado, $t['id_turma']]);
+            $qtdTurma++;
+        }
+    }
+
+    $conexao->commit();
 
     echo json_encode([
         'success' => true,
-        'notificacoes_criadas' => count($professores)
+        'id_comunicado' => $idComunicado,
+        'para_professores' => $enviarProfessor,
+        'qtd_professores' => $qtdProf,
+        'para_turmas' => $enviarAluno,
+        'qtd_turmas' => $qtdTurma
     ]);
 
 } catch (Exception $e) {
-    if (isset($db)) {
-        $db->rollBack();
-    }
-
-    echo json_encode([
-        'success' => false,
-        'error' => $e->getMessage()
-    ]);
+    if ($conexao->inTransaction()) $conexao->rollBack();
+    echo json_encode(['success' => false, 'error' => $e->getMessage()]);
 }
