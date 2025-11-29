@@ -27,8 +27,12 @@ $id_atividade = $_GET['id'] ?? null;
         <img src="../../../../../assets/icons/logosemfundo.png" class="logo">
         <div class="width"></div>
         <div class="buttons">
-            <img src="../../../../../assets/icons/sininho.png" alt="">
-            <img src="../../../../../assets/icons/anonimous.png" alt="">
+            <a href="../../student-notification/student-notification.php">
+                <img src="../../../../../assets/icons/sininho.png" alt="">
+            </a>
+            <a href="../../student-profile/student-profile.php">
+                <img src="../../../../../assets/icons/anonimous.png" alt="">
+            </a>
         </div>
     </header>
     <main>

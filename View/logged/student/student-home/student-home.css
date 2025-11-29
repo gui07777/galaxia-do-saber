@@ -62,11 +62,11 @@ label {
 }
 
 .planets div img {
-    width: 190px;
+    width: 240px;
     transition: 0.2s;
     cursor:pointer;
 }
 
 .planets div img:hover {
-    width: 200px;
+    width: 250px;
 }

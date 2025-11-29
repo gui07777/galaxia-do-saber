@@ -48,7 +48,7 @@ $id_aluno = $aluno['id_aluno'];
             <img src="../../../../assets/icons/logosemfundo.png" class="logo">
         </div>
         <div class="header-buttons">
-            <a href="#/student-profile" data-page="../student-profile/student-profile.php">
+            <a href="../student-profile/student-profile.php">
                 <img src="../../../../assets/icons/anonimous.png" alt="">
             </a>
         </div>
