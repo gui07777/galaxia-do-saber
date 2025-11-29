@@ -44,7 +44,7 @@
                 </div>
                 <div id="register-items">
                     <div class="side-item">
-                        <a href="#/student-register" data-page="../student-register/student-register.html">
+                        <a href="#/student-register" data-page="../student-register/student-register.php">
                             <i class="material-symbols-outlined">face</i>
                             <span class="item-description">
                                 Alunos
@@ -52,7 +52,7 @@
                         </a>
                     </div>
                     <div class="side-item">
-                        <a href="#/teacher-register" data-page="../teacher-register/teacher-register.html">
+                        <a href="#/teacher-register" data-page="../teacher-register/teacher-register.php">
                             <i class="material-symbols-outlined">school</i>
                             <span class="item-description">
                                 Professores
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="side-item">
-                    <a href="#/institutional-agenda" data-page="../institution-agenda/institution-agenda.html">
+                    <a href="#/institutional-agenda" data-page="../institution-agenda/institution-agenda.php">
                         <i class="material-symbols-outlined">calendar_month</i>
                         <span class="item-description">
                             Agenda
@@ -105,7 +105,7 @@
                     </a>
                 </div>
                 <div class="side-item">
-                    <a href="#/general-communication" data-page="../institution-communication/institution-communication.html">
+                    <a href="#/general-communication" data-page="../institution-communication/institution-communication.php">
                         <i class="material-symbols-outlined">mail</i>
                         <span class="item-description">
                             Comunicados

@@ -1,16 +1,16 @@
-const modal = document.querySelector('#activities-delivered-modal-hide');
-const overlayHide = document.querySelector('#overlay-hide');
-const btnVisualizar = document.querySelectorAll('.btn-visualizar');
-const closeModalBtn = document.querySelector('#closeModal');
+var modal = document.querySelector('#activities-delivered-modal-hide');
+var overlayHide = document.querySelector('#overlay-hide');
+var btnVisualizar = document.querySelectorAll('.btn-visualizar');
+var closeModalBtn = document.querySelector('#closeModal');
 
 btnVisualizar.forEach(btn => {
     btn.addEventListener('click', () => {
 
-        const id = btn.dataset.id;
-        const aluno = btn.dataset.aluno;
-        const atividade = btn.dataset.atividade;
-        const arquivo = btn.dataset.arquivo;
-        const nota = btn.dataset.nota;
+        var id = btn.dataset.id;
+        var aluno = btn.dataset.aluno;
+        var atividade = btn.dataset.atividade;
+        var arquivo = btn.dataset.arquivo;
+        var nota = btn.dataset.nota;
 
         if (!id) {
             console.error("ERRO: data-id não encontrado no botão:", btn);

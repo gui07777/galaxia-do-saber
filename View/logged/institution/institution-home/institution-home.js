@@ -1,5 +1,5 @@
-const institutionHome = document.querySelector('#institution-home');
-const classCreation = document.querySelector('#class-creation');
+var institutionHome = document.querySelector('#institution-home');
+var classCreation = document.querySelector('#class-creation');
 
 window.changeToClassCreation = function () {
     institutionHome.style.display = 'none';

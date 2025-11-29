@@ -1,12 +1,12 @@
-const modal = document.querySelector('#information-modal-hide');
-const overlayHide = document.querySelector('#overlay-hide');
-const btnVisualizar = document.querySelectorAll('.btn-visualizar');
+var modal = document.querySelector('#information-modal-hide');
+var overlayHide = document.querySelector('#overlay-hide');
+var btnVisualizar = document.querySelectorAll('.btn-visualizar');
 
-const nome = document.querySelector('#nome');
-const matricula = document.querySelector('#matricula');
-const email = document.querySelector('#email');
-const nasc = document.querySelector('#nasc');
-const turma = document.querySelector('#turma');
+var nome = document.querySelector('#nome');
+var matricula = document.querySelector('#matricula');
+var email = document.querySelector('#email');
+var nasc = document.querySelector('#nasc');
+var turma = document.querySelector('#turma');
 
 btnVisualizar.forEach(btn => {
     btn.addEventListener('click', () => {

@@ -85,9 +85,7 @@ if (!empty($email) && !empty($senha) && !empty($nome)) {
 
         echo "<script>
             alert('Professor Cadastrado');
-            setTimeout(function() {
-                window.location.href = '../View/auth/teacher/login/teacher-login.html';
-            }, 50); 
+                window.history.back();
           </script>";
 
     } catch (PDOException $e) {

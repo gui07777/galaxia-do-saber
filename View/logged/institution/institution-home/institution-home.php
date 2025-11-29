@@ -18,7 +18,7 @@ $idInstituicao = $_SESSION['id_instituicao'] ?? null;
 <div id="institution-home">
     <div class="header">
         <h1>Seja bem-vindo, Instituição!</h1>
-        <h2>Crie a sua primeira turma</h2>
+        <h2>Crie uma turma</h2>
     </div>
     <button onclick="changeToClassCreation()">Criar</button>
 </div>

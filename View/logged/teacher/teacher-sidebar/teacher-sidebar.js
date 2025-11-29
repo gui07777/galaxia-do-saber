@@ -45,7 +45,7 @@ function loadPage(pageUrl) {
 
     const fileName = pageUrl.split('/').pop();
     const filePath = pageUrl.substring(0, pageUrl.lastIndexOf('/'));
-    const baseName = fileName.replace('.html', '').replace('.php', '');
+    const baseName = fileName.replace('.php', '').replace('.php', '');
 
     const cssUrl = `${filePath}/${baseName}.css`;
 

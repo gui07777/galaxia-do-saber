@@ -1,16 +1,16 @@
 <?php
-// session_start();
-// require_once('../../../../Model/conexaoBanco/Conexao.php');
+session_start();
+require_once('../../../../Model/conexaoBanco/Conexao.php');
 
-// if (!isset($_SESSION['id_instituicao'])) {
-//     echo "<script>
-//             alert('Você precisa estar logado.');
-//             window.location.href='../../../auth/institution/login/institution-login.html';
-//           </script>";
-//     exit;
-// }
+if (!isset($_SESSION['id_instituicao'])) {
+     echo "<script>
+            alert('Você precisa estar logado.');
+             window.location.href='../../../auth/institution/login/institution-login.html';
+            </script>";
+    exit;
+}
 
-// $idInstituicao = $_SESSION['id_instituicao'];
+$idInstituicao = $_SESSION['id_instituicao'];
 
 try {
 

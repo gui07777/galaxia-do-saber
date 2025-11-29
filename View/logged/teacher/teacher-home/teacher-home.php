@@ -12,7 +12,7 @@ exit;
 <div id="teacher-home">
     <div class="header">
         <h1>Seja bem-vindo, Professor(a)!</h1>
-        <h2>Crie a sua primeira atividade</h2>
+        <h2>Crie uma atividade</h2>
     </div>
     <button onclick="changeToActivitiesCreation()">Criar</button>
 </div>

@@ -1,5 +1,5 @@
-const teacherHome = document.querySelector('#teacher-home');
-const activitiesCreation = document.querySelector('#activities-creation');
+var teacherHome = document.querySelector('#teacher-home');
+var activitiesCreation = document.querySelector('#activities-creation');
 
 function changeToActivitiesCreation() {
     teacherHome.style.display = 'none';

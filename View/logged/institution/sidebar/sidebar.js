@@ -50,8 +50,8 @@ function loadPage(pageUrl) {
     }
 
     let cssUrl;
-    if (pageUrl.endsWith('.html')) {
-        cssUrl = pageUrl.replace('.html', '.css');
+    if (pageUrl.endsWith('.php')) {
+        cssUrl = pageUrl.replace('.php', '.css');
     } else if (pageUrl.endsWith('.php')) {
         cssUrl = pageUrl.replace('.php', '.css');
     } else {
@@ -71,8 +71,8 @@ function loadPage(pageUrl) {
             if (oldScript) oldScript.remove();
 
             let scriptUrl;
-            if (pageUrl.endsWith('.html')) {
-                scriptUrl = pageUrl.replace('.html', '.js')
+            if (pageUrl.endsWith('.php')) {
+                scriptUrl = pageUrl.replace('.php', '.js')
             } else if (pageUrl.endsWith('.php')) {
                 scriptUrl = pageUrl.replace('.php', '.js')
             } else {
