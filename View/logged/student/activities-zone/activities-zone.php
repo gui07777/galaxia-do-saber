@@ -39,8 +39,13 @@ $nome_aluno = $_SESSION['nome_aluno'] ?? 'Aluno(a)';
 
 <main>
     <div class="back">
-        <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="history.back()">
+        <img src="../../../../assets/icons/volte.png" alt="Voltar" onclick="navigateBack()">
     </div>
+<script>
+    const navigateBack = () => {
+        window.location.href = '../student-home/student-home.php';
+    };
+</script>
 
     <div class="titles">
         <h1>Bem-vindo(a), <?= htmlspecialchars($nome_aluno) ?>!</h1>
