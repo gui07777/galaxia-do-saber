@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 .titulo {
@@ -29,16 +29,59 @@ body {
   margin-bottom: 20px;
 }
 
-.painel {
+.layout {
+  display: flex;
+  gap: 20px;
   width: 100%;
+  margin-top: 30px;
+}
+
+.publicados {
+  width: 220px;
+  background: #fff;
+  border: 2px solid #e3e7f3;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.publicados h2 {
+  font-size: 13px;
+  font-weight: bold;
+  color: #0b052b;
+  text-align: center;
+}
+
+#lista-comunicados {
+  list-style: none;
+  margin-top: 15px;
+}
+
+#lista-comunicados li {
+  background: #eef1fb;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#lista-comunicados li:hover {
+  transform: scale(1.03);
+  background: #dde2fa;
+}
+
+.painel {
+  flex: 1;
   background: #fff;
   border: 2px solid #e3e7f3;
   border-radius: 12px;
   padding: 40px;
-  min-height: 320px;
+  min-height: 280px;
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .mensagem {
@@ -52,23 +95,35 @@ body {
 
 .detalhes {
   width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
+  max-width: 400px;
 }
 
 .detalhes p {
-  font-size: 16px;
+  font-size: 14px;
   color: #0b052b;
-  margin-bottom: 15px;
-}
-
-.detalhes strong {
-  font-weight: bold;
-  color: #0b052b;
+  margin-bottom: 12px;
 }
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .publicados {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .painel {
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -76,12 +131,16 @@ body {
     font-size: 20px;
   }
 
-  .painel {
-    padding: 25px;
+  #lista-comunicados li {
+    font-size: 12px;
+    padding: 7px;
   }
 
-  .mensagem p,
-  .detalhes p {
+  .painel {
+    padding: 20px;
+  }
+
+  .mensagem p {
     font-size: 14px;
   }
 }
@@ -92,6 +151,10 @@ body {
   }
 
   .painel {
-    padding: 20px;
+    padding: 15px;
+  }
+
+  .mensagem p {
+    font-size: 13px;
   }
 }
