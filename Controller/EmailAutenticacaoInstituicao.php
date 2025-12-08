@@ -1,5 +1,7 @@
 <?php
 
+// Esse arquivo é responsável por enviar um email para a instituição quando seu cadastro é finalizado.
+
 require_once('../Model/conexaoBanco/Conexao.php');
 
 
@@ -17,6 +19,8 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
 
     try {
 
+        // Os 9 $mail seguintes tem como funcionalidade configurar o email, como remetente, username, charset e etc.
+
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -28,9 +32,11 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
         $mail->setLanguage('pt_br', __DIR__ . '/../Model/PHPMailer/language/phpmailer.lang-pt_br.php');
         $mail->setFrom('galaxiadosaber2025@gmail.com', 'Galáxia do Saber');
 
-
+        // Aqui ele vai gerar um código aleatório para que a instituição faça a autenticação. 
         $codigo = rand(100000, 999999);
         $data_aut = date('Y-m-d H:i:s', time() + 3600);
+
+        // Inserção no banco na tabela de autenticacao
 
         $insert = $conexao->prepare("
             INSERT INTO autenticacao (email, codigo, data_aut)
@@ -46,8 +52,11 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
             ':data_aut2' => $data_aut
         ]);
 
+        // Esse link é para que o botão dentro do email funcione e redirecione para a página de autenticação
+        
         $link = "http://localhost/GALAXIADOSABER/View/auth/institution/register/authentication/authenticator.html";
 
+        // Formatação do email
 
         $mail->addAddress($email, $nomeFantasia);
         $mail->isHTML(true);
@@ -89,6 +98,9 @@ function AutenticacaoInstituicao($email, $nomeFantasia, $conexao)
         </div>";
 
         $mail->send();
+
+        // Um trecho somente para atualizar a coluna de notificado, se 1 = verificado, se 0 = não verificado;
+        // Para que isso serve?: Se esse trecho não for atualizado, sempre que uma instituição for cadastrada, vai mandar email para TODOS as instituições.
 
         $update = $conexao->prepare("UPDATE instituicao 
                 SET notificado = 1 

@@ -1,4 +1,8 @@
 <?php
+
+// Esse PHP tem a função de retornar todos os professores de uma instituição:
+
+
 session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
 
@@ -8,6 +12,9 @@ if (!isset($_GET['id'])) {
 }
 
 $idProfessor = $_GET['id'];
+
+// Se existir o id do professor, roda o sql para que puxe todas as informações do professor;
+
 
 try {
 
@@ -34,6 +41,8 @@ try {
     $stmt->execute();
 
     $professor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //Se existir ou não, vai retornar em JSON:
 
     if ($professor) {
         echo json_encode($professor, JSON_UNESCAPED_UNICODE);

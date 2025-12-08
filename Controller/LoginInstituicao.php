@@ -1,10 +1,14 @@
 <?php
 
+// Arquivo simples de Login da Instituição:
+
 session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
+
+// Começa verificando pelo email:
 
 if (!empty($email) && !empty($senha)) {
 
@@ -16,7 +20,11 @@ if (!empty($email) && !empty($senha)) {
 
     $instituicao = $requisicao->fetch(PDO::FETCH_ASSOC);
 
+     // Se existir, verifica se a senha é igual a do banco:
+
     if ($instituicao) {
+
+        // Se for, salva o id, nome e email da instituição e permite o login
 
         if (password_verify($senha, $instituicao['senha'])) {
 
@@ -32,6 +40,8 @@ if (!empty($email) && !empty($senha)) {
             </script>";
 
             exit;
+
+            // Se não, não permite o Login.
 
         } else {
 

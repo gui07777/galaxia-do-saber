@@ -1,4 +1,7 @@
 <?php
+
+// Esse PHP tem a função de retornar todos os alunos de uma instituição:
+
 session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
 
@@ -10,6 +13,8 @@ if (!isset($_GET['id'])) {
 }
 
 $idAluno = $_GET['id'];
+
+// Se existir o id do aluno, roda o sql para que puxe todas as informações do aluno;
 
 try {
 
@@ -32,10 +37,14 @@ try {
 
     $aluno = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Retorna em json se o aluno não existir;
+
     if (!$aluno) {
         echo json_encode(['erro' => 'Aluno não encontrado.']);
         exit;
     }
+
+    // Se existir, retorna também:
 
     $response = [
         'nome'              => $aluno['nome'] ?? "",

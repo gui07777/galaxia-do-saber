@@ -1,11 +1,17 @@
 <?php
+
+// Arquivo de Login simples do Aluno:
+
 session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
 
 $email = $_POST['email'] ?? "";
 $senha = $_POST['senha'] ?? "";
 
+// Vai rodar a verificação no banco pelo email:
+
 if (!empty($email) && !empty($senha)) {
+
     try {
         $sql = 'SELECT * FROM aluno WHERE email = :email';
         $requisicao = $conexao->prepare($sql);
@@ -14,8 +20,12 @@ if (!empty($email) && !empty($senha)) {
 
         $aluno = $requisicao->fetch(PDO::FETCH_ASSOC);
 
+        // Se existir o aluno, vai verificar se a senha coincide com a inserida no cadastro:
+
         if ($aluno) {
             if (password_verify($senha, $aluno['senha'])) {
+
+                // Se coincidir, salva o id do aluno, nome e email, e SE já existir a id da turma, também irá salvar e permitirá o Login. 
 
                 $_SESSION['id_aluno'] = $aluno['id_aluno'];
                 $_SESSION['nome_aluno'] = $aluno['nome'];
@@ -30,6 +40,8 @@ if (!empty($email) && !empty($senha)) {
                     }, 500); 
                 </script>";
                 exit;
+
+                // Se não, não permitirá o Login.
 
             } else {
                 echo "<script>

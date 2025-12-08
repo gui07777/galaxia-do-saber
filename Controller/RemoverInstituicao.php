@@ -6,7 +6,7 @@ $email = $_POST['email'];
 
 if (!empty($email)) {
 
-    $sql = "DELETE FROM instituicao_escolar WHERE email = :email";
+    $sql = "DELETE FROM instituicao WHERE email = :email";
 
     $requisicao = $conexao->prepare($sql);
 
