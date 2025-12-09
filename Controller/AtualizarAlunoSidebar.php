@@ -1,7 +1,11 @@
 <?php
 
+// Esse código serve para que a tela de atualização de dados da instituição do aluno funcione:
+
 session_start();
 require_once('../Model/conexaoBanco/Conexao.php');
+
+// Se não estiver logado, redireciona para o login:
 
 if (!isset($_SESSION['email_instituicao'])) {
     echo "<script>
@@ -27,6 +31,8 @@ if ($requisicao !== "Atualizar") {
     exit;
 }
 
+// A atualização precisa do email para fazer a atualização:
+
 if (empty($email)) {
     echo "<script>
         alert('Informe o email do aluno para realizar a atualização.');
@@ -34,6 +40,8 @@ if (empty($email)) {
     </script>";
     exit;
 }
+
+// Verificação no banco visando encontrar o aluno:
 
 try {
 
@@ -46,6 +54,8 @@ try {
     $stmtCheck->bindParam(':email', $email);
     $stmtCheck->execute();
 
+    // Se não encontrar:
+
     if ($stmtCheck->rowCount() == 0) {
         echo "<script>
             alert('Nenhum aluno encontrado com este email.');
@@ -54,6 +64,8 @@ try {
         exit;
     }
 
+    // Se as senhas não forem iguais:
+
     if (!empty($senha) && $senha !== $repetirSenha) {
         echo "<script>
             alert('As senhas digitadas não conferem.');
@@ -61,6 +73,8 @@ try {
         </script>";
         exit;
     }
+
+    // Se tudo for encontrado, roda o update:
 
     if (!empty($senha)) {
 
