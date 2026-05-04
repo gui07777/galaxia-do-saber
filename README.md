@@ -15,8 +15,6 @@ O projeto foi desenvolvido como Trabalho de Conclusão de Curso (TCC) em um praz
 
 ## 📱 Demonstração do Projeto
 
-> **Nota:** Adicione aqui um GIF ou vídeo curto demonstrando a navegação do aluno entre os planetas e o painel do professor.
-
 ![Print da Tela de Login ou Visão Geral](link-da-imagem-aqui)
 ![Print da Área Lúdica do Aluno](link-da-imagem-aqui)
 
